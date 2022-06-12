@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sensen.png">
+  <link rel="icon" href="/img/sensen.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sen sen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一个浏览器如果没有插件就没有了灵魂，但过多的插件也会导致浏览器占用大，拖慢速度。其实有些功能并不只有插件才能实现，使用小书签（Bookmarklet）就能完成。小书签，就是一段JavaScript代码，以书签的形式保存在浏览器上，即点即用，并不占用电脑资源。  1. 使用随便找个书签，把网址修改成js代码 点击使用 2. 高亮关键词：1javascript:%20(%20function%20()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="littlebookmark">
+<meta property="og:url" content="http://example.com/2022/06-12-littlebookmark/index.html">
+<meta property="og:site_name" content="Sensen">
+<meta property="og:description" content="一个浏览器如果没有插件就没有了灵魂，但过多的插件也会导致浏览器占用大，拖慢速度。其实有些功能并不只有插件才能实现，使用小书签（Bookmarklet）就能完成。小书签，就是一段JavaScript代码，以书签的形式保存在浏览器上，即点即用，并不占用电脑资源。  1. 使用随便找个书签，把网址修改成js代码 点击使用 2. 高亮关键词：1javascript:%20(%20function%20()">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-12T12:02:48.000Z">
+<meta property="article:modified_time" content="2022-06-12T12:23:14.715Z">
+<meta property="article:author" content="Sen sen">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>littlebookmark - Sensen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sensen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="littlebookmark"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-12 20:02" pubdate>
+          2022年6月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          71 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">littlebookmark</h1>
+            
+            <div class="markdown-body">
+              
+              <p>一个浏览器如果没有插件就没有了灵魂，但过多的插件也会导致浏览器占用大，拖慢速度。其实有些功能并不只有插件才能实现，使用小书签（Bookmarklet）就能完成。<br>小书签，就是一段JavaScript代码，以书签的形式保存在浏览器上，即点即用，并不占用电脑资源。</p>
+<hr>
+<h1 id="1-使用"><a href="#1-使用" class="headerlink" title="1. 使用"></a>1. 使用</h1><p>随便找个书签，把网址修改成js代码</p>
+<p>点击使用</p>
+<h1 id="2-高亮关键词："><a href="#2-高亮关键词：" class="headerlink" title="2. 高亮关键词："></a>2. 高亮关键词：</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">javascript:<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20function</span><span class="hljs-meta">%20</span>()<span class="hljs-meta">%7B</span><span class="hljs-meta">%20var</span><span class="hljs-meta">%20count</span>=<span class="hljs-number">0</span>,<span class="hljs-meta">%20text</span>,<span class="hljs-meta">%20dv</span>;<span class="hljs-type">text</span>=prompt<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20</span><span class="hljs-meta">%22</span><span class="hljs-meta">%E8</span><span class="hljs-meta">%AF</span><span class="hljs-meta">%B7</span><span class="hljs-meta">%E8</span><span class="hljs-meta">%BE</span><span class="hljs-meta">%93</span><span class="hljs-meta">%E5</span><span class="hljs-meta">%85</span><span class="hljs-meta">%A5</span><span class="hljs-meta">%E9</span><span class="hljs-meta">%AB</span><span class="hljs-meta">%98</span><span class="hljs-meta">%E4</span><span class="hljs-meta">%BA</span><span class="hljs-meta">%AE</span><span class="hljs-meta">%E5</span><span class="hljs-meta">%85</span><span class="hljs-meta">%B3</span><span class="hljs-meta">%E9</span><span class="hljs-meta">%94</span><span class="hljs-meta">%AE</span><span class="hljs-meta">%E8</span><span class="hljs-meta">%AF</span><span class="hljs-meta">%8D:</span><span class="hljs-meta">%22</span>,<span class="hljs-meta">%20</span><span class="hljs-meta">%22</span><span class="hljs-meta">%22</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;<span class="hljs-keyword">if</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20text</span>==null<span class="hljs-meta">%20</span><span class="hljs-meta">%20</span><span class="hljs-meta">%7C</span><span class="hljs-meta">%7C</span><span class="hljs-meta">%20</span><span class="hljs-meta">%20text</span>.length==<span class="hljs-number">0</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20return</span>;dv<span class="hljs-built_in">=document</span>.defaultView;<span class="hljs-keyword">function</span><span class="hljs-meta">%20searchWithinNode</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20node</span>,<span class="hljs-meta">%20te</span>,<span class="hljs-meta">%20len</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%7B</span><span class="hljs-meta">%20var</span><span class="hljs-meta">%20pos</span>,<span class="hljs-meta">%20skip</span>,<span class="hljs-meta">%20spannode</span>,<span class="hljs-meta">%20middlebit</span>,<span class="hljs-meta">%20endbit</span>,<span class="hljs-meta">%20middleclone</span>;skip=<span class="hljs-number">0</span>;<span class="hljs-keyword">if</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20</span><span class="hljs-meta">%20node</span>.nodeType==<span class="hljs-number">3</span><span class="hljs-meta">%20</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%7B</span><span class="hljs-meta">%20pos</span>=<span class="hljs-type">node</span>.data.toUpperCase<span class="hljs-meta">%20</span>()<span class="hljs-meta">%20</span>.indexOf<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20te</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;<span class="hljs-keyword">if</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20pos</span><span class="hljs-meta">%3E</span>=<span class="hljs-number">0</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%7B</span><span class="hljs-meta">%20spannode</span><span class="hljs-built_in">=document</span>.createElement<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20</span><span class="hljs-meta">%22SPAN</span><span class="hljs-meta">%22</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;spannode.style.backgroundColor=<span class="hljs-meta">%22yellow</span><span class="hljs-meta">%22</span>;middlebit=<span class="hljs-type">node</span>.splitText<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20pos</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;endbit=middlebit.splitText<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20len</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;middleclone=middlebit.cloneNode<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20true</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;spannode.appendChild<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20middleclone</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;middlebit.parentNode.replaceChild<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20spannode</span>,middlebit<span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;+<span class="hljs-built_in">+count</span>;skip=<span class="hljs-number">1</span>;<span class="hljs-meta">%20</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%20else</span><span class="hljs-meta">%20if</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20</span><span class="hljs-meta">%20node</span>.nodeType==<span class="hljs-number">1</span>&amp;&amp;<span class="hljs-meta">%20node</span>.childNodes<span class="hljs-meta">%20</span>&amp;&amp;<span class="hljs-meta">%20node</span>.tagName.toUpperCase<span class="hljs-meta">%20</span>()<span class="hljs-meta">%20</span>!=<span class="hljs-meta">%22SCRIPT</span><span class="hljs-meta">%22</span><span class="hljs-meta">%20</span>&amp;&amp;<span class="hljs-meta">%20node</span>.tagName.toUpperCase!=<span class="hljs-meta">%22STYLE</span><span class="hljs-meta">%22</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%7B</span><span class="hljs-meta">%20for</span><span class="hljs-meta">%20</span><span class="hljs-meta">%20</span>(<span class="hljs-meta">%20var</span><span class="hljs-meta">%20child</span>=<span class="hljs-number">0</span>;<span class="hljs-meta">%20child</span><span class="hljs-meta">%20</span><span class="hljs-meta">%3C</span><span class="hljs-meta">%20</span><span class="hljs-meta">%20node</span>.childNodes.length;<span class="hljs-meta">%20</span>++child<span class="hljs-meta">%20</span>)<span class="hljs-meta">%7B</span><span class="hljs-meta">%20child</span>=child+searchWithinNode<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20node</span>.childNodes<span class="hljs-meta">%5Bchild</span><span class="hljs-meta">%5D</span>,<span class="hljs-meta">%20te</span>,<span class="hljs-meta">%20len</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;<span class="hljs-meta">%20</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%20return</span><span class="hljs-meta">%20skip</span>;<span class="hljs-meta">%20</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%20window</span>.status=<span class="hljs-meta">%22Searching</span><span class="hljs-meta">%20for</span><span class="hljs-meta">%20</span><span class="hljs-string">&#x27;%22+text+%22&#x27;</span>...<span class="hljs-meta">%22</span>;searchWithinNode<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20document</span>.body,<span class="hljs-meta">%20text</span>.toUpperCase<span class="hljs-meta">%20</span>()<span class="hljs-meta">%20</span>,<span class="hljs-meta">%20text</span>.length<span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>;<span class="hljs-keyword">window</span>.status=<span class="hljs-meta">%22Found</span><span class="hljs-meta">%20</span><span class="hljs-meta">%22</span><span class="hljs-built_in">+count</span>+<span class="hljs-meta">%22</span><span class="hljs-meta">%20occurrence</span><span class="hljs-meta">%22</span>+<span class="hljs-meta">%20</span>(<span class="hljs-meta">%20count</span>==<span class="hljs-number">1</span>?<span class="hljs-meta">%22</span><span class="hljs-meta">%22:</span><span class="hljs-meta">%22s</span><span class="hljs-meta">%22</span><span class="hljs-meta">%20</span>)<span class="hljs-meta">%20</span>+<span class="hljs-meta">%22</span><span class="hljs-meta">%20of</span><span class="hljs-meta">%20</span><span class="hljs-string">&#x27;%22+text+%22&#x27;</span>.<span class="hljs-meta">%22</span>;<span class="hljs-meta">%20</span><span class="hljs-meta">%7D</span>)()<span class="hljs-meta">%20</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-自动间隔刷新"><a href="#3-自动间隔刷新" class="headerlink" title="3. 自动间隔刷新"></a>3. 自动间隔刷新</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">javascript</span>:(function(p)&#123;open(&#x27;&#x27;,&#x27;&#x27;,p).document.write(&#x27;%<span class="hljs-number">3</span>Cbody%<span class="hljs-number">20</span>id=<span class="hljs-number">1</span>%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Cnobr%<span class="hljs-number">20</span>id=<span class="hljs-number">2</span>%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>C/nobr%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Chr%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Cnobr%<span class="hljs-number">20</span>id=<span class="hljs-number">3</span>%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>C/nobr%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Chr%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Ca%<span class="hljs-number">20</span>href=%<span class="hljs-number">22</span>#%<span class="hljs-number">22</span>onclick=%<span class="hljs-number">22</span>return!(c=t)%<span class="hljs-number">22</span>%<span class="hljs-number">3</span>EForce%<span class="hljs-number">3</span>C/a%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Cscript%<span class="hljs-number">3</span>Efunction%<span class="hljs-number">20</span>i(n)&#123;return%<span class="hljs-number">20</span>d.getElementById(n)&#125;function%<span class="hljs-number">20</span>z()&#123;c+=<span class="hljs-number">0</span>.<span class="hljs-number">2</span>;if(c%<span class="hljs-number">3</span>E=t)&#123;c=<span class="hljs-number">0</span>;e.location=u;r++&#125;x()&#125;function%<span class="hljs-number">20</span>x()&#123;s=t-Math.floor(c);m=Math.floor(s/<span class="hljs-number">60</span>);s-=m*<span class="hljs-number">60</span>;i(<span class="hljs-number">1</span>).style.backgroundColor=(r==<span class="hljs-number">0</span>||c/t%<span class="hljs-number">3</span>E2/<span class="hljs-number">3</span>?%<span class="hljs-number">22</span>fcc%<span class="hljs-number">22</span>:c/t%<span class="hljs-number">3</span>C1/<span class="hljs-number">3</span>?%<span class="hljs-number">22</span>cfc%<span class="hljs-number">22</span>:%<span class="hljs-number">22</span>ffc%<span class="hljs-number">22</span>);i(<span class="hljs-number">2</span>).innerHTML=%<span class="hljs-number">22</span>Reloads:%<span class="hljs-number">20</span>%<span class="hljs-number">22</span>+r;i(<span class="hljs-number">3</span>).innerHTML=%<span class="hljs-number">22</span>Time:%<span class="hljs-number">20</span>%<span class="hljs-number">22</span>+m+%<span class="hljs-number">22</span>:%<span class="hljs-number">22</span>+(s%<span class="hljs-number">3</span>C10?%<span class="hljs-number">220</span>%<span class="hljs-number">22</span>+s:s)&#125;c=r=<span class="hljs-number">0</span>;d=document;e=opener.top;u=prompt(%<span class="hljs-number">22</span>URL%<span class="hljs-number">22</span>,e.location.href);t=u?prompt(%<span class="hljs-number">22</span>Seconds%<span class="hljs-number">22</span>,<span class="hljs-number">60</span>):<span class="hljs-number">0</span>;setInterval(%<span class="hljs-number">22</span>z()%<span class="hljs-number">22</span>,<span class="hljs-number">200</span>);if(!t)&#123;window.close()&#125;%<span class="hljs-number">3</span>C/script%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>C/body%<span class="hljs-number">3</span>E&#x27;)&#125;)(&#x27;status=<span class="hljs-number">0</span>,scrollbars=<span class="hljs-number">0</span>,width=<span class="hljs-number">100</span>,height=<span class="hljs-number">115</span>,left=<span class="hljs-number">1</span>,top=<span class="hljs-number">1</span>&#x27;)<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-自动滚屏"><a href="#4-自动滚屏" class="headerlink" title="4. 自动滚屏"></a>4. 自动滚屏</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">javascript</span>:var%<span class="hljs-number">20</span>_ss_interval_pointer;_ss_speed=<span class="hljs-number">3</span>;_ss_speed_pairs=[[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">200</span>.<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">120</span>.<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">72</span>.<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">43</span>.<span class="hljs-number">2</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">25</span>.<span class="hljs-number">9</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">31</span>.<span class="hljs-number">0</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">37</span>.<span class="hljs-number">2</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">44</span>.<span class="hljs-number">8</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">26</span>.<span class="hljs-number">4</span>],[<span class="hljs-number">16</span>,<span class="hljs-number">32</span>.<span class="hljs-number">0</span>]];_ss_last_onkeypress=document.onkeypress;_ss_stop=function()&#123;clearTimeout(_ss_interval_pointer)&#125;;_ss_start=function()&#123;_ss_abs_speed=Math.abs(_ss_speed);_ss_direction=_ss_speed/_ss_abs_speed;_ss_speed_pair=_ss_speed_pairs[_ss_abs_speed];_ss_interval_pointer=setInterval(&#x27;scrollBy(<span class="hljs-number">0</span>,&#x27;+_ss_direction*_ss_speed_pair[<span class="hljs-number">0</span>]+&#x27;);%<span class="hljs-number">20</span>if((pageYOffset&lt;=<span class="hljs-number">1</span>)||(pageYOffset==document.height-innerHeight))%<span class="hljs-number">20</span>_ss_speed=<span class="hljs-number">0</span>;&#x27;,_ss_speed_pair[<span class="hljs-number">1</span>]);&#125;;_ss_adj=function(q)&#123;_ss_speed+=q;if(Math.abs(_ss_speed)&gt;=_ss_speed_pairs.length)_ss_speed=(_ss_speed_pairs.length-<span class="hljs-number">1</span>)*(_ss_speed/Math.abs(_ss_speed))&#125;;_ss_quit=function()&#123;_ss_stop();document.onkeypress=_ss_last_onkeypress;&#125;;document.onkeypress=function(e)&#123;if((e.charCode==<span class="hljs-number">113</span>)||(e.keyCode==<span class="hljs-number">27</span>))&#123;_ss_quit();return;&#125;;if(e.charCode&gt;=<span class="hljs-number">48</span>&amp;&amp;e.charCode&lt;=<span class="hljs-number">57</span>)_ss_speed=e.charCode-<span class="hljs-number">48</span>;else%<span class="hljs-number">20</span>switch(e.charCode)&#123;case%<span class="hljs-number">2095</span>:_ss_adj(-<span class="hljs-number">2</span>);case%<span class="hljs-number">2045</span>:_ss_adj(-<span class="hljs-number">1</span>);break;case%<span class="hljs-number">2043</span>:_ss_adj(<span class="hljs-number">2</span>);case%<span class="hljs-number">2061</span>:_ss_adj(<span class="hljs-number">1</span>);break;&#125;;_ss_stop();_ss_start();&#125;;_ss_stop();_ss_start();<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-显示-密码"><a href="#5-显示-密码" class="headerlink" title="5. 显示**密码"></a>5. 显示**密码</h1><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">javascript:<span class="hljs-string">&quot;use strict&quot;</span>;!<span class="hljs-keyword">function</span><span class="hljs-literal">()</span>&#123;var e,t;e=document.get<span class="hljs-constructor">ElementsByTagName(<span class="hljs-string">&quot;input&quot;</span>)</span>;<span class="hljs-keyword">for</span>(var a=<span class="hljs-number">0</span>;a&lt;e.length;a++)<span class="hljs-keyword">if</span>(t=e<span class="hljs-literal">[<span class="hljs-identifier">a</span>]</span>,<span class="hljs-string">&quot;password&quot;</span>==t.<span class="hljs-keyword">type</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">LowerCase()</span>)<span class="hljs-keyword">try</span>&#123;t.<span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;text&quot;</span>&#125;catch(e)&#123;var r,n;r=document.create<span class="hljs-constructor">Element(<span class="hljs-string">&quot;input&quot;</span>)</span>,n=t.attributes;<span class="hljs-keyword">for</span>(var o=<span class="hljs-number">0</span>;o&lt;n.length;o++)&#123;var i,c,d;i=n<span class="hljs-literal">[<span class="hljs-identifier">o</span>]</span>,c=i.nodeName,d=i.nodeValue,<span class="hljs-string">&quot;type&quot;</span>!=c.<span class="hljs-keyword">to</span><span class="hljs-constructor">LowerCase()</span>&amp;&amp;<span class="hljs-string">&quot;height&quot;</span>!=c&amp;&amp;<span class="hljs-string">&quot;width&quot;</span>!=c&amp;!!d&amp;&amp;(r<span class="hljs-literal">[<span class="hljs-identifier">c</span>]</span>=d)&#125;t.parentNode.replace<span class="hljs-constructor">Child(<span class="hljs-params">r</span>,<span class="hljs-params">t</span>)</span>&#125;&#125;<span class="hljs-literal">()</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-显示浏览器UA"><a href="#6-显示浏览器UA" class="headerlink" title="6. 显示浏览器UA"></a>6. 显示浏览器UA</h1><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">javascript:var%20x=navigator.userAgent;%20var%20y=<span class="hljs-string">&#x27;%&#x27;</span>;%20for%20(var%20i=<span class="hljs-number">0</span>;i&lt;x.length;i++)%7B%20y+=x.charCodeAt(i).toString(<span class="hljs-number">16</span>)+<span class="hljs-string">&#x27;%&#x27;</span>;%20%7D%20y=unescape(decodeURI(y.replace(/\%$/,<span class="hljs-string">&#x27;&#x27;</span>)));%20alert(x+<span class="hljs-string">&#x27;\n&#x27;</span>+y);%20void(<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-网页记事本"><a href="#7-网页记事本" class="headerlink" title="7. 网页记事本"></a>7. 网页记事本</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">data</span>:text/html,%<span class="hljs-number">3</span>Ctitle%<span class="hljs-number">3</span>EText%<span class="hljs-number">20</span>Editor%<span class="hljs-number">3</span>C/title%<span class="hljs-number">3</span>E%<span class="hljs-number">3</span>Chtml%<span class="hljs-number">20</span>contenteditable%<span class="hljs-number">20</span>style=%<span class="hljs-number">22</span>font-size:<span class="hljs-number">16</span>px;line-height:<span class="hljs-number">26</span>px;white-space:pre-wrap;word-wrap:break-word;width:<span class="hljs-number">60</span>%<span class="hljs-number">25</span>;margin:<span class="hljs-number">20</span>px%<span class="hljs-number">20</span>auto;%<span class="hljs-number">22</span>%<span class="hljs-number">3</span>E<br></code></pre></td></tr></table></figure>
+
+<h1 id="8-关键词频率查看"><a href="#8-关键词频率查看" class="headerlink" title="8. 关键词频率查看"></a>8. 关键词频率查看</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">javascript</span>:(function()&#123;var%<span class="hljs-number">20</span>T=%<span class="hljs-number">7</span>B%<span class="hljs-number">7</span>D,W=%<span class="hljs-number">5</span>B%<span class="hljs-number">5</span>D,C=<span class="hljs-number">0</span>,s,i;%<span class="hljs-number">20</span>function%<span class="hljs-number">20</span>F(n)%<span class="hljs-number">7</span>Bvar%<span class="hljs-number">20</span>i,x,a,w,t=n.tagName;if(n.nodeType==<span class="hljs-number">3</span>)%<span class="hljs-number">7</span>Ba=n.data.toLowerCase().split(/%<span class="hljs-number">5</span>B\s\(\)\:\,\.;\&lt;\&gt;\&amp;\&#x27;\%<span class="hljs-number">22</span>%<span class="hljs-number">5</span>D/),i;for(i%<span class="hljs-number">20</span>in%<span class="hljs-number">20</span>a)if(w=a%<span class="hljs-number">5</span>Bi%<span class="hljs-number">5</span>D)%<span class="hljs-number">7</span>Bw=%<span class="hljs-number">22</span>%<span class="hljs-number">20</span>%<span class="hljs-number">22</span>+w;T%<span class="hljs-number">5</span>Bw%<span class="hljs-number">5</span>D=T%<span class="hljs-number">5</span>Bw%<span class="hljs-number">5</span>D?T%<span class="hljs-number">5</span>Bw%<span class="hljs-number">5</span>D+<span class="hljs-number">1</span>:<span class="hljs-number">1</span>;++C;%<span class="hljs-number">7</span>D%<span class="hljs-number">7</span>Dif(t!=%<span class="hljs-number">22</span>SCRIPT%<span class="hljs-number">22</span>&amp;&amp;t!=%<span class="hljs-number">22</span>STYLE%<span class="hljs-number">22</span>)for(i=<span class="hljs-number">0</span>;x=n.childNodes%<span class="hljs-number">5</span>Bi%<span class="hljs-number">5</span>D;++i)F(x)%<span class="hljs-number">7</span>DF(document);for(i%<span class="hljs-number">20</span>in%<span class="hljs-number">20</span>T)W.push(%<span class="hljs-number">5</span>BT%<span class="hljs-number">5</span>Bi%<span class="hljs-number">5</span>D,i%<span class="hljs-number">5</span>D);W.sort(function(a,b)%<span class="hljs-number">7</span>Bvar%<span class="hljs-number">20</span>x=b%<span class="hljs-number">5</span>B0%<span class="hljs-number">5</span>D-a%<span class="hljs-number">5</span>B0%<span class="hljs-number">5</span>D;return%<span class="hljs-number">20</span>x?x:((b%<span class="hljs-number">5</span>B1%<span class="hljs-number">5</span>D&lt;a%<span class="hljs-number">5</span>B1%<span class="hljs-number">5</span>D)?<span class="hljs-number">1</span>:-<span class="hljs-number">1</span>)%<span class="hljs-number">7</span>D);%<span class="hljs-number">20</span>s=%<span class="hljs-number">22</span>&lt;h3&gt;%<span class="hljs-number">22</span>+C+%<span class="hljs-number">22</span>%<span class="hljs-number">20</span>words&lt;/h3&gt;%<span class="hljs-number">22</span>;for(i%<span class="hljs-number">20</span>in%<span class="hljs-number">20</span>W)s+=W%<span class="hljs-number">5</span>Bi%<span class="hljs-number">5</span>D%<span class="hljs-number">5</span>B0%<span class="hljs-number">5</span>D+%<span class="hljs-number">22</span>:%<span class="hljs-number">22</span>+W%<span class="hljs-number">5</span>Bi%<span class="hljs-number">5</span>D%<span class="hljs-number">5</span>B1%<span class="hljs-number">5</span>D+%<span class="hljs-number">22</span>&lt;br&gt;%<span class="hljs-number">22</span>;with(open().document)%<span class="hljs-number">7</span>Bwrite(s);close()%<span class="hljs-number">7</span>D&#125;)()<br></code></pre></td></tr></table></figure>
+
+<h1 id="9-高亮显示链接"><a href="#9-高亮显示链接" class="headerlink" title="9. 高亮显示链接"></a>9. 高亮显示链接</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">javascript:for(nIx5Bs=<span class="hljs-number">0</span>;nIx5Bs&lt;<span class="hljs-type">document</span>.all.length;nIx5Bs++)<span class="hljs-meta">%7Bif</span><span class="hljs-built_in">(document</span>.all<span class="hljs-meta">%5BnIx5Bs</span><span class="hljs-meta">%5D</span>.tagName==<span class="hljs-string">&#x27;A&#x27;</span>)<span class="hljs-meta">%7Bwith</span><span class="hljs-built_in">(document</span>.all<span class="hljs-meta">%5BnIx5Bs</span><span class="hljs-meta">%5D</span>.style)<span class="hljs-meta">%7Bif</span>(backgroundColor==<span class="hljs-string">&#x27;yellow&#x27;</span>)<span class="hljs-meta">%7Bvoid</span>(backgroundColor<span class="hljs-built_in">=document</span>.bgColor)<span class="hljs-meta">%7Delse</span><span class="hljs-meta">%7Bvoid</span>(backgroundColor=<span class="hljs-string">&#x27;yellow&#x27;</span>)<span class="hljs-meta">%7D</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%7D</span><span class="hljs-meta">%7D</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="10-显示标题和链接"><a href="#10-显示标题和链接" class="headerlink" title="10. 显示标题和链接"></a>10. 显示标题和链接</h1><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><span class="hljs-symbol">javascript:</span><span class="hljs-variable">%20</span>void(prompt(&#x27;link<span class="hljs-variable">%20</span><span class="hljs-keyword">to</span><span class="hljs-variable">%20</span>this<span class="hljs-variable">%20</span>page&#x27;<span class="hljs-punctuation">,</span>document.title<span class="hljs-variable">%20</span><span class="hljs-variable">%20</span>+<span class="hljs-variable">%20</span>&#x27;\n&#x27;<span class="hljs-variable">%20</span>+<span class="hljs-variable">%20</span>location.href))<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="11-显示所有图片"><a href="#11-显示所有图片" class="headerlink" title="11. 显示所有图片"></a>11. 显示所有图片</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">javascript:outText=<span class="hljs-string">&#x27;&#x27;</span>;<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-type">document</span>.images.length;i++)&#123;<span class="hljs-keyword">if</span>(outText.indexOf<span class="hljs-built_in">(document</span>.images<span class="hljs-meta">%5Bi</span><span class="hljs-meta">%5D</span>.src)==-<span class="hljs-number">1</span>)&#123;outText+=<span class="hljs-string">&#x27;&lt;tr&gt;&lt;td&gt;&lt;img%20src=&#x27;</span><span class="hljs-built_in">+document</span>.images<span class="hljs-meta">%5Bi</span><span class="hljs-meta">%5D</span>.src+<span class="hljs-string">&#x27;&gt;&lt;/td&gt;&lt;td&gt;&#x27;</span><span class="hljs-built_in">+document</span>.images<span class="hljs-meta">%5Bi</span><span class="hljs-meta">%5D</span>.height+<span class="hljs-string">&#x27;&lt;/td&gt;&lt;td&gt;&#x27;</span><span class="hljs-built_in">+document</span>.images<span class="hljs-meta">%5Bi</span><span class="hljs-meta">%5D</span>.width+<span class="hljs-string">&#x27;&lt;/td&gt;&lt;td&gt;&#x27;</span><span class="hljs-built_in">+document</span>.images<span class="hljs-meta">%5Bi</span><span class="hljs-meta">%5D</span>.src+<span class="hljs-string">&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;</span>&#125;&#125;;<span class="hljs-keyword">if</span>(outText!=<span class="hljs-string">&#x27;&#x27;</span>)&#123;imgWindow=<span class="hljs-keyword">window</span>.open(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-string">&#x27;imgWin&#x27;</span>,<span class="hljs-string">&#x27;width=800,height=600&#x27;</span>);imgWindow<span class="hljs-built_in">.document</span>.write<span class="hljs-meta">%20</span>(<span class="hljs-string">&#x27;&lt;table%20border=1%20cellpadding=10&gt;&lt;tr&gt;&lt;th&gt;Image&lt;/th&gt;&lt;th&gt;Height&lt;/th&gt;&lt;th&gt;Width&lt;/th&gt;&lt;th&gt;URL&lt;/th&gt;&lt;/tr&gt;&#x27;</span>+outText+<span class="hljs-string">&#x27;&lt;/table&gt;&#x27;</span>);imgWindow<span class="hljs-built_in">.document</span>.close()&#125;<span class="hljs-keyword">else</span>&#123;alert(<span class="hljs-string">&#x27;No%20images!&#x27;</span>)&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="12-自由编辑网页"><a href="#12-自由编辑网页" class="headerlink" title="12. 自由编辑网页"></a>12. 自由编辑网页</h1><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">javascript:<span class="hljs-string">&quot;use strict&quot;</span>;!function()&#123;<span class="hljs-string">&quot;true&quot;</span>===document.body.getAttribute(<span class="hljs-string">&quot;contenteditable&quot;</span>)?(document.body.setAttribute(<span class="hljs-string">&quot;contenteditable&quot;</span>,false),alert(<span class="hljs-string">&quot;%E5%85%B3%E9%97%AD%E8%87%AA%E7%94%B1%E7%BC%96%E8%BE%91%E7%BD%91%E9%A1%B5%E4%BA%86%EF%BC%81&quot;</span>)):(document.body.setAttribute(<span class="hljs-string">&quot;contenteditable&quot;</span>,true),alert(<span class="hljs-string">&quot;%E5%8F%AF%E4%BB%A5%E8%87%AA%E7%94%B1%E7%BC%96%E8%BE%91%E7%BD%91%E9%A1%B5%E4%BA%86%EF%BC%81&quot;</span>))&#125;();<br></code></pre></td></tr></table></figure>
+
+<h1 id="13-网页地震"><a href="#13-网页地震" class="headerlink" title="13. 网页地震"></a>13. 网页地震</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">javascript:(<span class="hljs-keyword">function</span>(w,url,hasjq)<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20if</span><span class="hljs-meta">%20</span>(!(hasjq<span class="hljs-meta">%20</span>=<span class="hljs-meta">%20w</span>.jQuery))<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20var</span><span class="hljs-meta">%20s</span><span class="hljs-meta">%20</span>=<span class="hljs-meta">%20document</span>.createElement(<span class="hljs-string">&#x27;script&#x27;</span>);<span class="hljs-meta">%20s</span>.src<span class="hljs-meta">%20</span>=<span class="hljs-meta">%20url</span>;<span class="hljs-meta">%20</span><span class="hljs-built_in">(document</span>.getElementsByTagName(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>]<span class="hljs-meta">%20</span>||<span class="hljs-meta">%20document</span>.getElementsByTagName(<span class="hljs-string">&#x27;body&#x27;</span>)[<span class="hljs-number">0</span>]).appendChild(s);<span class="hljs-meta">%20</span>&#125;<span class="hljs-meta">%20</span>(<span class="hljs-keyword">function</span><span class="hljs-meta">%20go</span>()<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20if</span><span class="hljs-meta">%20</span>(!w.jQuery)<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20return</span><span class="hljs-meta">%20w</span>.setTimeout(go,<span class="hljs-meta">%20200</span>);<span class="hljs-meta">%20</span>&#125;<span class="hljs-meta">%20var</span><span class="hljs-meta">%20</span>$<span class="hljs-meta">%20</span>=<span class="hljs-meta">%20w</span>.jQuery;<span class="hljs-meta">%20if</span><span class="hljs-meta">%20</span>(!hasjq)<span class="hljs-meta">%20</span>$<span class="hljs-meta">%20</span>=<span class="hljs-meta">%20</span>$.noConflict();<span class="hljs-meta">%20var</span><span class="hljs-meta">%20</span><span class="hljs-variable">$s</span><span class="hljs-meta">%20</span>=<span class="hljs-meta">%20</span>$(<span class="hljs-string">&#x27;p,div,img,span,strong,em&#x27;</span>);<span class="hljs-meta">%20</span>(<span class="hljs-keyword">function</span><span class="hljs-meta">%20shake</span>()<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20</span><span class="hljs-variable">$s</span>.each(<span class="hljs-keyword">function</span>()<span class="hljs-meta">%20</span>&#123;<span class="hljs-meta">%20if</span><span class="hljs-meta">%20</span>(this.shift)<span class="hljs-meta">%20this</span>.shift<span class="hljs-meta">%20</span>=<span class="hljs-meta">%200</span>;<span class="hljs-meta">%20else</span><span class="hljs-meta">%20this</span>.shift<span class="hljs-meta">%20</span>=<span class="hljs-meta">%20</span>(<span class="hljs-number">2</span>*(Math<span class="hljs-built_in">.floor</span>(Math.random()<span class="hljs-meta">%20</span>*<span class="hljs-meta">%202</span>))<span class="hljs-meta">%20-</span><span class="hljs-meta">%201</span>)<span class="hljs-meta">%20</span>*<span class="hljs-meta">%20</span>(Math<span class="hljs-built_in">.floor</span>(Math.random()<span class="hljs-meta">%20</span>*<span class="hljs-meta">%204</span>));<span class="hljs-meta">%20</span>$(this).css(<span class="hljs-string">&#x27;margin-left&#x27;</span>,<span class="hljs-meta">%20this</span>.shift);<span class="hljs-meta">%20</span>&#125;);<span class="hljs-meta">%20w</span>.setTimeout(shake,<span class="hljs-meta">%2080</span>);<span class="hljs-meta">%20</span>&#125;)();<span class="hljs-meta">%20</span>&#125;)();&#125;)(<span class="hljs-keyword">window</span>,<span class="hljs-meta">%20</span><span class="hljs-string">&#x27;http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js&#x27;</span>)<br></code></pre></td></tr></table></figure>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06-12-cache/" title="软件缓存目录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">软件缓存目录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06-12-git/" title="git使用">
+                        <span class="hidden-mobile">git使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
