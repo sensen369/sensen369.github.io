@@ -18,19 +18,22 @@
   
     <meta name="description" content="摘了个要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="something1">
-<meta property="og:url" content="http://example.com/2022/06-12-something1/index.html">
+<meta property="og:title" content="电脑cmd命令">
+<meta property="og:url" content="http://example.com/2022/06-12-cmd/index.html">
 <meta property="og:site_name" content="Sensen">
 <meta property="og:description" content="摘了个要">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-12T00:59:25.000Z">
-<meta property="article:modified_time" content="2022-06-12T01:23:59.445Z">
+<meta property="og:image" content="http://example.com/2022/06-12-cmd/1.png">
+<meta property="og:image" content="http://example.com/2022/06-12-cmd/2.png">
+<meta property="article:published_time" content="2022-06-12T01:32:51.000Z">
+<meta property="article:modified_time" content="2022-06-12T02:01:16.616Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/06-12-cmd/1.png">
   
   
   
-  <title>something1 - Sensen</title>
+  <title>电脑cmd命令 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -169,7 +172,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="something1"></span>
+            <span id="subtitle" data-typed-text="电脑cmd命令"></span>
           
         </div>
 
@@ -180,8 +183,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-12 08:59" pubdate>
-          2022年6月12日 早上
+        <time datetime="2022-06-12 09:32" pubdate>
+          2022年6月12日 上午
         </time>
       </span>
     
@@ -192,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          243 字
+          986 字
         
       </span>
     
@@ -203,7 +206,7 @@
         
         
         
-          3 分钟
+          9 分钟
         
       </span>
     
@@ -241,21 +244,69 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">something1</h1>
+            <h1 style="display: none">电脑cmd命令</h1>
             
             <div class="markdown-body">
               
-              <p>早上去买早点，小摊前四五个人，没什么队伍的样子，我就站在后面一点，稍微装作在排队。</p>
-<p>过了一会会儿，一位阿姨走到我边上，问：“是在这排队吗？”。</p>
-<p>“嗯”，我记得她好像是从前面那几个人里走过来的，“你先”。</p>
-<p>“不用，你排前面”，应该不是，“我排你后面”。</p>
-<p>但是她还是站在我边上，也没有站到我身后。</p>
-<p>又一会会儿，前面的人走了两个，空出了一个身位。</p>
-<p>身边的阿姨上去了，急忙扫码转了五块钱，喊道：“我转过去了，五块的”。</p>
-<p>好了，她走了，</p>
-<p>我前面还有两个人。</p>
-<p>买完回头看了一眼，后面的人排成五行两列，还蛮整齐，挺好。</p>
+              <h1 id="1-关机"><a href="#1-关机" class="headerlink" title="1. 关机"></a>1. 关机</h1><p>在命令窗口输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown<br></code></pre></td></tr></table></figure>
 
+<p>会出现相关用法</p>
+<p>这里介绍常用的几种</p>
+<p>关机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /s<br></code></pre></td></tr></table></figure>
+
+<p>重启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /r<br></code></pre></td></tr></table></figure>
+
+<p>这两个命令后面加上&#x2F;t就可以定时</p>
+<p>60秒之后关机</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /s -t 60<br></code></pre></td></tr></table></figure>
+
+<p>而这期间想取消关机的话</p>
+<p>取消计划</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /a<br></code></pre></td></tr></table></figure>
+
+<p>可以在桌面一个新建文本文档，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">shutdown /s<br></code></pre></td></tr></table></figure>
+
+<p>然后将文件后缀txt改为bat， 双击文件即可实现快速关机。</p>
+<h1 id="2-自动拨号"><a href="#2-自动拨号" class="headerlink" title="2. 自动拨号"></a>2. 自动拨号</h1><p>新建文本文档，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Rasdial sensen 2020260137 12345678<br></code></pre></td></tr></table></figure>
+<p>这里sensen是拨号上网的<strong>宽带名称</strong>，2020260137是<strong>账号用户名</strong>，12345678是<strong>密码</strong>，都要改成自己的</p>
+<p>同样后缀改为bat，双击即可拨号</p>
+<p>大家可以把这个文件放在启动目录里，就能实现开机自动拨号上网</p>
+<p>启动目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\sensen\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br></code></pre></td></tr></table></figure>
+
+<p>这里sensen是自己电脑的用户名</p>
+<h1 id="3-图片假象"><a href="#3-图片假象" class="headerlink" title="3. 图片假象"></a>3. 图片假象</h1><p>这个可以将一张图片和一个压缩包合成另一张图片</p>
+<p>新建文本文档，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">copy/b 1.jpg+2.zip 3.jpg<br></code></pre></td></tr></table></figure>
+
+<p>保存，后缀改为bat</p>
+<p>同时将图片和压缩包重命名为1.jpg和2.zip，和bat文件放在同一文件夹内，运行bat文件后会出现一张名为3.jpg的图片</p>
+<p>打开新文件与原图片是一样的，但将这个文件后缀改为zip即变为原来的压缩包</p>
+<h1 id="4-查看电脑是否激活"><a href="#4-查看电脑是否激活" class="headerlink" title="4. 查看电脑是否激活"></a>4. 查看电脑是否激活</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ slmgr.vbs -xpr<br></code></pre></td></tr></table></figure>
+
+<p>会出现弹窗，显示计算机已永久激活。</p>
+<h1 id="开启wifi"><a href="#开启wifi" class="headerlink" title="开启wifi"></a>开启wifi</h1><p>搜索cmd，以<strong>管理员</strong>身份运行</p>
+<h2 id="查看是否支持承载网络"><a href="#查看是否支持承载网络" class="headerlink" title="查看是否支持承载网络"></a>查看是否支持承载网络</h2><p>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan show drivers<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06-12-cmd/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果不支持则需要借助其他软件来开启，如果支持的话进行下一步</p>
+<h2 id="设置账号密码"><a href="#设置账号密码" class="headerlink" title="设置账号密码"></a>设置账号密码</h2><p>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netsh wlan <span class="hljs-built_in">set</span> hostednetwork mode=allow ssid=sensensen key=123456789<br></code></pre></td></tr></table></figure>
+<p><strong>ssid</strong>后面为<strong>wifi名称</strong>，<strong>key</strong>为<strong>密码</strong>，自己设置</p>
+<h2 id="开启或关闭网络"><a href="#开启或关闭网络" class="headerlink" title="开启或关闭网络"></a>开启或关闭网络</h2><p><strong>开启</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan start hostednetwork<br></code></pre></td></tr></table></figure>
+
+<p>打开<strong>电脑设置</strong> – <strong>网络和Internet</strong> – <strong>更改适配器选项</strong></p>
+<p>右键已连接的网络，<strong>属性</strong> – <strong>共享</strong>，勾选允许其他网络用户通过此计算机的Internet来连接，在下方选择刚才新建的网络，确定</p>
+<p><img src="/2022/06-12-cmd/2.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>关闭wifi</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan stop hostednetwork<br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
@@ -273,9 +324,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06-12-ultraiso/" title="制作U盘启动器">
+                      <a href="/2022/06-12-systeminstall/" title="重装系统遇到问题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">制作U盘启动器</span>
+                        <span class="hidden-mobile">重装系统遇到问题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -283,8 +334,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06-11-moviewall/" title="搭建电影墙">
-                        <span class="hidden-mobile">搭建电影墙</span>
+                      <a href="/2022/06-12-ultraiso/" title="制作U盘启动器">
+                        <span class="hidden-mobile">制作U盘启动器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

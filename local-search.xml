@@ -4,6 +4,136 @@
   
   
   <entry>
+    <title>网页变化监控</title>
+    <link href="/2022/06-12-webmonitor/"/>
+    <url>/2022/06-12-webmonitor/</url>
+    
+    <content type="html"><![CDATA[<p>当时找这些监测工具，主要是师兄复试完，学校的录取名单会公示出来，就一直在学校的招生网上刷新，看有没有新公告出来。一开始找到的是这个插件，试了下其他网站上能用，就学校的招生网上行不通，后来找到了软件，用是能用，但我设置的刷新间隔是十分钟，那天晚上居然没快过我师兄的手动刷新，气啊。</p><hr><p>一个浏览器插件</p><p><strong>Distill Web Monitor</strong></p><p><a href="https://distill.io/">https://distill.io/</a></p><p>一个电脑软件</p><p><strong>OpenWebMonitor</strong></p><p><a href="http://owm.fatecore.com/">http://owm.fatecore.com/</a></p><p>插件嘛，不用安装，占用小，但功能可能少点，有些网站也用不了。</p><p>软件，50来兆，功能啥的全点。</p><p>软件就不介绍了</p><p>官网里面使用教程都有。</p><h1 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h1><p>就打开需要监测的网页，点击插件图标</p><p>选择部分还是整个网页，选择需要监测的元素，保存</p><p>然后就设置一些必要的东西，主要就刷新间隔和内容变化的提醒方式。</p><p>其他设置没什么大必要就不用改。最后保存就开始监测了。</p><p><img src="/2022/06-12-webmonitor/1.png"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>重装系统后微软账户无法登录</title>
+    <link href="/2022/06-12-miraccout/"/>
+    <url>/2022/06-12-miraccout/</url>
+    
+    <content type="html"><![CDATA[<p>右键右下角的网络图标，<strong>“打开网络和internet”设置</strong></p><p>左边点击<strong>WLAN</strong>，打开<strong>网络与共享中心</strong></p><p>点击正在连接的网络，打开<strong>属性</strong></p><p><img src="/2022/06-12-miraccout/1.png"></p><p>双击<strong>Internet协议版本4（TCP&#x2F;IPv4）</strong></p><p>将DNS服务地址改为<strong>4.4.4.2</strong>和<strong>4.2.2.1</strong></p><p><img src="/2022/06-12-miraccout/2.png"></p><p>这样就可以登陆了，登陆完记得改回来。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python打包程序</title>
+    <link href="/2022/06-12-pyinstaller/"/>
+    <url>/2022/06-12-pyinstaller/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-打包"><a href="#1-打包" class="headerlink" title="1. 打包"></a>1. 打包</h1><p><strong>安装pyinstaller</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pip install pyinstaller<br></code></pre></td></tr></table></figure><p><strong>cd到工作目录</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> /d E:\python<br></code></pre></td></tr></table></figure><p><strong>打包</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F test.py<br></code></pre></td></tr></table></figure><p><strong>去除控制台</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F -w test.py<br></code></pre></td></tr></table></figure><p>说明：有时候都会用到input()函数，input()函数是需要控制台输入的，而-w的意思是去掉控制台，会冲突，打包后的exe打不开！所以如果程序中有input()函数，打包时去除-w。</p><p><strong>设置图标</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F -w -i test.ico test.py<br></code></pre></td></tr></table></figure><h1 id="2-去除chromedrive黑框"><a href="#2-去除chromedrive黑框" class="headerlink" title="2. 去除chromedrive黑框"></a>2. 去除chromedrive黑框</h1><p>用<strong>pyinstaller</strong>打包<strong>selenium</strong>时，即使使用-w，仍会出现chromedrive命令窗口</p><p>我们需要修改selenium包中的<strong>service.py</strong>文件</p><p>所在目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Lib\site-packages\selenium\webdriver\common\service.py<br></code></pre></td></tr></table></figure><p>在76行代码结尾处增加</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">creationflags=134217728。<br></code></pre></td></tr></table></figure><p><img src="/2022/06-12-pyinstaller/1.png"></p><p>重新打包即可</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电脑软件推荐</title>
+    <link href="/2022/06-12-cpsoftware/"/>
+    <url>/2022/06-12-cpsoftware/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-浏览器"><a href="#1-浏览器" class="headerlink" title="1. 浏览器"></a>1. 浏览器</h1><p>主流的浏览器就 <strong>Chrome</strong>、<strong>Edge</strong>、<strong>360极速</strong></p><p>小众浏览器 <strong>星愿浏览器</strong></p><p>星愿浏览器地址：<br><a href="https://www.twinkstar.com/">https://www.twinkstar.com/</a></p><p>这四个浏览器都各有好坏吧，看你自己习惯。</p><p>星愿浏览器比较吸引人的就是它的新标签页，长这样</p><p><img src="/2022/06-12-cpsoftware/1.jpg"></p><p>但我没想到星愿作者把这个功能做成了一个独立的扩展程序，意思就是其他浏览器可以使用这个新建标签页（暂不支持360极速浏览器），不得不说良心。<br>当然这个浏览器不止这点优点，有兴趣的可以尝试一下</p><p>其他的浏览器没啥好介绍的。</p><h1 id="2-输入法"><a href="#2-输入法" class="headerlink" title="2. 输入法"></a>2. 输入法</h1><p><strong>手心输入法</strong></p><p>奇奇怪怪的弹窗广告啥的是肯定是没有的</p><p>我记得这个软件还是大一的时候我哥推荐给我的，也用了四五年了。</p><h1 id="3-杀毒软件"><a href="#3-杀毒软件" class="headerlink" title="3. 杀毒软件"></a>3. 杀毒软件</h1><p><strong>火绒</strong></p><p><a href="https://www.huorong.cn/">https://www.huorong.cn/</a></p><p>不讲了</p><p>其实我觉得啥都不装都行</p><p>实在看不过去，把<strong>Windows Defender</strong>打开就行</p><h1 id="4-视频播放器"><a href="#4-视频播放器" class="headerlink" title="4. 视频播放器"></a>4. 视频播放器</h1><p><strong>Potplayer</strong></p><p>有人说界面很直男，因为是支持修改皮肤的，所以我去找了几个皮肤试了一下</p><p>在我看来，还不如原皮呢</p><p>再说我也没看出来原皮哪里不好看</p><h1 id="5-解压软件"><a href="#5-解压软件" class="headerlink" title="5. 解压软件"></a>5. 解压软件</h1><p><strong>Bandizip</strong></p><p><a href="http://www.bandisoft.com/">http://www.bandisoft.com/</a></p><p>虽然说之前有一次版本更新主界面出现广告，但一般用的时候直接右键自动解压，看不到广告的。</p><h1 id="6-驱动"><a href="#6-驱动" class="headerlink" title="6. 驱动"></a>6. 驱动</h1><p>没啥必要</p><p>360驱动大师。好像还有驱动精灵啥的，都行。</p><h1 id="7-截图"><a href="#7-截图" class="headerlink" title="7. 截图"></a>7. 截图</h1><p><strong>snipaste</strong></p><p><a href="https://www.snipaste.com/">https://www.snipaste.com/</a></p><p>好用就完了，常驻我任务栏</p><p>不过不支持长截图</p><p><strong>fscapture</strong></p><p><a href="https://www.faststonecapture.cn/">https://www.faststonecapture.cn/</a></p><p>这个可以长截图，搭配使用吧</p><h1 id="8-pdf阅读器"><a href="#8-pdf阅读器" class="headerlink" title="8. pdf阅读器"></a>8. pdf阅读器</h1><p><strong>海海PDF阅读器</strong></p><p><a href="https://cn.haihaisoft.com/%E6%B5%B7%E6%B5%B7%E8%BD%AF%E4%BB%B6PDF%E9%98%85%E8%AF%BB%E5%99%A8.aspx">https://cn.haihaisoft.com/%E6%B5%B7%E6%B5%B7%E8%BD%AF%E4%BB%B6PDF%E9%98%85%E8%AF%BB%E5%99%A8.aspx</a></p><p>这个软件界面我都能说一句直男，是真的丑</p><p>不过软件体积小，无广告</p><p>单纯的阅读pdf还是没问题的</p><p>要修改编辑啥的还是去用阿道比家的<strong>Adobe Acrobat DC</strong>吧。</p><h1 id="9-下载工具"><a href="#9-下载工具" class="headerlink" title="9. 下载工具"></a>9. 下载工具</h1><p><strong>InternetDownloadManager</strong></p><p><a href="http://www.internetdownloadmanager.com/?v=636b01">http://www.internetdownloadmanager.com/?v=636b01</a></p><p>神器，不解释。放在这个位置我的</p><p>付费的，不过可以找到其他版本的（你懂的）</p><p>2022.6.12</p><p>最近用的不咋舒服，下载贼慢</p><p>试试<strong>迅雷</strong>，如果效果不好的话</p><h1 id="10-本地文件查找"><a href="#10-本地文件查找" class="headerlink" title="10. 本地文件查找"></a>10. 本地文件查找</h1><p><strong>everything</strong></p><p><a href="https://www.voidtools.com/zh-cn/">https://www.voidtools.com/zh-cn/</a></p><h1 id="11-磁盘分析"><a href="#11-磁盘分析" class="headerlink" title="11. 磁盘分析"></a>11. 磁盘分析</h1><p><strong>TreeSize Free</strong></p><p><a href="https://www.jam-software.com/treesize_free">https://www.jam-software.com/treesize_free</a></p><p>可以分析出各个文件夹及其子目录的体积</p><p>试试就知道了</p><p>我觉得比<strong>SpaceSniffer</strong>好用</p><h1 id="12-解除占用"><a href="#12-解除占用" class="headerlink" title="12. 解除占用"></a>12. 解除占用</h1><p><strong>IObit Unlocker</strong></p><p><a href="https://www.iobit.com/en/iobit-unlocker.php">https://www.iobit.com/en/iobit-unlocker.php</a></p><p>就有时候删除文件夹或文件的时候会提示正在被使用，无法删除</p><p>但自己确实找不到占用程序，这时候就能用着这软件了。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>资源管理器删除3d对象等文件夹</title>
+    <link href="/2022/06-12-sourcemanager/"/>
+    <url>/2022/06-12-sourcemanager/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h1><p><kbg>win + <kbd>r</kbd>打开运行</kbg></p><p>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">regedit<br></code></pre></td></tr></table></figure><p>打开注册表</p><p>定位到</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace<br></code></pre></td></tr></table></figure><p>删除对应文件夹即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">B4BFCC3A-DB2C-424C-B029-7FE99A87C641  <span class="hljs-comment">#桌面文件夹</span><br><br>A8CDFF1C-4878-43be-B5FD-F8091C1C60D0  <span class="hljs-comment">#文档文件夹</span><br><br>374DE290-123F-4565-9164-39C4925E467B  <span class="hljs-comment">#下载文件夹</span><br><br>1CF1260C-4DD0-4ebb-811F-33C572699FDE  <span class="hljs-comment">#音乐文件夹</span><br><br>24ad3ad4-a569-4530-98e1-ab02f9417aa8  <span class="hljs-comment">#图片文件夹</span><br><br>A0953C92-50DC-43bf-BE83-3742FED03C9C  <span class="hljs-comment">#视频文件夹</span><br><br>0DB7E03F-FC29-4DC6-9020-FF41B59E513A  <span class="hljs-comment">#3D 对象</span><br></code></pre></td></tr></table></figure><h1 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h1><p>新建文本文档</p><p>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">Windows Registry Editor Version 5.00<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;d3162b92-9365-467a-956b-92703aca08af&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;B4BFCC3A-DB2C-424C-B029-7FE99A87C641&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;3dfdf296-dbec-4fb4-81d1-6a3438bcf4de&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;088e3905-0323-4b02-9826-5d99428e115f&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;0DB7E03F-FC29-4DC6-9020-FF41B59E513A&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;24ad3ad4-a569-4530-98e1-ab02f9417aa8&#125;]<br></code></pre></td></tr></table></figure><p>保存，将后缀改为reg，双击运行即可。</p><p>如要添加回来，则去掉代码前减号</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>tampermonkey油猴脚本</title>
+    <link href="/2022/06-12-tampermonkey/"/>
+    <url>/2022/06-12-tampermonkey/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Tampermonkey</strong>（油猴）是一款免费的浏览器扩展和最为流行的用户脚本管理器，它适用于 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox。虽然有些受支持的浏览器拥有原生的用户脚本支持，但 Tampermonkey 将在您的用户脚本管理方面提供更多的便利。它提供了诸如便捷脚本安装、自动更新检查、标签中的脚本运行状况速览、内置的编辑器等众多功能， 同时Tampermonkey还有可能正常运行原本并不兼容的脚本。</p><p>这是油猴的官方介绍，知道它是个脚本管理器就行了，而脚本和浏览器的扩展程序一样，可以实现一些浏览器不能实现的功能。</p><p>安装完油猴，就可以添加脚本了。脚本网站：</p><p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a></p><p>上面网站里的脚本很多，这里推荐几个我自己在用的</p><h1 id="1-AC-baidu-重定向优化百度搜狗谷歌必应搜索-favicon-双列"><a href="#1-AC-baidu-重定向优化百度搜狗谷歌必应搜索-favicon-双列" class="headerlink" title="1. AC-baidu:重定向优化百度搜狗谷歌必应搜索_favicon_双列"></a>1. AC-baidu:重定向优化百度搜狗谷歌必应搜索_favicon_双列</h1><p>这个脚本可以美化百度的搜索结果，去广告等，谁用谁知道</p><p>设置推荐</p><p><img src="/2022/06-12-tampermonkey/1.png"></p><h1 id="2-网盘自动填写访问码【威力加强版】"><a href="#2-网盘自动填写访问码【威力加强版】" class="headerlink" title="2. 网盘自动填写访问码【威力加强版】"></a>2. 网盘自动填写访问码【威力加强版】</h1><p>如名</p><h1 id="3-解除B站区域限制"><a href="#3-解除B站区域限制" class="headerlink" title="3. 解除B站区域限制"></a>3. 解除B站区域限制</h1><p>如名</p><h1 id="4-网页限制解除（改）"><a href="#4-网页限制解除（改）" class="headerlink" title="4. 网页限制解除（改）"></a>4. 网页限制解除（改）</h1><p>通杀大部分网站,可以解除禁止复制、剪切、选择文本、右键菜单的限制。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>浏览器插件推荐</title>
+    <link href="/2022/06-12-crx/"/>
+    <url>/2022/06-12-crx/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Nooboss（二管家）"><a href="#Nooboss（二管家）" class="headerlink" title="Nooboss（二管家）"></a>Nooboss（二管家）</h1><p>一个管理浏览器插件的插件。</p><h1 id="Tampermonkey（油猴）"><a href="#Tampermonkey（油猴）" class="headerlink" title="Tampermonkey（油猴）"></a>Tampermonkey（油猴）</h1><p>管理脚本的插件。</p><h1 id="uBlock-Origin"><a href="#uBlock-Origin" class="headerlink" title="uBlock Origin"></a>uBlock Origin</h1><p>广告拦截</p><h1 id="History-Manager"><a href="#History-Manager" class="headerlink" title="History Manager"></a>History Manager</h1><p>管理浏览历史，虽说浏览器自带有，我觉得这个比较方便，还有历史记录的统计数据。</p><h1 id="Fatkun图片批量下载-Pro"><a href="#Fatkun图片批量下载-Pro" class="headerlink" title="Fatkun图片批量下载 - Pro"></a>Fatkun图片批量下载 - Pro</h1><p>下载网页图片的，包括jpg、png、gif等格式，下载时将网页下拉到底，保证图片全部加载，这时点击插件就可以下载当前页面或所有页面，会弹出一个新页面，可以对图片进行排序，筛选，建议勾选重命名，后面无需改，这样下载下来图片就是按照顺序排的。</p><p><img src="/2022/06-12-crx/1.png"></p><p>下载前的<strong>提示</strong>一定要注注注注注注注注注注意意意意意意意意意意</p><h1 id="FireShot"><a href="#FireShot" class="headerlink" title="FireShot"></a>FireShot</h1><p>网页截图。有的浏览器也会自带，功能也没什么特殊，就是不能截长图<br>有的浏览器<kbd>ctrl</kbd> + <kbd>m</kbd>可以截全网页，自己可以试试，或者借助其它软件。</p><h1 id="复制网址"><a href="#复制网址" class="headerlink" title="复制网址"></a>复制网址</h1><p><strong>TabCopy</strong><br>可以同时复制网页标题和地址</p><p><strong>urlShorter</strong><br>是缩短网址。对于百度疫情网址，复制结果分别如下<br><img src="/2022/06-12-crx/3.png"></p><h1 id="猫抓"><a href="#猫抓" class="headerlink" title="猫抓"></a>猫抓</h1><p>嗅探网页视频播放地址。</p><h1 id="Onetab"><a href="#Onetab" class="headerlink" title="Onetab"></a>Onetab</h1><p>可以将浏览器打开的标签页暂时保存下来。</p><h1 id="鼠标点击特效"><a href="#鼠标点击特效" class="headerlink" title="鼠标点击特效"></a>鼠标点击特效</h1><p>效果如下</p><p><img src="/2022/06-12-crx/2.gif"></p><h1 id="网页背景特效"><a href="#网页背景特效" class="headerlink" title="网页背景特效"></a>网页背景特效</h1><p>效果</p><p><img src="/2022/06-12-crx/4.gif"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>重装系统遇到问题</title>
+    <link href="/2022/06-12-systeminstall/"/>
+    <url>/2022/06-12-systeminstall/</url>
+    
+    <content type="html"><![CDATA[<p>用U盘重装系统时，会出现系统无法安装在驱动器0上的问题。</p><p>解决方案：</p><p><kbd>shift</kbd>+<kbd>f10</kbd></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ diskpart<br>$ list disk<br>$ select disk 0<br>$ clean<br>$ convert mbr<br>$ <span class="hljs-built_in">exit</span><br>$ <span class="hljs-built_in">exit</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电脑cmd命令</title>
+    <link href="/2022/06-12-cmd/"/>
+    <url>/2022/06-12-cmd/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-关机"><a href="#1-关机" class="headerlink" title="1. 关机"></a>1. 关机</h1><p>在命令窗口输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown<br></code></pre></td></tr></table></figure><p>会出现相关用法</p><p>这里介绍常用的几种</p><p>关机：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /s<br></code></pre></td></tr></table></figure><p>重启：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /r<br></code></pre></td></tr></table></figure><p>这两个命令后面加上&#x2F;t就可以定时</p><p>60秒之后关机</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /s -t 60<br></code></pre></td></tr></table></figure><p>而这期间想取消关机的话</p><p>取消计划</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ shutdown /a<br></code></pre></td></tr></table></figure><p>可以在桌面一个新建文本文档，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">shutdown /s<br></code></pre></td></tr></table></figure><p>然后将文件后缀txt改为bat， 双击文件即可实现快速关机。</p><h1 id="2-自动拨号"><a href="#2-自动拨号" class="headerlink" title="2. 自动拨号"></a>2. 自动拨号</h1><p>新建文本文档，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Rasdial sensen 2020260137 12345678<br></code></pre></td></tr></table></figure><p>这里sensen是拨号上网的<strong>宽带名称</strong>，2020260137是<strong>账号用户名</strong>，12345678是<strong>密码</strong>，都要改成自己的</p><p>同样后缀改为bat，双击即可拨号</p><p>大家可以把这个文件放在启动目录里，就能实现开机自动拨号上网</p><p>启动目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\sensen\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br></code></pre></td></tr></table></figure><p>这里sensen是自己电脑的用户名</p><h1 id="3-图片假象"><a href="#3-图片假象" class="headerlink" title="3. 图片假象"></a>3. 图片假象</h1><p>这个可以将一张图片和一个压缩包合成另一张图片</p><p>新建文本文档，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">copy/b 1.jpg+2.zip 3.jpg<br></code></pre></td></tr></table></figure><p>保存，后缀改为bat</p><p>同时将图片和压缩包重命名为1.jpg和2.zip，和bat文件放在同一文件夹内，运行bat文件后会出现一张名为3.jpg的图片</p><p>打开新文件与原图片是一样的，但将这个文件后缀改为zip即变为原来的压缩包</p><h1 id="4-查看电脑是否激活"><a href="#4-查看电脑是否激活" class="headerlink" title="4. 查看电脑是否激活"></a>4. 查看电脑是否激活</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ slmgr.vbs -xpr<br></code></pre></td></tr></table></figure><p>会出现弹窗，显示计算机已永久激活。</p><h1 id="开启wifi"><a href="#开启wifi" class="headerlink" title="开启wifi"></a>开启wifi</h1><p>搜索cmd，以<strong>管理员</strong>身份运行</p><h2 id="查看是否支持承载网络"><a href="#查看是否支持承载网络" class="headerlink" title="查看是否支持承载网络"></a>查看是否支持承载网络</h2><p>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan show drivers<br></code></pre></td></tr></table></figure><p><img src="/2022/06-12-cmd/1.png"></p><p>如果不支持则需要借助其他软件来开启，如果支持的话进行下一步</p><h2 id="设置账号密码"><a href="#设置账号密码" class="headerlink" title="设置账号密码"></a>设置账号密码</h2><p>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netsh wlan <span class="hljs-built_in">set</span> hostednetwork mode=allow ssid=sensensen key=123456789<br></code></pre></td></tr></table></figure><p><strong>ssid</strong>后面为<strong>wifi名称</strong>，<strong>key</strong>为<strong>密码</strong>，自己设置</p><h2 id="开启或关闭网络"><a href="#开启或关闭网络" class="headerlink" title="开启或关闭网络"></a>开启或关闭网络</h2><p><strong>开启</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan start hostednetwork<br></code></pre></td></tr></table></figure><p>打开<strong>电脑设置</strong> – <strong>网络和Internet</strong> – <strong>更改适配器选项</strong></p><p>右键已连接的网络，<strong>属性</strong> – <strong>共享</strong>，勾选允许其他网络用户通过此计算机的Internet来连接，在下方选择刚才新建的网络，确定</p><p><img src="/2022/06-12-cmd/2.png"></p><p><strong>关闭wifi</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ netsh wlan stop hostednetwork<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>制作U盘启动器</title>
+    <link href="/2022/06-12-ultraiso/"/>
+    <url>/2022/06-12-ultraiso/</url>
+    
+    <content type="html"><![CDATA[<p>首先在itellyou网站根据自己电脑选择下载系统文件，格式为iso。</p><p>旧版：<a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p><p>新版：<a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a></p><p>两个网站都行</p><p>使用UltraISo（软碟通）打开iso文件</p><p><strong>启动</strong> – <strong>写入硬盘映像</strong></p><p>然后<strong>格式化</strong>，<strong>写入</strong>即可</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>something1</title>
     <link href="/2022/06-12-something1/"/>
     <url>/2022/06-12-something1/</url>
