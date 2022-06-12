@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/06-12-python/1.png">
 <meta property="article:published_time" content="2022-06-12T06:33:23.000Z">
-<meta property="article:modified_time" content="2022-06-12T06:39:14.912Z">
+<meta property="article:modified_time" content="2022-06-12T07:27:00.553Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2022/06-12-python/1.png">
@@ -270,9 +270,9 @@ https://pypi.tuna.tsinghua.edu.cn/simple/
 
 http://pypi.mirrors.ustc.edu.cn/simple/
 </code></pre>
-<h2 id="1-1-暂时使用："><a href="#1-1-暂时使用：" class="headerlink" title="1.1. 暂时使用："></a>1.1. 暂时使用：</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> 包名 -i 源<br></code></pre></td></tr></table></figure>
+<h2 id="1-1-暂时使用："><a href="#1-1-暂时使用：" class="headerlink" title="1.1. 暂时使用："></a>1.1. 暂时使用：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install 包名 -i 源<br></code></pre></td></tr></table></figure>
 <p>例如</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">pip install numpy -i https:<span class="hljs-regexp">//</span>pypi.tuna.tsinghua.edu.cn<span class="hljs-regexp">/simple/</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
 
 <h2 id="1-2-永久更换"><a href="#1-2-永久更换" class="headerlink" title="1.2. 永久更换"></a>1.2. 永久更换</h2><p>在user目录下新建一个文件夹pip，再新建文件pip.ini。</p>
 <p>路径如下</p>
@@ -289,28 +289,28 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 </code></pre>
 <p>保存即可。</p>
 <h1 id="2-程序打包"><a href="#2-程序打包" class="headerlink" title="2. 程序打包"></a>2. 程序打包</h1><h2 id="2-1-打包"><a href="#2-1-打包" class="headerlink" title="2.1. 打包"></a>2.1. 打包</h2><p><strong>安装pyinstaller</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pip install pyinstaller<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install pyinstaller<br></code></pre></td></tr></table></figure>
 
 <p><strong>cd到工作目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> /d E:\python<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">cd /d E:\python<br></code></pre></td></tr></table></figure>
 
 <p><strong>打包</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F test.py<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pyinstaller -F test.py<br></code></pre></td></tr></table></figure>
 
 <p><strong>去除控制台</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F -w test.py<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pyinstaller -F -w test.py<br></code></pre></td></tr></table></figure>
 <p>说明：有时候都会用到input()函数，input()函数是需要控制台输入的，而-w的意思是去掉控制台，会冲突，打包后的exe打不开！所以如果程序中有input()函数，打包时去除-w。</p>
 <p><strong>设置图标</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pyinstaller -F -w -i test.ico test.py<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pyinstaller -F -w -i test.ico test.py<br></code></pre></td></tr></table></figure>
 
 <h2 id="2-2-去除chromedrive黑框"><a href="#2-2-去除chromedrive黑框" class="headerlink" title="2.2. 去除chromedrive黑框"></a>2.2. 去除chromedrive黑框</h2><p>用<strong>pyinstaller</strong>打包<strong>selenium</strong>时，即使使用-w，仍会出现chromedrive命令窗口</p>
 <p>我们需要修改selenium包中的<strong>service.py</strong>文件</p>
 <p>所在目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Lib\site-packages\selenium\webdriver\common\service.py<br></code></pre></td></tr></table></figure>
-
+<pre><code class="hljs">Lib\site-packages\selenium\webdriver\common\service.py
+</code></pre>
 <p>在76行代码结尾处增加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">creationflags=134217728。<br></code></pre></td></tr></table></figure>
-
+<pre><code class="hljs">creationflags=134217728。
+</code></pre>
 <p><img src="/2022/06-12-python/1.png" srcset="/img/loading.gif" lazyload></p>
 <p>重新打包即可</p>
 

@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/2022/06-12-vsopencv/5.png">
 <meta property="og:image" content="http://example.com/2022/06-12-vsopencv/6.png">
 <meta property="article:published_time" content="2022-06-12T06:56:29.000Z">
-<meta property="article:modified_time" content="2022-06-12T07:06:54.631Z">
+<meta property="article:modified_time" content="2022-06-12T07:21:58.248Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2022/06-12-vsopencv/1.png">
@@ -210,7 +210,7 @@
         
         
         
-          11 分钟
+          10 分钟
         
       </span>
     
@@ -252,7 +252,7 @@
             
             <div class="markdown-body">
               
-              <p>VS配置opencv<br>七木 嗨七木啊 2022-03-17 20:12<br>首先版本匹配关系：</p>
+              <h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>首先版本匹配关系：</p>
 <table>
 <thead>
 <tr>
@@ -322,7 +322,7 @@
 <td align="center">vc14、vc15</td>
 </tr>
 </tbody></table>
-<p>VS安装就不讲了</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1><p>VS安装就不讲了</p>
 <p>opencv下载网址：</p>
 <p><a target="_blank" rel="noopener" href="https://opencv.org/releases/">https://opencv.org/releases/</a></p>
 <p>下载完成后，解压到指定位置</p>
@@ -335,7 +335,7 @@
 <pre><code class="hljs">C:\Windows\SysWOW64
 </code></pre>
 <p><img src="/2022/06-12-vsopencv/1.png" srcset="/img/loading.gif" lazyload></p>
-<p>打开vs，新建一个项目，<strong>控制台应用</strong></p>
+<h1 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h1><p>打开vs，新建一个项目，<strong>控制台应用</strong></p>
 <p><strong>视图</strong>——<strong>其他窗口</strong>——<strong>属性管理器</strong></p>
 <p>右键<strong>Debug|64</strong>，添加新项目属性表</p>
 <p><img src="/2022/06-12-vsopencv/2.png" srcset="/img/loading.gif" lazyload></p>
@@ -356,8 +356,7 @@ D:\software\opencv\opencv\build\include\opencv2
 <p>（注意最后带d，不带d为release）</p>
 <p><img src="/2022/06-12-vsopencv/4.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/2022/06-12-vsopencv/5.png" srcset="/img/loading.gif" lazyload></p>
-<p>完成</p>
-<p><strong>测试代码</strong></p>
+<h1 id="4-完成"><a href="#4-完成" class="headerlink" title="4. 完成"></a>4. 完成</h1><p><strong>测试代码</strong></p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/core/core.hpp&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/highgui/highgui.hpp&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>** argv)</span> </span>&#123;<br><br>    cv::Mat image;<br><br>    image = cv::<span class="hljs-built_in">imread</span>(<span class="hljs-string">&quot;C:\\Users\\sensen\\Desktop\\1.jpg&quot;</span>);<br><br>    <span class="hljs-comment">//改下目录</span><br><br>    cv::<span class="hljs-built_in">imshow</span>(<span class="hljs-string">&quot;window&quot;</span>, image);<br><br>    cv::<span class="hljs-built_in">waitKey</span>(<span class="hljs-number">0</span>);<span class="hljs-comment">// 按任意键在0秒后退出窗口</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>图片显示出来即成功。</p>

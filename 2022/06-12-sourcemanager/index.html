@@ -24,7 +24,7 @@
 <meta property="og:description" content="众所周知，这几个文件夹一点用都没有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-12T02:16:01.000Z">
-<meta property="article:modified_time" content="2022-06-12T02:21:22.299Z">
+<meta property="article:modified_time" content="2022-06-12T07:51:33.187Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -247,18 +247,45 @@
               
               <h1 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h1><p><kbg>win + <kbd>r</kbd>打开运行</kbg></p>
 <p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">regedit<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">regedit
+</code></pre>
 <p>打开注册表</p>
 <p>定位到</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace<br></code></pre></td></tr></table></figure>
-
+<pre><code class="hljs">\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace
+</code></pre>
 <p>删除对应文件夹即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">B4BFCC3A-DB2C-424C-B029-7FE99A87C641  <span class="hljs-comment">#桌面文件夹</span><br><br>A8CDFF1C-4878-43be-B5FD-F8091C1C60D0  <span class="hljs-comment">#文档文件夹</span><br><br>374DE290-123F-4565-9164-39C4925E467B  <span class="hljs-comment">#下载文件夹</span><br><br>1CF1260C-4DD0-4ebb-811F-33C572699FDE  <span class="hljs-comment">#音乐文件夹</span><br><br>24ad3ad4-a569-4530-98e1-ab02f9417aa8  <span class="hljs-comment">#图片文件夹</span><br><br>A0953C92-50DC-43bf-BE83-3742FED03C9C  <span class="hljs-comment">#视频文件夹</span><br><br>0DB7E03F-FC29-4DC6-9020-FF41B59E513A  <span class="hljs-comment">#3D 对象</span><br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">B4BFCC3A-DB2C-424C-B029-7FE99A87C641  #桌面文件夹
 
+A8CDFF1C-4878-43be-B5FD-F8091C1C60D0  #文档文件夹
+
+374DE290-123F-4565-9164-39C4925E467B  #下载文件夹
+
+1CF1260C-4DD0-4ebb-811F-33C572699FDE  #音乐文件夹
+
+24ad3ad4-a569-4530-98e1-ab02f9417aa8  #图片文件夹
+
+A0953C92-50DC-43bf-BE83-3742FED03C9C  #视频文件夹
+
+0DB7E03F-FC29-4DC6-9020-FF41B59E513A  #3D 对象
+</code></pre>
 <h1 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h1><p>新建文本文档</p>
 <p>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">Windows Registry Editor Version 5.00<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;d3162b92-9365-467a-956b-92703aca08af&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;B4BFCC3A-DB2C-424C-B029-7FE99A87C641&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;3dfdf296-dbec-4fb4-81d1-6a3438bcf4de&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;088e3905-0323-4b02-9826-5d99428e115f&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;0DB7E03F-FC29-4DC6-9020-FF41B59E513A&#125;]<br><br>[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;24ad3ad4-a569-4530-98e1-ab02f9417aa8&#125;]<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">Windows Registry Editor Version 5.00
 
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;d3162b92-9365-467a-956b-92703aca08af&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;B4BFCC3A-DB2C-424C-B029-7FE99A87C641&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;3dfdf296-dbec-4fb4-81d1-6a3438bcf4de&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;088e3905-0323-4b02-9826-5d99428e115f&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;0DB7E03F-FC29-4DC6-9020-FF41B59E513A&#125;]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\&#123;24ad3ad4-a569-4530-98e1-ab02f9417aa8&#125;]
+</code></pre>
 <p>保存，将后缀改为reg，双击运行即可。</p>
 <p>如要添加回来，则去掉代码前减号</p>
 

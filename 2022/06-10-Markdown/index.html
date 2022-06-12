@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://example.com/2022/06-10-Markdown/sensen.png">
 <meta property="og:image" content="http://example.com/2022/06-10-Markdown/sensen.png">
 <meta property="article:published_time" content="2022-06-10T14:18:00.000Z">
-<meta property="article:modified_time" content="2022-06-11T03:38:36.103Z">
+<meta property="article:modified_time" content="2022-06-12T08:09:25.554Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://static.runoob.com/images/runoob-logo.png">
@@ -196,7 +196,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          968 字
+          886 字
         
       </span>
     
@@ -207,7 +207,7 @@
         
         
         
-          9 分钟
+          8 分钟
         
       </span>
     
@@ -249,22 +249,43 @@
             
             <div class="markdown-body">
               
-              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 一级标题</span><br><span class="hljs-comment">## 二级标题</span><br></code></pre></td></tr></table></figure>
+              <pre><code class="hljs"># 一级标题
+## 二级标题
+</code></pre>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">*斜体*<br>_斜体_<br>**粗体**<br>__粗体__<br>***粗斜体***<br>___粗斜体___<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">*斜体*
+_斜体_
+**粗体**
+__粗体__
+***粗斜体***
+___粗斜体___
+</code></pre>
 <p><em>斜体</em><br><em>斜体</em><br><strong>粗体</strong><br><strong>粗体</strong><br><em><strong>粗斜体</strong></em><br><em><strong>粗斜体</strong></em></p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">***<br>- - -<br>分割线<br>******<br>---<br></code></pre></td></tr></table></figure>
-
+<pre><code class="hljs">***
+- - -
+分割线
+******
+---
+</code></pre>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~~删除线~~<br></code></pre></td></tr></table></figure>
-
+<pre><code class="hljs">~~删除线~~
+</code></pre>
 <p><del>删除线</del></p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;u&gt;下划线&lt;/u&gt;<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">&lt;u&gt;下划线&lt;/u&gt;
+</code></pre>
 <p><u>下划线</u></p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">* 列表<br>+ 列表<br>- 列表<br>1. 列表<br>2. 列表<br><br>1. 列表<br>    1. 嵌套列表<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">* 列表
++ 列表
+- 列表
+1. 列表
+2. 列表
+
+1. 列表
+    1. 嵌套列表
+</code></pre>
 <ul>
 <li>列表</li>
 </ul>
@@ -286,7 +307,14 @@
 </li>
 </ol>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;区块<br><br>&gt;区块<br>&gt;&gt;嵌套区块<br><br>+ 列表<br>    &gt;区块<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">&gt;区块
+
+&gt;区块
+&gt;&gt;嵌套区块
+
++ 列表
+    &gt;区块
+</code></pre>
 <blockquote>
 <p>区块</p>
 </blockquote>
@@ -303,26 +331,45 @@
 </li>
 </ul>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">\\```bash(可指定语言)<br>\\$ hexo <br>\\```<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash(可指定语言)">$ hexo <br></code></pre></td></tr></table></figure>
+</code></pre>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo s<br></code></pre></td></tr></table></figure>
 
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">超链接[百度](https://baidu.com/)<br><br>百度&lt;http://baidu.com&gt;<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">超链接[百度](https://baidu.com/)
+
+百度&lt;http://baidu.com&gt;
+</code></pre>
 <p>超链接<a target="_blank" rel="noopener" href="https://baidu.com/">百度</a></p>
 <p>百度<a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a></p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">![替换文本](http://static.runoob.com/images/runoob-logo.png <span class="hljs-string">&#x27;title&#x27;</span>)<br><br>&lt;img src=<span class="hljs-string">&quot;./Markdown/sensen.png&quot;</span> width=<span class="hljs-string">&quot;30%&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">![替换文本](http://static.runoob.com/images/runoob-logo.png &#39;title&#39;)
+
+&lt;img src=&quot;./Markdown/sensen.png&quot; width=&quot;30%&quot;&gt;
+</code></pre>
 <p><img src="http://static.runoob.com/images/runoob-logo.png" srcset="/img/loading.gif" lazyload alt="替换文本" title="title"></p>
 <img src="/2022/06-10-Markdown/sensen.png" srcset="/img/loading.gif" lazyload width="30%" alig="center">
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">图片居中：<br>&lt;div align=<span class="hljs-string">&#x27;center&#x27;</span>&gt;&lt;img src=<span class="hljs-string">&quot;./Markdown/sensen.png&quot;</span> width=<span class="hljs-string">&quot;30%&quot;</span> alig=<span class="hljs-string">&#x27;center&#x27;</span>&gt;&lt;/div&gt;<br></code></pre></td></tr></table></figure>
+
+<pre><code class="hljs">图片居中：
+&lt;div align=&#39;center&#39;&gt;&lt;img src=&quot;./Markdown/sensen.png&quot; width=&quot;30%&quot; alig=&#39;center&#39;&gt;&lt;/div&gt;
+</code></pre>
 <div align="center"><img src="/2022/06-10-Markdown/sensen.png" srcset="/img/loading.gif" lazyload width="30%" alig="center"></div>
 
 
 
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">|  表头   | 表头  |<br>|  ----  | ----  |<br>| 单元格  | 单元格 |<br>| 单元格  | 单元格 |<br><br>| 左对齐 | 右对齐 | 居中对齐 |<br>| :-----| ----: | :----: |<br>| 单元格单元格 | 单元格单元格 | 单元格单元格 |<br>| 单元格 | 单元格 | 单元格 |<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
+
+| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格单元格 | 单元格单元格 | 单元格单元格 |
+| 单元格 | 单元格 | 单元格 |
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -359,10 +406,14 @@
 </tr>
 </tbody></table>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑<br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑
+</code></pre>
 <p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">转义符号\<br>**文本加粗** <br>\*\* 正常显示星号 \*\*<br></code></pre></td></tr></table></figure>
+<p>转义符号\</p>
+<pre><code class="hljs">**文本加粗** 
+\*\* 正常显示星号 \*\*
+</code></pre>
 <p><strong>文本加粗</strong><br>** 正常显示星号 **</p>
 
               
