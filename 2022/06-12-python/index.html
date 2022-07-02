@@ -16,16 +16,16 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. pip换源使用pip install安装包的时候，总是很慢，因为这些包都是从国外的服务器上下载下来的。 我们可以把下载源换成国内的，这样下载速度就会快很多。 pip国内的一些镜像：   阿里云：  http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;    中国科技大学：  https:&#x2F;&#x2F;pypi.mirrors.ustc.edu.cn&#x2F;simple&#x2F;    豆瓣(">
+    <meta name="description" content="1. anaconda命令安装包 1pip install numpy 1pip install -r requirements.txt 卸载包 1pip uninstall numpy 查看所有包 1pip list 创建环境 1conda create -n 环境名称 python&#x3D;3.7 移除环境 1conda remove -n 环境名称 --all 激活环境 1conda activat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于python">
 <meta property="og:url" content="http://example.com/2022/06-12-python/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="1. pip换源使用pip install安装包的时候，总是很慢，因为这些包都是从国外的服务器上下载下来的。 我们可以把下载源换成国内的，这样下载速度就会快很多。 pip国内的一些镜像：   阿里云：  http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;    中国科技大学：  https:&#x2F;&#x2F;pypi.mirrors.ustc.edu.cn&#x2F;simple&#x2F;    豆瓣(">
+<meta property="og:description" content="1. anaconda命令安装包 1pip install numpy 1pip install -r requirements.txt 卸载包 1pip uninstall numpy 查看所有包 1pip list 创建环境 1conda create -n 环境名称 python&#x3D;3.7 移除环境 1conda remove -n 环境名称 --all 激活环境 1conda activat">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/06-12-python/1.png">
 <meta property="article:published_time" content="2022-06-12T06:33:23.000Z">
-<meta property="article:modified_time" content="2022-06-14T12:26:09.160Z">
+<meta property="article:modified_time" content="2022-06-20T01:38:37.127Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2022/06-12-python/1.png">
@@ -194,7 +194,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.9k 字
         
       </span>
     
@@ -205,7 +205,7 @@
         
         
         
-          13 分钟
+          16 分钟
         
       </span>
     
@@ -247,7 +247,24 @@
             
             <div class="markdown-body">
               
-              <h1 id="1-pip换源"><a href="#1-pip换源" class="headerlink" title="1. pip换源"></a>1. pip换源</h1><p>使用pip install安装包的时候，总是很慢，因为这些包都是从国外的服务器上下载下来的。</p>
+              <h1 id="1-anaconda命令"><a href="#1-anaconda命令" class="headerlink" title="1. anaconda命令"></a>1. anaconda命令</h1><p>安装包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> numpy<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt<br></code></pre></td></tr></table></figure>
+<p>卸载包</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pip uninstall numpy</span><br></code></pre></td></tr></table></figure>
+<p>查看所有包</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pip list</span><br></code></pre></td></tr></table></figure>
+<p>创建环境</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">conda</span> create -n 环境名称 python=<span class="hljs-number">3</span>.<span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+<p>移除环境</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">conda <span class="hljs-built_in">remove</span> -n 环境名称 <span class="hljs-comment">--all</span><br></code></pre></td></tr></table></figure>
+<p>激活环境</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">conda <span class="hljs-built_in">activate</span> 环境名称<br></code></pre></td></tr></table></figure>
+<p>查看所有环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda <span class="hljs-built_in">env</span> list<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="2-pip换源"><a href="#2-pip换源" class="headerlink" title="2. pip换源"></a>2. pip换源</h1><p>使用pip install安装包的时候，总是很慢，因为这些包都是从国外的服务器上下载下来的。</p>
 <p>我们可以把下载源换成国内的，这样下载速度就会快很多。</p>
 <p>pip国内的一些镜像：</p>
 <pre><code class="hljs">  阿里云：
@@ -270,11 +287,11 @@ https://pypi.tuna.tsinghua.edu.cn/simple/
 
 http://pypi.mirrors.ustc.edu.cn/simple/
 </code></pre>
-<h2 id="1-1-暂时使用："><a href="#1-1-暂时使用：" class="headerlink" title="1.1. 暂时使用："></a>1.1. 暂时使用：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install 包名 -i 源<br></code></pre></td></tr></table></figure>
+<h2 id="2-1-暂时使用："><a href="#2-1-暂时使用：" class="headerlink" title="2.1. 暂时使用："></a>2.1. 暂时使用：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install 包名 -i 源<br></code></pre></td></tr></table></figure>
 <p>例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
 
-<h2 id="1-2-永久更换"><a href="#1-2-永久更换" class="headerlink" title="1.2. 永久更换"></a>1.2. 永久更换</h2><p>在user目录下新建一个文件夹pip，再新建文件pip.ini。</p>
+<h2 id="2-2-永久更换"><a href="#2-2-永久更换" class="headerlink" title="2.2. 永久更换"></a>2.2. 永久更换</h2><p>在user目录下新建一个文件夹pip，再新建文件pip.ini。</p>
 <p>路径如下</p>
 <pre><code class="hljs">C:\Users\sensen\pip\pip.ini
 </code></pre>
@@ -288,7 +305,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host = pypi.tuna.tsinghua.edu.cn
 </code></pre>
 <p>保存即可。</p>
-<h1 id="2-程序打包"><a href="#2-程序打包" class="headerlink" title="2. 程序打包"></a>2. 程序打包</h1><h2 id="2-1-pyinstaller打包"><a href="#2-1-pyinstaller打包" class="headerlink" title="2.1. pyinstaller打包"></a>2.1. pyinstaller打包</h2><p><strong>安装pyinstaller</strong></p>
+<h1 id="3-程序打包"><a href="#3-程序打包" class="headerlink" title="3. 程序打包"></a>3. 程序打包</h1><h2 id="3-1-pyinstaller打包"><a href="#3-1-pyinstaller打包" class="headerlink" title="3.1. pyinstaller打包"></a>3.1. pyinstaller打包</h2><p><strong>安装pyinstaller</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install pyinstaller<br></code></pre></td></tr></table></figure>
 
 <p><strong>cd到工作目录</strong></p>
@@ -303,7 +320,7 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 <p><strong>设置图标</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pyinstaller -F -w -i test.ico test.py<br></code></pre></td></tr></table></figure>
 
-<h2 id="2-2-去除chromedrive黑框"><a href="#2-2-去除chromedrive黑框" class="headerlink" title="2.2. 去除chromedrive黑框"></a>2.2. 去除chromedrive黑框</h2><p>用<strong>pyinstaller</strong>打包<strong>selenium</strong>时，即使使用-w，仍会出现chromedrive命令窗口</p>
+<h2 id="3-2-去除chromedrive黑框"><a href="#3-2-去除chromedrive黑框" class="headerlink" title="3.2. 去除chromedrive黑框"></a>3.2. 去除chromedrive黑框</h2><p>用<strong>pyinstaller</strong>打包<strong>selenium</strong>时，即使使用-w，仍会出现chromedrive命令窗口</p>
 <p>我们需要修改selenium包中的<strong>service.py</strong>文件</p>
 <p>所在目录</p>
 <pre><code class="hljs">Lib\site-packages\selenium\webdriver\common\service.py
@@ -313,7 +330,7 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 </code></pre>
 <p><img src="/2022/06-12-python/1.png" srcset="/img/loading.gif" lazyload></p>
 <p>重新打包即可</p>
-<h2 id="2-3-Nuitka打包"><a href="#2-3-Nuitka打包" class="headerlink" title="2.3. Nuitka打包"></a>2.3. Nuitka打包</h2><p><strong>安装</strong></p>
+<h2 id="3-3-Nuitka打包"><a href="#3-3-Nuitka打包" class="headerlink" title="3.3. Nuitka打包"></a>3.3. Nuitka打包</h2><p><strong>安装</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install Nuitka<br></code></pre></td></tr></table></figure>
 
 <p><strong>打包</strong></p>
@@ -331,7 +348,9 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 <p>放到目录：</p>
 <pre><code class="hljs">C:\Users\sensen\AppData\Local\Nuitka\Nuitka\ccache\v4.6
 </code></pre>
-
+<h1 id="4-pytorch安装"><a href="#4-pytorch安装" class="headerlink" title="4. pytorch安装"></a>4. pytorch安装</h1><h2 id="4-1-下载"><a href="#4-1-下载" class="headerlink" title="4.1. 下载"></a>4.1. 下载</h2><p>进入下载cuda对应版本的<strong>torch</strong>、<strong>torchaudio</strong>和<strong>torchvision</strong><br>cp后面对应python版本</p>
+<p><a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<h2 id="4-2-激活环境"><a href="#4-2-激活环境" class="headerlink" title="4.2. 激活环境"></a>4.2. 激活环境</h2><h2 id="4-3-cd到下载目录"><a href="#4-3-cd到下载目录" class="headerlink" title="4.3. cd到下载目录"></a>4.3. cd到下载目录</h2><h2 id="4-4-安装"><a href="#4-4-安装" class="headerlink" title="4.4. 安装"></a>4.4. 安装</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> torch.whl等<br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
