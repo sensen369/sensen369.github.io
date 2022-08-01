@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>MT管理器</title>
+    <link href="/2022/08-01-mt/"/>
+    <url>/2022/08-01-mt/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-修改软件名称"><a href="#1-修改软件名称" class="headerlink" title="1. 修改软件名称"></a>1. 修改软件名称</h1><p>1.1. 点击arsc文件</p><p>1.2. Arsc编辑器</p><p>1.3. 字符常量池</p><p>1.4. 查找修改，签名安装</p><h1 id="2-修改版本号"><a href="#2-修改版本号" class="headerlink" title="2. 修改版本号"></a>2. 修改版本号</h1><p>2.1. 点击xml文件</p><p>2.2. 字符常量池</p><p>2.3. 查找修改</p><h1 id="3-图标修改"><a href="#3-图标修改" class="headerlink" title="3. 图标修改"></a>3. 图标修改</h1><p>3.1. res文件夹内</p><p>3.2. 搜索png文件</p><p>3.3. 重命名替换，保存</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>创建android应用</title>
     <link href="/2022/07-20-android/"/>
     <url>/2022/07-20-android/</url>
