@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>somethingtotell</title>
+    <link href="/2022/08-18-somethingtotell/"/>
+    <url>/2022/08-18-somethingtotell/</url>
+    
+    <content type="html"><![CDATA[<h1 id="220818"><a href="#220818" class="headerlink" title="220818"></a>220818</h1><p>寝室里的人一直在玩一个比忍耐力的游戏，看谁能忍住看见厕所脏了不洗，看见东西用没了不买，看见地上垃圾不扫，即使是自己弄的。虽然这个游戏赢了没奖励，输了也没惩罚，但却能够一直玩下去。</p><h1 id="220612"><a href="#220612" class="headerlink" title="220612"></a>220612</h1><p>早上去买早点，小摊前四五个人，没什么队伍的样子，我就站在后面一点，稍微装作在排队。</p><p>过了一会会儿，一位阿姨走到我边上，问：“是在这排队吗？”。</p><p>“嗯”，我记得她好像是从前面那几个人里走过来的，“你先”。</p><p>“不用，你排前面”，应该不是，“我排你后面”。</p><p>但是她还是站在我边上，也没有站到我身后。</p><p>又一会会儿，前面的人走了两个，空出了一个身位。</p><p>身边的阿姨上去了，急忙扫码转了五块钱，喊道：“我转过去了，五块的”。</p><p>好了，她走了，就这么走了。</p><p>我前面还有两个人。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>删除电脑分区</title>
     <link href="/2022/08-11-diskpart/"/>
     <url>/2022/08-11-diskpart/</url>
@@ -34,7 +47,7 @@
     <link href="/2022/08-06-pyCFtracker/"/>
     <url>/2022/08-06-pyCFtracker/</url>
     
-    <content type="html"><![CDATA[<p>基于相关滤波的算法大多是通过Matlab语言编写的，github上有人用python复现了典型的相关滤波算法，后续可以将相关滤波与pytorch和tensorflow等深度学习框架结合在一起。</p><p>代码来源：</p><p><a href="https://github.com/fengyang95/pyCFTrackers">https://github.com/fengyang95/pyCFTrackers</a></p><p>复现的算法包括：<br>MOSSE<br> CSK<br> CN<br> KCF&#x2F;DCF<br> DSST&#x2F;DSST-LP<br> SAMF<br> Staple<br> Staple-CA<br> BACF<br> CSR-DCF&#x2F;CSR-DCF-LP<br> DAT This tracker is not based on CF, I re-implement it just for understanding Staple better<br> LDES<br> MKCFup&#x2F;MKCFup-LP<br> MCCTH<br> STRCF</p><p>Trackers from other repos<br> ECO&#x2F;ECO-HC from pyECO<br> OPENCV-CSRDCF</p><p>本人配置平台：</p><p>Windows 10 ，python3.7</p><p>1、创建新的虚拟环境并激活</p><p>conda create -n pyCFtrackers python&#x3D;3.7.0<br>activate pyCFtrackers</p><p>2、安装requirements.txt<br>根据自己修改一下里面包的版本，主要是cupy和mxnet这两个，根据自己显卡的安装cuda修改。<br><a href="http://mxnet.incubator.apache.org/versions/1.6/get_started?version=v1.5.1&amp;platform=windows&amp;language=python&amp;processor=gpu&amp;environ=pip&amp;">http://mxnet.incubator.apache.org/versions/1.6/get_started?version=v1.5.1&amp;platform=windows&amp;language=python&amp;processor=gpu&amp;environ=pip&amp;</a></p><p><img src="/2022/08-06-pyCFtracker/1.png"></p><p>Cupy改为cupy-cuda90，mxnet改为mxnet-cu90<br>cd到目录<br>pip install -r requirements.txt</p><p>这是安装完成后的全部</p><p><img src="/2022/08-06-pyCFtracker/2.png"></p><p>3、export工程路径</p><p>因为windows没有export指令，参考这篇文章export工程路径：<br><a href="https://blog.csdn.net/qq_17783559/article/details/113732364">https://blog.csdn.net/qq_17783559/article/details/113732364</a> </p><p>指令为：</p><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">python</span> exporttest.py <span class="hljs-comment">--path E:\Tracker\pyCFTrackers</span><br></code></pre></td></tr></table></figure><p>4、build特征提取</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd lib<span class="hljs-regexp">/eco/</span>features/<br>python setup.py build_ext --inplace<br>cd ..<span class="hljs-regexp">/../</span>..<br></code></pre></td></tr></table></figure><p>会遇到一个提示，但没有影响</p><p><img src="/2022/08-06-pyCFtracker/3.png"></p><p>在路径下会生成一个_gradient.pyd文件</p><p><img src="/2022/08-06-pyCFtracker/4.png"></p><p>5、 build依赖库pysot的配置文件</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd lib<span class="hljs-regexp">/pysot/u</span>tils/<br>python setup.py build_ext --inplace<br>cd ..<span class="hljs-regexp">/../</span>..<br></code></pre></td></tr></table></figure><p>build成功也会生成一个region.pyd文件。</p><p><img src="/2022/08-06-pyCFtracker/5.png"></p><p>测试：<br>打开examples&#x2F;cf_demo.py文件。</p><p><img src="/2022/08-06-pyCFtracker/6.png"></p><p>上面是自己数据集的路径，下面是结果输出的路径，注意原来是没有CF这个文件夹的，得自己建一个，不然会报错。</p><p>打开pytracker.py文件，修改如下，应该是linux和windows系统路径的问题</p><p><img src="/2022/08-06-pyCFtracker/7.png"></p><p>还有一个np.int改为np.int_。位置在哪忘了，运行cf_demo.py，看下报错位置自己修改一下。</p><p>运行正常的话就会显示跟踪结果视频。</p><p><img src="/2022/08-06-pyCFtracker/8.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>基于相关滤波的算法大多是通过Matlab语言编写的，github上有人用python复现了典型的相关滤波算法，后续可以将相关滤波与pytorch和tensorflow等深度学习框架结合在一起。</p><p>代码来源：</p><p><a href="https://github.com/fengyang95/pyCFTrackers">https://github.com/fengyang95/pyCFTrackers</a></p><p>复现的算法包括：<br>MOSSE<br> CSK<br> CN<br> KCF&#x2F;DCF<br> DSST&#x2F;DSST-LP<br> SAMF<br> Staple<br> Staple-CA<br> BACF<br> CSR-DCF&#x2F;CSR-DCF-LP<br> DAT This tracker is not based on CF, I re-implement it just for understanding Staple better<br> LDES<br> MKCFup&#x2F;MKCFup-LP<br> MCCTH<br> STRCF</p><p>Trackers from other repos<br> ECO&#x2F;ECO-HC from pyECO<br> OPENCV-CSRDCF</p><p>本人配置平台：</p><p>Windows 10 ，python3.7</p><h1 id="1-创建新的虚拟环境并激活"><a href="#1-创建新的虚拟环境并激活" class="headerlink" title="1. 创建新的虚拟环境并激活"></a>1. 创建新的虚拟环境并激活</h1><p>conda create -n pyCFtrackers python&#x3D;3.7.0<br>activate pyCFtrackers</p><h1 id="2-安装requirements-txt"><a href="#2-安装requirements-txt" class="headerlink" title="2. 安装requirements.txt"></a>2. 安装requirements.txt</h1><p>根据自己修改一下里面包的版本，主要是cupy和mxnet这两个，根据自己显卡的安装cuda修改。<br><a href="http://mxnet.incubator.apache.org/versions/1.6/get_started?version=v1.5.1&amp;platform=windows&amp;language=python&amp;processor=gpu&amp;environ=pip&amp;">http://mxnet.incubator.apache.org/versions/1.6/get_started?version=v1.5.1&amp;platform=windows&amp;language=python&amp;processor=gpu&amp;environ=pip&amp;</a></p><p><img src="/2022/08-06-pyCFtracker/1.png"></p><p>Cupy改为cupy-cuda90，mxnet改为mxnet-cu90<br>cd到目录<br>pip install -r requirements.txt</p><p>这是安装完成后的全部</p><p><img src="/2022/08-06-pyCFtracker/2.png"></p><h1 id="3-export工程路径"><a href="#3-export工程路径" class="headerlink" title="3. export工程路径"></a>3. export工程路径</h1><p>因为windows没有export指令，参考这篇文章export工程路径：<br><a href="https://blog.csdn.net/qq_17783559/article/details/113732364">https://blog.csdn.net/qq_17783559/article/details/113732364</a> </p><p>指令为：</p><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">python</span> exporttest.py <span class="hljs-comment">--path E:\Tracker\pyCFTrackers</span><br></code></pre></td></tr></table></figure><h1 id="4-build特征提取"><a href="#4-build特征提取" class="headerlink" title="4. build特征提取"></a>4. build特征提取</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd lib<span class="hljs-regexp">/eco/</span>features/<br>python setup.py build_ext --inplace<br>cd ..<span class="hljs-regexp">/../</span>..<br></code></pre></td></tr></table></figure><p>会遇到一个提示，但没有影响</p><p><img src="/2022/08-06-pyCFtracker/3.png"></p><p>在路径下会生成一个_gradient.pyd文件</p><p><img src="/2022/08-06-pyCFtracker/4.png"></p><h1 id="5-build依赖库pysot的配置文件"><a href="#5-build依赖库pysot的配置文件" class="headerlink" title="5. build依赖库pysot的配置文件"></a>5. build依赖库pysot的配置文件</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd lib<span class="hljs-regexp">/pysot/u</span>tils/<br>python setup.py build_ext --inplace<br>cd ..<span class="hljs-regexp">/../</span>..<br></code></pre></td></tr></table></figure><p>build成功也会生成一个region.pyd文件。</p><p><img src="/2022/08-06-pyCFtracker/5.png"></p><h1 id="6-测试"><a href="#6-测试" class="headerlink" title="6. 测试"></a>6. 测试</h1><p>打开examples&#x2F;cf_demo.py文件。</p><p><img src="/2022/08-06-pyCFtracker/6.png"></p><p>上面是自己数据集的路径，下面是结果输出的路径，注意原来是没有CF这个文件夹的，得自己建一个，不然会报错。</p><p>打开pytracker.py文件，修改如下，应该是linux和windows系统路径的问题</p><p><img src="/2022/08-06-pyCFtracker/7.png"></p><p>还有一个np.int改为np.int_。位置在哪忘了，运行cf_demo.py，看下报错位置自己修改一下。</p><p>运行正常的话就会显示跟踪结果视频。</p><p><img src="/2022/08-06-pyCFtracker/8.png"></p><h1 id="7-其他设置"><a href="#7-其他设置" class="headerlink" title="7. 其他设置"></a>7. 其他设置</h1><h2 id="7-1-数据缓存"><a href="#7-1-数据缓存" class="headerlink" title="7.1. 数据缓存"></a>7.1. 数据缓存</h2><p>ope_otb.py中读取数据的时候默认会将数据读取到内存中，这样会占用大量内存</p><p>在文件靠下位置，将load_img改为False即可</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">dataset</span> = DatasetFactory.create_dataset(name=<span class="hljs-string">&#x27;OTB100&#x27;</span>,<br>                                        <span class="hljs-attr">dataset_root</span>=<span class="hljs-string">&#x27;E:/datasets/OTB100&#x27;</span>,<br>                                        <span class="hljs-attr">load_img</span>=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>]]></content>
     
     
     
@@ -139,19 +152,6 @@
     <url>/2022/07-11-plant/</url>
     
     <content type="html"><![CDATA[<h1 id="7月8日之前"><a href="#7月8日之前" class="headerlink" title="7月8日之前"></a>7月8日之前</h1><p>还是好好的</p><p><img src="/2022/07-11-plant/1.jpg"></p><h1 id="7月8日"><a href="#7月8日" class="headerlink" title="7月8日"></a>7月8日</h1><p>几天忘浇水了,我对不起你啊，花花</p><p><img src="/2022/07-11-plant/2.jpg"></p><h1 id="7月9日"><a href="#7月9日" class="headerlink" title="7月9日"></a>7月9日</h1><p>经过一晚上，活过来了一点<br>要活下去啊阿强</p><p><img src="/2022/07-11-plant/3.jpg"></p><h1 id="7月10日"><a href="#7月10日" class="headerlink" title="7月10日"></a>7月10日</h1><p>修剪了一下</p><p><img src="/2022/07-11-plant/4.jpg"></p><h1 id="7月15日"><a href="#7月15日" class="headerlink" title="7月15日"></a>7月15日</h1><p><img src="/2022/07-11-plant/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720193848.jpg"></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>我怎么了</title>
-    <link href="/2022/07-11-myself/"/>
-    <url>/2022/07-11-myself/</url>
-    
-    <content type="html"><![CDATA[<p>不知道什么时候我变得怎么尖酸刻薄了，嘲讽的话脱口而出</p>]]></content>
     
     
     
@@ -711,19 +711,6 @@
     <url>/2022/06-12-ultraiso/</url>
     
     <content type="html"><![CDATA[<p>首先在itellyou网站根据自己电脑选择下载系统文件，格式为iso。</p><p>旧版：<a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p><p>新版：<a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a></p><p>两个网站都行</p><p>使用UltraISo（软碟通）打开iso文件</p><p><strong>启动</strong> – <strong>写入硬盘映像</strong></p><p>然后<strong>格式化</strong>，<strong>写入</strong>即可</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>something</title>
-    <link href="/2022/06-12-something1/"/>
-    <url>/2022/06-12-something1/</url>
-    
-    <content type="html"><![CDATA[<p>早上去买早点，小摊前四五个人，没什么队伍的样子，我就站在后面一点，稍微装作在排队。</p><p>过了一会会儿，一位阿姨走到我边上，问：“是在这排队吗？”。</p><p>“嗯”，我记得她好像是从前面那几个人里走过来的，“你先”。</p><p>“不用，你排前面”，应该不是，“我排你后面”。</p><p>但是她还是站在我边上，也没有站到我身后。</p><p>又一会会儿，前面的人走了两个，空出了一个身位。</p><p>身边的阿姨上去了，急忙扫码转了五块钱，喊道：“我转过去了，五块的”。</p><p>好了，她走了，</p><p>我前面还有两个人。</p>]]></content>
     
     
     
