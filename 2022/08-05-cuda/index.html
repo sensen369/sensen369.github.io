@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sensen.png">
+  <link rel="icon" href="/img/sensen.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sen sen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 前言Windows安装CUDA，首先要下载两个安装包  CUDA toolkit cuDNN（用于配置深度学习使用）  2. 准备2.1. 查看显卡首先需要自己的电脑显卡是否支持cuda的安装，也就是查看自己的电脑里面有没有NVIDA的独立显卡。按以下步骤可以查看自己电脑的显卡。比如我的显卡是”NVIDIA GeForce MX250”  2.2. 查看cuda查看本机显卡对应的cuda版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CUDA安装">
+<meta property="og:url" content="http://example.com/2022/08-05-cuda/index.html">
+<meta property="og:site_name" content="Sensen">
+<meta property="og:description" content="1. 前言Windows安装CUDA，首先要下载两个安装包  CUDA toolkit cuDNN（用于配置深度学习使用）  2. 准备2.1. 查看显卡首先需要自己的电脑显卡是否支持cuda的安装，也就是查看自己的电脑里面有没有NVIDA的独立显卡。按以下步骤可以查看自己电脑的显卡。比如我的显卡是”NVIDIA GeForce MX250”  2.2. 查看cuda查看本机显卡对应的cuda版本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/1.jpg">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/2.jpg">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/3.jpg">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/4.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/5.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/6.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/7.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/8.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/9.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/10.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/11.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/12.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/13.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/14.png">
+<meta property="og:image" content="http://example.com/2022/08-05-cuda/15.png">
+<meta property="article:published_time" content="2022-08-05T03:30:53.000Z">
+<meta property="article:modified_time" content="2022-08-05T03:47:03.715Z">
+<meta property="article:author" content="Sen sen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/08-05-cuda/1.jpg">
+  
+  
+  
+  <title>CUDA安装 - Sensen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sensen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CUDA安装"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-05 11:30" pubdate>
+          2022年8月5日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CUDA安装</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>Windows安装CUDA，首先要下载两个安装包</p>
+<ul>
+<li>CUDA toolkit</li>
+<li>cuDNN（用于配置深度学习使用）</li>
+</ul>
+<h1 id="2-准备"><a href="#2-准备" class="headerlink" title="2. 准备"></a>2. 准备</h1><h2 id="2-1-查看显卡"><a href="#2-1-查看显卡" class="headerlink" title="2.1. 查看显卡"></a>2.1. 查看显卡</h2><p>首先需要自己的电脑显卡是否支持cuda的安装，也就是查看自己的电脑里面有没有NVIDA的独立显卡。按以下步骤可以查看自己电脑的显卡。比如我的显卡是”NVIDIA GeForce MX250”</p>
+<p><img src="/2022/08-05-cuda/1.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-2-查看cuda"><a href="#2-2-查看cuda" class="headerlink" title="2.2. 查看cuda"></a>2.2. 查看cuda</h2><p>查看本机显卡对应的cuda版本。（在桌面空白处右击鼠标——点击”NVIDIA控制面板”——点击”帮助”，选择”系统信息”——选择”组件”，找到“NVCUDA.DLL”，即可看到支持的CUDA版本）</p>
+<p><img src="/2022/08-05-cuda/2.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>在桌面空白处右击鼠标——点击NVIDIA控制面板——点击帮助，选择系统信息</p>
+<p><img src="/2022/08-05-cuda/3.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>选择组件，找到“NVCUDA.DLL”，即可看到支持的CUDA版本</p>
+<h2 id="2-3-下载"><a href="#2-3-下载" class="headerlink" title="2.3. 下载"></a>2.3. 下载</h2><h3 id="2-3-1-CUDA-toolkit-Download"><a href="#2-3-1-CUDA-toolkit-Download" class="headerlink" title="2.3.1. CUDA toolkit Download"></a>2.3.1. CUDA toolkit Download</h3><p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p><img src="/2022/08-05-cuda/4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/08-05-cuda/5.png" srcset="/img/loading.gif" lazyload></p>
+<p>CUDA的版本是跟显卡型号有关还是驱动有关？</p>
+<p>一般是驱动版本决定了能用的CUDA版本的上限，比如新版的显卡驱动可以支持老的CUDA runtime。但是老的显卡可能无法更新到最新的显卡驱动，比如Fermi显卡只能装到391驱动，因此只能用到CUDA9.1。除此之外，显卡硬件与CUDA compute capability相关，当然编译时也可以指定streaming multiprocessor。新的架构支持更多特性就是了。</p>
+<p>最终本人下载的</p>
+<p><img src="/2022/08-05-cuda/6.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-3-2-cuDNN-Download"><a href="#2-3-2-cuDNN-Download" class="headerlink" title="2.3.2. cuDNN Download"></a>2.3.2. cuDNN Download</h3><p>cuDNN地址如下，不过要注意的是，我们需要注册一个账号，才可以进入到下载界面。大家可以放心注册的。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">https://developer.nvidia.com/rdp/cudnn-archive</a></p>
+<p>本人下载的版本如下：</p>
+<p><img src="/2022/08-05-cuda/7.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="3-安装配置"><a href="#3-安装配置" class="headerlink" title="3. 安装配置"></a>3. 安装配置</h1><h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1."></a>3.1.</h2><p>双击“exe文件”，选择下载路径（推荐默认路径）</p>
+<p><img src="/2022/08-05-cuda/8.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-2"><a href="#3-2" class="headerlink" title="3.2."></a>3.2.</h2><p>安装选项<br>如果你是第一次安装，尽量全选<br>如果你是第n次安装，尽量只选择第一个，不然会出现错误</p>
+<p><img src="/2022/08-05-cuda/9.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果本机的驱动版本(当前版本)小于cuda对应的版本（新版本），则选择，否则不选。如果当前版本小于新版本，并且不覆盖安装，之后电脑会频繁蓝屏或死机</p>
+<p><img src="/2022/08-05-cuda/10.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-3"><a href="#3-3" class="headerlink" title="3.3."></a>3.3.</h2><p>记住安装位置 </p>
+<p><img src="/2022/08-05-cuda/11.png" srcset="/img/loading.gif" lazyload></p>
+<p>等待安装完成</p>
+<h2 id="3-4-测试"><a href="#3-4-测试" class="headerlink" title="3.4. 测试"></a>3.4. 测试</h2><p>运行cmd，输入nvcc –version 即可查看版本号；<br>set cuda，可以查看 CUDA 设置的环境变量。</p>
+<p>失败的话自己去看下环境变量，没有的话自己添加</p>
+<p><img src="/2022/08-05-cuda/12.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-5-cuDNN配置"><a href="#3-5-cuDNN配置" class="headerlink" title="3.5. cuDNN配置"></a>3.5. cuDNN配置</h2><p>解压后，有三个文件夹，把三个文件夹拷贝到cuda的安装目录下。</p>
+<p><img src="/2022/08-05-cuda/13.png" srcset="/img/loading.gif" lazyload></p>
+<p>拷贝时看到，CUDA 的安装目录中，有和 cuDNN 解压缩后的同名文件夹，这里注意，不需要担心，直接复制即可。cuDNN 解压缩后的同名文件夹中的配置文件会添加到 CUDA安装目录中的同名文件夹中。</p>
+<p>现在大家应该可以理解，cuDNN 其实就是 CUDA 的一个补丁而已，专为深度学习运算进行优化的。然后再参加环境变量</p>
+<h2 id="3-6-验证安装是否成功"><a href="#3-6-验证安装是否成功" class="headerlink" title="3.6. 验证安装是否成功"></a>3.6. 验证安装是否成功</h2><p>配置完成后，我们可以验证是否配置成功，主要使用CUDA内置的deviceQuery.exe 和 bandwithTest.exe：<br>首先win+R启动cmd，cd到安装目录下的 …\extras\demo_suite,然后分别执行bandwidthTest.exe和deviceQuery.exe,应该得到下图:</p>
+<p><img src="/2022/08-05-cuda/14.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/08-05-cuda/15.png" srcset="/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08-06-network/" title="网络介绍">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网络介绍</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08-03-otb/" title="OTB数据集工具包">
+                        <span class="hidden-mobile">OTB数据集工具包</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
