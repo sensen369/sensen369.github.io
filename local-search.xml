@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>you-get使用</title>
+    <link href="/2022/09-17-you-get/"/>
+    <url>/2022/09-17-you-get/</url>
+    
+    <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">pip install you-<span class="hljs-keyword">get</span> -i https:<span class="hljs-comment">//pypi.tuna.tsinghua.edu.cn/simple</span><br></code></pre></td></tr></table></figure><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>直接you-get+视频网址</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">you-get https:<span class="hljs-regexp">//</span>www.bilibili.com<span class="hljs-regexp">/video/</span>BV1nG4y1q7kK?vd_source=<span class="hljs-number">0</span>a63a2c5ba0059921d4b9510ac1f82de<br></code></pre></td></tr></table></figure><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><strong>you-get支持的网站</strong></p><table><thead><tr><th align="center">网站</th><th align="center">地址</th></tr></thead><tbody><tr><td align="center">哔哩哔哩</td><td align="center"><a href="http://www.bilibili.com/">http://www.bilibili.com/</a></td></tr><tr><td align="center">优酷</td><td align="center"><a href="http://www.youku.com/">http://www.youku.com/</a></td></tr><tr><td align="center">腾讯视频</td><td align="center"><a href="http://v.qq.com/">http://v.qq.com/</a></td></tr><tr><td align="center">爱奇艺</td><td align="center"><a href="http://www.iqiyi.com/">http://www.iqiyi.com/</a></td></tr><tr><td align="center">央视网</td><td align="center"><a href="http://www.cntv.cn/">http://www.cntv.cn/</a></td></tr><tr><td align="center">芒果TV</td><td align="center"><a href="http://www.mgtv.com/">http://www.mgtv.com/</a></td></tr><tr><td align="center">快手</td><td align="center"><a href="https://www.kuaishou.com/">https://www.kuaishou.com/</a></td></tr><tr><td align="center">抖音</td><td align="center"><a href="https://www.douyin.com/">https://www.douyin.com/</a></td></tr><tr><td align="center">西瓜视频</td><td align="center"><a href="https://www.ixigua.com/">https://www.ixigua.com/</a></td></tr><tr><td align="center">百度贴吧</td><td align="center"><a href="https://tieba.baidu.com/">https://tieba.baidu.com/</a></td></tr><tr><td align="center">豆瓣</td><td align="center"><a href="http://www.douban.com/">http://www.douban.com/</a></td></tr><tr><td align="center">斗鱼</td><td align="center"><a href="http://www.douyutv.com/">http://www.douyutv.com/</a></td></tr><tr><td align="center">凤凰视频</td><td align="center"><a href="http://v.ifeng.com/">http://v.ifeng.com/</a></td></tr><tr><td align="center">风行网</td><td align="center"><a href="http://www.fun.tv/">http://www.fun.tv/</a></td></tr><tr><td align="center">激动网</td><td align="center"><a href="http://www.joy.cn/">http://www.joy.cn/</a></td></tr><tr><td align="center">酷6网</td><td align="center"><a href="http://www.ku6.com/">http://www.ku6.com/</a></td></tr><tr><td align="center">新浪视频</td><td align="center"><a href="http://video.sina.com.cn/">http://video.sina.com.cn/</a></td></tr><tr><td align="center">搜狐视频</td><td align="center"><a href="http://tv.sohu.com/">http://tv.sohu.com/</a></td></tr></tbody></table><p><strong>其他命令</strong></p><table><thead><tr><th align="center">选项</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">-i</td><td align="center">显示资源信息，比如说格式、清晰度、大小等。下载哪种视频，则把那种#download-with参数加上即可</td></tr><tr><td align="center">-u</td><td align="center">指定下载或查看的url，有时候可以省略-u直接加上url</td></tr><tr><td align="center">-o</td><td align="center">设置输出文件夹，即保存路径，若不指定，则保存在当前工作目录</td></tr><tr><td align="center">-O</td><td align="center">设置文件名，可采用默认文件名</td></tr><tr><td align="center">-f</td><td align="center">强制覆盖已存在的文件</td></tr><tr><td align="center">-l</td><td align="center">优先下载整个列表</td></tr><tr><td align="center">-P</td><td align="center">使用密码（若访问视频需要密码）</td></tr><tr><td align="center">-t</td><td align="center">设置超时时间，单位是秒</td></tr><tr><td align="center">-c</td><td align="center">使用cookie，加载cookies.txt 或者cookies.sqlite</td></tr></tbody></table>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在虚幻引擎中使物体沿着样条线运动</title>
+    <link href="/2022/08-21-uemove/"/>
+    <url>/2022/08-21-uemove/</url>
+    
+    <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p>打开循环引擎项目</p><p>以自带游戏为例</p><p><img src="/2022/08-21-uemove/1.png"><br>#</p><p>在下方内容浏览器右键新建一个<strong>蓝图——actor</strong></p><p><img src="/2022/08-21-uemove/2.png"></p><p>命名为path</p><p>再新建一个</p><p>命名为body</p><p><img src="/2022/08-21-uemove/3.png"></p><h1 id="-1"><a href="#-1" class="headerlink" title></a></h1><p>双击path打开</p><p>添加组件————搜索样条（英文则搜索spline）————样条组件</p><p><img src="/2022/08-21-uemove/4.png"></p><p>编译保存，关闭页面</p><p><img src="/2022/08-21-uemove/5.png"></p><h1 id="-2"><a href="#-2" class="headerlink" title></a></h1><p>双击body打开</p><p>添加组件————静态网格体组件static mesh</p><p><img src="/2022/08-21-uemove/6.png"></p><p>在右侧详情栏，静态网格体处，选择cube</p><p><img src="/2022/08-21-uemove/7.png"></p><p>在上侧事件图表栏，删除下面两个</p><p><img src="/2022/08-21-uemove/8.png"></p><p>右下方创建一个变量，命名为activatebody，打开后面的眼睛<br>将变量拖到右侧，点击获取activabody</p><p><img src="/2022/08-21-uemove/9.png"></p><p>按住B键左击创建一个分支，连接线</p><p><img src="/2022/08-21-uemove/10.png"></p><p>右键，添加一个自定义事件，命名为movebody</p><p><img src="/2022/08-21-uemove/11.png"></p><p>从分支的True中拉出，添加movebody</p><p><img src="/2022/08-21-uemove/12.png"></p><p>右键添加时间轴</p><p><img src="/2022/08-21-uemove/13.png"></p><p>双击时间轴进入编辑，添加浮点型轨道，命名为alpha，右键添加两个关键帧，（0,0）和（1,1），编译保存关闭回到事件编辑</p><p><img src="/2022/08-21-uemove/14.png"></p><p>从alpha拖出，提升为变量，命名为alpha，连接</p><p><img src="/2022/08-21-uemove/15.png"><br><img src="/2022/08-21-uemove/16.png"></p><p>添加设置actor位置和旋转，连接</p><p><img src="/2022/08-21-uemove/17.png"><br><img src="/2022/08-21-uemove/18.png"></p><p>右侧添加变量trackref，打开后面眼睛，右侧变量类型更改为body的对象引用</p><p><img src="/2022/08-21-uemove/19.png"></p><p><img src="/2022/08-21-uemove/1.png"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>somethingtotell</title>
     <link href="/2022/08-18-somethingtotell/"/>
     <url>/2022/08-18-somethingtotell/</url>
