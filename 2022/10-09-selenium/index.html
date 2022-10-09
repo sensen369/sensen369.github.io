@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sensen.png">
+  <link rel="icon" href="/img/sensen.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sen sen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 下载驱动1.1. 查看浏览器版本浏览器输入    chrome:&#x2F;&#x2F;version得到chrome浏览器具体信息 1.2. 下载对应驱动http:&#x2F;&#x2F;chromedriver.storage.googleapis.com&#x2F;index.htmlhttp:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;chromedriver&#x2F; 2. 查找元素1234567891011fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="selenium教程">
+<meta property="og:url" content="http://example.com/2022/10-09-selenium/index.html">
+<meta property="og:site_name" content="Sensen">
+<meta property="og:description" content="1. 下载驱动1.1. 查看浏览器版本浏览器输入    chrome:&#x2F;&#x2F;version得到chrome浏览器具体信息 1.2. 下载对应驱动http:&#x2F;&#x2F;chromedriver.storage.googleapis.com&#x2F;index.htmlhttp:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;chromedriver&#x2F; 2. 查找元素1234567891011fr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-09T08:43:30.000Z">
+<meta property="article:modified_time" content="2022-10-09T09:05:03.401Z">
+<meta property="article:author" content="Sen sen">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>selenium教程 - Sensen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sensen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="selenium教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-09 16:43" pubdate>
+          2022年10月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          62 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">selenium教程</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="1-下载驱动"><a href="#1-下载驱动" class="headerlink" title="1. 下载驱动"></a>1. 下载驱动</h1><h2 id="1-1-查看浏览器版本"><a href="#1-1-查看浏览器版本" class="headerlink" title="1.1. 查看浏览器版本"></a>1.1. 查看浏览器版本</h2><p>浏览器输入<br>    chrome:&#x2F;&#x2F;version<br>得到chrome浏览器具体信息</p>
+<h2 id="1-2-下载对应驱动"><a href="#1-2-下载对应驱动" class="headerlink" title="1.2. 下载对应驱动"></a>1.2. 下载对应驱动</h2><p><a target="_blank" rel="noopener" href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a><br><a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/chromedriver/">http://npm.taobao.org/mirrors/chromedriver/</a></p>
+<h1 id="2-查找元素"><a href="#2-查找元素" class="headerlink" title="2. 查找元素"></a>2. 查找元素</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> selenium.webdriver.common <span class="hljs-keyword">import</span> keys<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-comment"># 打开chrome浏览器</span><br>driver = webdriver.Chrome()<br><span class="hljs-comment"># 打开百度</span><br>url = <span class="hljs-string">&#x27;http:/www.baidu.com&#x27;</span><br>driver.get(url)<br><span class="hljs-comment"># 最大化窗口</span><br>driver.maximize_window()<br></code></pre></td></tr></table></figure>
+<h2 id="2-1-任务"><a href="#2-1-任务" class="headerlink" title="2.1. 任务"></a>2.1. 任务</h2><p><strong>查找搜索框</strong><br>搜索框元素为</p>
+<pre><code class="hljs">&lt;input type=&quot;text&quot; class=&quot;s_ipt&quot; name=&quot;wd&quot; id=&quot;kw&quot; maxlength=&quot;100&quot; autocomplete=&quot;off&quot;&gt;
+</code></pre>
+<h2 id="2-2-id查找"><a href="#2-2-id查找" class="headerlink" title="2.2. id查找"></a>2.2. id查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#通过id查找</span><br>sousuo = driver.find_element_by_id(<span class="hljs-string">&#x27;kw&#x27;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>,keys.Keys.ENTER)<br><span class="hljs-comment">#提交</span><br>sousuo.submit()<br></code></pre></td></tr></table></figure>
+<h2 id="2-3-name查找"><a href="#2-3-name查找" class="headerlink" title="2.3. name查找"></a>2.3. name查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#name</span><br>sousuo = driver.find_element_by_name(<span class="hljs-string">&#x27;wd&#x27;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-4-class查找"><a href="#2-4-class查找" class="headerlink" title="2.4. class查找"></a>2.4. class查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#class.name</span><br>sousuo = driver.find_element_by_class_name(<span class="hljs-string">&#x27;s_ipt&#x27;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="2-5-tag查找"><a href="#2-5-tag查找" class="headerlink" title="2.5. tag查找"></a>2.5. tag查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#tag.name</span><br>sousuo = driver.find_element_by_tag_name(<span class="hljs-string">&#x27;input&#x27;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="2-6-xpath查找"><a href="#2-6-xpath查找" class="headerlink" title="2.6. xpath查找"></a>2.6. xpath查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//*[@id=&#x27;kw&#x27;]&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//*[@name=&#x27;wd&#x27;]&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//input[@class=&#x27;s_ipt&#x27;]&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;/html/body/div/div/div[5]/div/div/form/span/input&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//span[@class=&#x27;bg s_ipt_wr quickdelete-wrap&#x27;]/input&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//form[@id=&#x27;form&#x27;]/span/input&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_xpath(<span class="hljs-string">&quot;//input[@id=&#x27;kw&#x27; and @name=&#x27;wd&#x27;]&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="2-7-css查找"><a href="#2-7-css查找" class="headerlink" title="2.7. css查找"></a>2.7. css查找</h2><pre><code class="hljs">.class
+
+#id
+
+*选择所有元素
+
+div,p 所有div和p
+
+div p div内部的所有p
+
+div&gt;p 父元素为div的所有p
+
+div+p 紧接在div之后的p
+
+[tar] 带有tar属性
+
+[tar=ll]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;#kw&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;[name=wd]&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;.s_ipt&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;html &gt; body &gt; form &gt; span &gt; input&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;span.bg s_ipt_wr quickdelete-wrap&gt; input#kw&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sousuo = driver.find_element_by_css_selector(<span class="hljs-string">&quot;form#form &gt; span &gt; input&quot;</span>)<br>sousuo.send_keys(<span class="hljs-string">&#x27;python&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-8-link-text查找"><a href="#2-8-link-text查找" class="headerlink" title="2.8. link.text查找"></a>2.8. link.text查找</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#link.text</span><br>xinwen = driver.find_element_by_link_text(<span class="hljs-string">&#x27;新闻&#x27;</span>)<br>xinwen.click()<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">xinwen = driver.find_element_by_partial_link_text(<span class="hljs-string">&#x27;新&#x27;</span>)<br>xinwen.click()<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-9-获取属性"><a href="#2-9-获取属性" class="headerlink" title="2.9. 获取属性"></a>2.9. 获取属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#获得attribute</span><br>sousuo = driver.find_element_by_name(<span class="hljs-string">&#x27;wd&#x27;</span>).get_attribute(<span class="hljs-string">&#x27;class&#x27;</span>)<br><span class="hljs-built_in">print</span>(sousuo)<br></code></pre></td></tr></table></figure>
+<h1 id="3-鼠标操作ActionChains"><a href="#3-鼠标操作ActionChains" class="headerlink" title="3. 鼠标操作ActionChains"></a>3. 鼠标操作ActionChains</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">import</span> time<br><span class="hljs-comment"># 引入 ActionChains 类</span><br><span class="hljs-keyword">from</span> selenium.webdriver.common.action_chains <span class="hljs-keyword">import</span> ActionChains<br><br>driver = webdriver.Chrome()<br>driver.get(<span class="hljs-string">&quot;https://www.baidu.cn&quot;</span>)<br>driver.maximize_window()<br>time.sleep(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 定位到要悬停的元素</span><br>above = driver.find_element_by_link_text(<span class="hljs-string">&quot;新闻&quot;</span>)<br><span class="hljs-comment"># 对定位到的元素执行鼠标点击操作</span><br>ActionChains(driver).click(above).perform()<br><span class="hljs-comment">#context_click()右击</span><br><span class="hljs-comment">#double_click()双击</span><br><span class="hljs-comment">#perform()执行操作</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="4-键盘事件"><a href="#4-键盘事件" class="headerlink" title="4. 键盘事件"></a>4. 键盘事件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-comment"># 引入 Keys 模块</span><br><span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys<br><span class="hljs-keyword">import</span> time<br><br>driver = webdriver.Chrome()<br>driver.get(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>)<br><br><span class="hljs-comment"># 输入框输入内容</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(<span class="hljs-string">&quot;seleniumm&quot;</span>)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># 删除多输入的一个 m</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(Keys.BACK_SPACE)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># 输入空格键</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(Keys.SPACE)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># ctrl+a 全选输入框内容</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(Keys.CONTROL, <span class="hljs-string">&#x27;a&#x27;</span>)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># ctrl+x 剪切输入框内容</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(Keys.CONTROL, <span class="hljs-string">&#x27;x&#x27;</span>)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># ctrl+v 粘贴内容到输入框</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(Keys.CONTROL, <span class="hljs-string">&#x27;v&#x27;</span>)<br>time.sleep(<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># 通过回车键来代替单击操作</span><br>driver.find_element_by_id(<span class="hljs-string">&quot;su&quot;</span>).send_keys(Keys.ENTER)<br>driver.quit()<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-获取断言信息"><a href="#5-获取断言信息" class="headerlink" title="5. 获取断言信息"></a>5. 获取断言信息</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><br><br>driver = webdriver.Chrome()<br>driver.get(<span class="hljs-string">&quot;https://www.baidu.com&quot;</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Before search================&#x27;</span>)<br><br><span class="hljs-comment"># 打印当前页面title</span><br>title = driver.title<br><span class="hljs-built_in">print</span>(title)<br><br><span class="hljs-comment"># 打印当前页面URL</span><br>now_url = driver.current_url<br><span class="hljs-built_in">print</span>(now_url)<br><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(<span class="hljs-string">&quot;selenium&quot;</span>)<br>driver.find_element_by_id(<span class="hljs-string">&quot;su&quot;</span>).click()<br>sleep(<span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;After search================&#x27;</span>)<br><br><span class="hljs-comment"># 再次打印当前页面title</span><br>title = driver.title<br><span class="hljs-built_in">print</span>(title)<br><br><span class="hljs-comment"># 打印当前页面URL</span><br>now_url = driver.current_url<br><span class="hljs-built_in">print</span>(now_url)<br><br><span class="hljs-comment"># 获取结果数目</span><br>user = driver.find_element_by_class_name(<span class="hljs-string">&#x27;nums&#x27;</span>).text<br><span class="hljs-built_in">print</span>(user)<br><br>driver.quit()<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-定位一组元素"><a href="#6-定位一组元素" class="headerlink" title="6. 定位一组元素"></a>6. 定位一组元素</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><br>driver = webdriver.Chrome()<br>driver.get(<span class="hljs-string">&quot;https://www.baidu.com&quot;</span>)<br><br>driver.find_element_by_id(<span class="hljs-string">&quot;kw&quot;</span>).send_keys(<span class="hljs-string">&quot;selenium&quot;</span>)<br>driver.find_element_by_id(<span class="hljs-string">&quot;su&quot;</span>).click()<br>sleep(<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># 定位一组元素</span><br>texts = driver.find_elements_by_xpath(<span class="hljs-string">&#x27;//div/h3/a&#x27;</span>)<br><br><span class="hljs-comment"># 循环遍历出每一条搜索结果的标题</span><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> texts:<br>    <span class="hljs-built_in">print</span>(t.text)<br><br><span class="hljs-comment">#driver.quit()</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="7-切换标签页"><a href="#7-切换标签页" class="headerlink" title="7. 切换标签页"></a>7. 切换标签页</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">current_window = driver.current_window_handle<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;current_window:: &quot;</span>,current_window)<br>all_window=driver.window_handles    <span class="hljs-comment"># 返回当前会话中所有窗口的句柄。</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;all_window:: &quot;</span>,all_window)   <span class="hljs-comment"># 打印当前所有窗口的句柄 name</span><br><span class="hljs-keyword">for</span> window <span class="hljs-keyword">in</span> all_window:           <span class="hljs-comment">#通过遍历判断要切换的窗口</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;window::  &quot;</span>,window)      <br>    <span class="hljs-keyword">if</span> window != current_window:<br>        driver.switch_to.window(window)<span class="hljs-comment"># 将定位焦点切换到指定的窗口，包含所有可切换焦点的选项</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;切换成功&#x27;</span>)<br>current_window = driver.current_window_handle   <span class="hljs-comment"># 获取当前窗口handle name</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;current_window:: &quot;</span>,current_window)       <span class="hljs-comment"># 打印当前窗口的句柄 name</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><br>driver = webdriver.Chrome()<br>driver.get(<span class="hljs-string">&quot;http://www.126.com&quot;</span>)<br><br>driver.switch_to.frame(<span class="hljs-string">&#x27;x-URS-iframe&#x27;</span>)<br>driver.find_element_by_name(<span class="hljs-string">&quot;email&quot;</span>).clear()<br>driver.find_element_by_name(<span class="hljs-string">&quot;email&quot;</span>).send_keys(<span class="hljs-string">&quot;username&quot;</span>)<br>driver.find_element_by_name(<span class="hljs-string">&quot;password&quot;</span>).clear()<br>driver.find_element_by_name(<span class="hljs-string">&quot;password&quot;</span>).send_keys(<span class="hljs-string">&quot;password&quot;</span>)<br>driver.find_element_by_id(<span class="hljs-string">&quot;dologin&quot;</span>).click()<br>driver.switch_to.default_content()<br><br>driver.quit()<br></code></pre></td></tr></table></figure>
+
+<h1 id="8-示例"><a href="#8-示例" class="headerlink" title="8. 示例"></a>8. 示例</h1><h2 id="8-1-淘宝登录"><a href="#8-1-淘宝登录" class="headerlink" title="8.1. 淘宝登录"></a>8.1. 淘宝登录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> selenium.webdriver.common <span class="hljs-keyword">import</span> keys<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-comment"># 创建浏览器</span><br>browser = webdriver.Chrome()<br><span class="hljs-comment"># 让浏览器打开淘宝</span><br>browser.get(<span class="hljs-string">&quot;https://www.taobao.com/&quot;</span>)<br><br><span class="hljs-comment"># 找到搜索框输入内容并搜索</span><br>browser.find_element_by_xpath(<span class="hljs-string">&#x27;//*[@id=&quot;q&quot;]&#x27;</span>).send_keys(<span class="hljs-string">&quot;男鞋&quot;</span>, keys.Keys.ENTER)<span class="hljs-comment">#回车</span><br>time.sleep(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 切换成二维码登录</span><br>browser.find_element_by_xpath(<span class="hljs-string">&#x27;//*[@id=&quot;login&quot;]/div[1]/i&#x27;</span>).click()<br><br><span class="hljs-comment"># 判断当前页面是否为登录页面</span><br><span class="hljs-keyword">while</span> browser.current_url.startswith(<span class="hljs-string">&quot;https://login.taobao.com/&quot;</span>):<br>    <span class="hljs-comment">#print(&quot;等待用户输入&quot;)</span><br>    time.sleep(<span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;登录成功!!!&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="8-2-网页截图"><a href="#8-2-网页截图" class="headerlink" title="8.2. 网页截图"></a>8.2. 网页截图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">screen_shot</span>(<span class="hljs-params">url,png_name</span>):<br>    brower = webdriver.Chrome()<br>    brower.get(url)<br>    brower.maximize_window()<br>    brower.save_screenshot(png_name)<br>    brower.close()<br><br><span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    url = <span class="hljs-string">&#x27;https://www.baidu.com&#x27;</span><br>    screen_shot(url,<span class="hljs-string">&#x27;1.png&#x27;</span>)<br></code></pre></td></tr></table></figure>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09-30-dairy/" title="dairy">
+                        <span class="hidden-mobile">dairy</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
