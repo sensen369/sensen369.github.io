@@ -4,6 +4,120 @@
   
   
   <entry>
+    <title>230903</title>
+    <link href="/2023/09-03-230903/"/>
+    <url>/2023/09-03-230903/</url>
+    
+    <content type="html"><![CDATA[<p>昨天有给那个女孩发消息，今天都没回，应该是噶了。</p><p>其实应该早点就知道了，之前发消息都不是很热情的样子，也没主动给我发过消息。</p><p>又是一段没开始就结束的关系。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>diary</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>蒲城一周游</title>
+    <link href="/2023/09-03-pucheng/"/>
+    <url>/2023/09-03-pucheng/</url>
+    
+    <content type="html"><![CDATA[<p>又出差了，来到了将相故里——蒲城，西安渭南。</p><p>“将”指的是“西安事变”中同张学良兵谏华清池的将军杨虎城，而“相”是指清朝尸谏林则徐禁烟的王鼎。</p><h1 id="230825"><a href="#230825" class="headerlink" title="230825"></a>230825</h1><p>刚跑到这就看到了喷泉，太累了没有过去，改日改日。</p><p><img src="/2023/09-03-pucheng/1.jpg"></p><h1 id="230826"><a href="#230826" class="headerlink" title="230826"></a>230826</h1><p>一直下雨，还降温了，去大唐西市准备买件衣服的，不知道现在商场怎么了，衣服卖这么贵，鬼买得起。</p><p>连夜买了台笔记本。</p><h1 id="230831"><a href="#230831" class="headerlink" title="230831"></a>230831</h1><p>发现场里有几颗很好看的草，没搜到叫啥。</p><p><img src="/2023/09-03-pucheng/2.jpg"></p><p>闲来无事勾栏听曲，下班的回去的时候看到一个公园。紫荆公园。</p><p><img src="/2023/09-03-pucheng/3.jpg"></p><h1 id="230901"><a href="#230901" class="headerlink" title="230901"></a>230901</h1><p>早上过来的时候，有清洁工开着个小车，拿水枪清洗垃圾桶，不错。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>travel</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>m3u8下载软件</title>
+    <link href="/2023/09-03-m3u8/"/>
+    <url>/2023/09-03-m3u8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-N-m3u8DL-CLI（推荐）"><a href="#1-N-m3u8DL-CLI（推荐）" class="headerlink" title="1. N_m3u8DL-CLI（推荐）"></a>1. N_m3u8DL-CLI（推荐）</h1><h2 id="1-1-下载链接"><a href="#1-1-下载链接" class="headerlink" title="1.1. 下载链接"></a>1.1. <strong>下载链接</strong></h2><pre><code class="hljs">https://github.com/nilaoda/N_m3u8DL-CLI</code></pre><h2 id="1-2-用户文档"><a href="#1-2-用户文档" class="headerlink" title="1.2. 用户文档"></a>1.2. <strong>用户文档</strong></h2><pre><code class="hljs">https://nilaoda.github.io/N_m3u8DL-CLI/</code></pre><h2 id="1-3-界面"><a href="#1-3-界面" class="headerlink" title="1.3. 界面"></a>1.3. <strong>界面</strong></h2><p><img src="/2023/09-03-m3u8/1.png"></p><h2 id="1-4-功能说明"><a href="#1-4-功能说明" class="headerlink" title="1.4. 功能说明"></a>1.4. <strong>功能说明</strong></h2><ul><li>程序在启动时会自动从剪贴板中寻找URL，贴入M3U8地址文本框</li><li>当M3U8地址文本框不为空时，双击视频标题文本框时，程序将自动识别您输入的m3u8地址并给出一个合适的标题</li><li>支持批量下载<ul><li>将m3u8链接每行一个存入一个.txt文件，然后将文件直接拖到M3U8地址文本框，点击GO按钮</li><li>将m3u8文件存到一个文件夹中，然后将文件夹直接拖到M3U8地址文本框，点击GO按钮</li><li>新建txt,每行以name,url形式写</li></ul></li><li>在M3U8地址文本框或视频标题文本框按下回车键时，可触发下载；亦或者在程序界面按下快捷键Alt + S</li><li>自动保存配置</li></ul><h1 id="2-M3U8-Downloader"><a href="#2-M3U8-Downloader" class="headerlink" title="2. M3U8-Downloader"></a>2. M3U8-Downloader</h1><h2 id="2-1-下载地址"><a href="#2-1-下载地址" class="headerlink" title="2.1. 下载地址"></a>2.1. 下载地址</h2><pre><code class="hljs">https://github.com/HeiSir2014/M3U8-Downloader</code></pre><h2 id="2-2-界面"><a href="#2-2-界面" class="headerlink" title="2.2. 界面"></a>2.2. 界面</h2><p><img src="/2023/09-03-m3u8/2.png"></p><h2 id="2-3-其他"><a href="#2-3-其他" class="headerlink" title="2.3. 其他"></a>2.3. 其他</h2><p>可批量下载，显示不了下载速度。</p><h1 id="3-The-New-M3U8-Downloader"><a href="#3-The-New-M3U8-Downloader" class="headerlink" title="3. The-New-M3U8-Downloader"></a>3. The-New-M3U8-Downloader</h1><h2 id="3-1-下载地址"><a href="#3-1-下载地址" class="headerlink" title="3.1. 下载地址"></a>3.1. 下载地址</h2><pre><code class="hljs">https://github.com/nilaoda/The-New-M3U8-Downloader</code></pre><h2 id="3-2-界面"><a href="#3-2-界面" class="headerlink" title="3.2. 界面"></a>3.2. 界面</h2><p><img src="/2023/09-03-m3u8/3.png"></p><h1 id="4-m3u8d"><a href="#4-m3u8d" class="headerlink" title="4. m3u8d"></a>4. m3u8d</h1><h2 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1. 下载地址"></a>4.1. 下载地址</h2><pre><code class="hljs">https://github.com/orestonce/m3u8d</code></pre><h2 id="4-2-界面"><a href="#4-2-界面" class="headerlink" title="4.2. 界面"></a>4.2. 界面</h2><p><img src="/2023/09-03-m3u8/4.png"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>software</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>excel整列套用公式</title>
+    <link href="/2023/09-03-excel/"/>
+    <url>/2023/09-03-excel/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-键入公式"><a href="#1-键入公式" class="headerlink" title="1. 键入公式"></a>1. 键入公式</h1><p><img src="/2023/09-03-excel/1.png"></p><h1 id="2-选中整列"><a href="#2-选中整列" class="headerlink" title="2. 选中整列"></a>2. 选中整列</h1><p>点击C或者<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>↓</kbd></p><h1 id="3-套用公式"><a href="#3-套用公式" class="headerlink" title="3. 套用公式"></a>3. 套用公式</h1><p><kbd>ctrl</kbd>+<kbd>d</kbd></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>skill</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>230902</title>
+    <link href="/2023/09-02-230902/"/>
+    <url>/2023/09-02-230902/</url>
+    
+    <content type="html"><![CDATA[<p>终于回来了，出去啥也没干，硬呆了一个星期。</p><p>回来发现我的小鱼一只也没死，不错。</p><p>但是我的小虾没看到了，应该是嘎了，还好另外又有两只母虾抱卵了，是不是应该拿出来养着。</p><p>土里有个小可爱安家了。</p><p><img src="/2023/09-02-230902/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230903215227.jpg"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>diary</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>230821-2</title>
+    <link href="/2023/08-21-230821-2/"/>
+    <url>/2023/08-21-230821-2/</url>
+    
+    <content type="html"><![CDATA[<p>虾终于生了</p><p><img src="/2023/08-21-230821-2/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230903214204.jpg"></p><p><img src="/2023/08-21-230821-2/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230903214213.jpg"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>diary</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>230821</title>
     <link href="/2023/08-21-230821/"/>
     <url>/2023/08-21-230821/</url>
@@ -52,7 +166,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -84,7 +198,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -103,7 +217,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -122,7 +236,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -219,7 +333,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -264,7 +378,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
@@ -985,7 +1099,7 @@
     
     <tags>
       
-      <tag>日记</tag>
+      <tag>diary</tag>
       
     </tags>
     
