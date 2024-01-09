@@ -16,33 +16,21 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. Apache下载http:&#x2F;&#x2F;httpd.apache.org&#x2F;download.cgi    2. Apache配置2.1.解压后将里面的apache24文件夹放到自己指定位置 我的路径位置为 D:\software\Apache24  2.2.记事本打开Apache24&#x2F;conf下的httpd.conf。 这两个地方改为自己的文件夹路径，（可以ctrl+f查找一下）  2.3.">
+    <meta name="description" content="使用Windows + R打开运行，执行regedit打开注册表编辑器 计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services  找到后右键删除即可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache搭建本地服务器">
-<meta property="og:url" content="http://example.com/2022/06-12-apache/index.html">
+<meta property="og:title" content="电脑删除服务项">
+<meta property="og:url" content="http://example.com/2024/01-09-service/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="1. Apache下载http:&#x2F;&#x2F;httpd.apache.org&#x2F;download.cgi    2. Apache配置2.1.解压后将里面的apache24文件夹放到自己指定位置 我的路径位置为 D:\software\Apache24  2.2.记事本打开Apache24&#x2F;conf下的httpd.conf。 这两个地方改为自己的文件夹路径，（可以ctrl+f查找一下）  2.3.">
+<meta property="og:description" content="使用Windows + R打开运行，执行regedit打开注册表编辑器 计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services  找到后右键删除即可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/1.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/2.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/3.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/4.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/5.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/6.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/7.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/8.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/9.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/10.png">
-<meta property="og:image" content="http://example.com/2022/06-12-apache/11.png">
-<meta property="article:published_time" content="2022-06-12T05:18:42.000Z">
-<meta property="article:modified_time" content="2024-01-09T11:50:59.302Z">
+<meta property="article:published_time" content="2024-01-09T11:43:19.000Z">
+<meta property="article:modified_time" content="2024-01-09T11:46:15.529Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2022/06-12-apache/1.png">
   
   
   
-  <title>Apache搭建本地服务器 - Sensen</title>
+  <title>电脑删除服务项 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -181,7 +169,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Apache搭建本地服务器"></span>
+            <span id="subtitle" data-typed-text="电脑删除服务项"></span>
           
         </div>
 
@@ -192,8 +180,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-12 13:18" pubdate>
-          2022年6月12日 下午
+        <time datetime="2024-01-09 19:43" pubdate>
+          2024年1月9日 晚上
         </time>
       </span>
     
@@ -204,7 +192,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          98 字
         
       </span>
     
@@ -215,7 +203,7 @@
         
         
         
-          13 分钟
+          1 分钟
         
       </span>
     
@@ -253,89 +241,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Apache搭建本地服务器</h1>
+            <h1 style="display: none">电脑删除服务项</h1>
             
             <div class="markdown-body">
               
-              <h1 id="1-Apache下载"><a href="#1-Apache下载" class="headerlink" title="1. Apache下载"></a>1. Apache下载</h1><p><a target="_blank" rel="noopener" href="http://httpd.apache.org/download.cgi">http://httpd.apache.org/download.cgi</a></p>
-<p><img src="/2022/06-12-apache/1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/2022/06-12-apache/2.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/2022/06-12-apache/3.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="2-Apache配置"><a href="#2-Apache配置" class="headerlink" title="2. Apache配置"></a>2. Apache配置</h1><h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1."></a>2.1.</h2><p>解压后将里面的apache24文件夹放到自己指定位置</p>
-<p>我的路径位置为</p>
-<pre><code class="hljs">D:\software\Apache24
+              <p>使用<kbd>Windows</kbd> + <kbd>R</kbd>打开<strong>运行</strong>，执行<strong>regedit</strong>打开注册表编辑器</p>
+<pre><code class="hljs">计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services
 </code></pre>
-<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2."></a>2.2.</h2><p>记事本打开Apache24&#x2F;conf下的httpd.conf。</p>
-<p>这两个地方改为自己的文件夹路径，（可以ctrl+f查找一下）</p>
-<p><img src="/2022/06-12-apache/4.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3."></a>2.3.</h2><p>在里面找到listen 80</p>
-<p>在cmd下用命令netstat -ano查看</p>
-<p>如果80端口被占用，可以先解除80端口占用，方法在最下面（推荐）</p>
-<p>或者改为其他值，我这边改为了88，保存结果。</p>
-<p><img src="/2022/06-12-apache/5.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/2022/06-12-apache/6.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="2-4"><a href="#2-4" class="headerlink" title="2.4."></a>2.4.</h2><p>同时documentroot中目录为网站根目录，可以自己修改，保存退出。（我这边没有修改）</p>
-<p><img src="/2022/06-12-apache/7.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="3-启动服务"><a href="#3-启动服务" class="headerlink" title="3. 启动服务"></a>3. 启动服务</h1><p><strong>管理员</strong>打开cmd窗口</p>
-<p>cd到bin目录中</p>
-<p>输入命令</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">httpd.exe -k install -n apache<br></code></pre></td></tr></table></figure>
-
-<p>Errors这句话后面如果有错误信息，则表示服务安装失败。</p>
-<p>在安装目录中，找到</p>
-<pre><code class="hljs">D:\software\Apache24\bin\ApacheMonitor.exe
-</code></pre>
-<p>双击运行，桌面右下角会出现图标，双击出现主界面，点击start启动即可。</p>
-<h1 id="4-浏览器测试"><a href="#4-浏览器测试" class="headerlink" title="4. 浏览器测试"></a>4. 浏览器测试</h1><h2 id="4-1"><a href="#4-1" class="headerlink" title="4.1."></a>4.1.</h2><p>在浏览器地址栏中输入</p>
-<pre><code class="hljs">localhost:88        # localhost:端口号
-or
-127.0.0.1:88         # 127.0.0.1:端口号
-</code></pre>
-<p>这两个为特殊的域名和ip地址，都指向本地服务器，浏览器正常显示则表示成功。</p>
-<h2 id="4-2"><a href="#4-2" class="headerlink" title="4.2."></a>4.2.</h2><p>将自己编写的网页放入htdocs内即可。</p>
-<p><img src="/2022/06-12-apache/8.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="4-3"><a href="#4-3" class="headerlink" title="4.3."></a>4.3.</h2><p>局域网内其他电脑访问</p>
-<p>cmd命令中<strong>ipconfig</strong>查询本机ip地址</p>
-<p>局域网中设备访问</p>
-<pre><code class="hljs">192.168.11.195:88     # ip:端口号
-</code></pre>
-<p>如不成功则需关闭电脑防火墙</p>
-<p><strong>控制面板</strong>——<strong>系统和安全</strong>——<strong>WindowsDefender防火墙</strong>——<strong>启用或关闭windows defender防火墙</strong></p>
-<h1 id="5-解除80端口占用"><a href="#5-解除80端口占用" class="headerlink" title="5. 解除80端口占用"></a>5. 解除80端口占用</h1><p>80端口是http的默认端口</p>
-<p>就是说，浏览器正常输入网址时，虽然没有输入端口号，但浏览器请求的是服务器的80端口</p>
-<p>昨天开启apache服务器的时候，发现本地服务器的80端口已经被占用了，所以把apache端口改为88了</p>
-<p>这样的话，访问本地服务器就要在域名后加上”:88”</p>
-<p>关于如何解除80端口占用：</p>
-<hr>
-<p>cmd中</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">netstat -ano<br></code></pre></td></tr></table></figure>
-
-<p>查询占用80端口的进程：</p>
-<p><img src="/2022/06-12-apache/9.png" srcset="/img/loading.gif" lazyload></p>
-<p>我已经改过了，之前80端口后面的PID显示的是4，</p>
-<p>然后cmd</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">tasklist /fi &quot;PID eq <span class="hljs-number">4</span> &quot;<br></code></pre></td></tr></table></figure>
-<p>或者打开任务管理器</p>
-<p>发现PID为4的进程为system</p>
-<p><img src="/2022/06-12-apache/10.png" srcset="/img/loading.gif" lazyload></p>
-<p>win+R在运行中输入</p>
-<pre><code class="hljs">regedit
-</code></pre>
-<p>打开注册表</p>
-<p>找到</p>
-<pre><code class="hljs">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\HTTP
-</code></pre>
-<p>右边双击Start，将数值数据改为0。</p>
-<p><img src="/2022/06-12-apache/11.png" srcset="/img/loading.gif" lazyload></p>
-<p>重启电脑后</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">netstat -ano<br></code></pre></td></tr></table></figure>
-<p>发现80端口没有被占用</p>
-<p>apache中的httpd.conf文件内的端口号就可以改回80</p>
-<p>重启apache服务后，输入localhost即可访问本地服务器</p>
-<h1 id="6-多站点"><a href="#6-多站点" class="headerlink" title="6. 多站点"></a>6. 多站点</h1><h2 id="6-1"><a href="#6-1" class="headerlink" title="6.1."></a>6.1.</h2><p>打开apache下的conf目录，复制一个httpd.conf，重命名一下。我这里命名为newsite。</p>
-<h2 id="6-2"><a href="#6-2" class="headerlink" title="6.2."></a>6.2.</h2><p>打开newsite.conf。找到DocumentRoot和Directory这两行，后面的地址改为网页源码的位置，我这里还是放在了htcos里面。</p>
-<h2 id="6-3"><a href="#6-3" class="headerlink" title="6.3."></a>6.3.</h2><p>管理员打开cmd，cd到bin目录，运行httpd.exe -k install -n “服务名” -f “D:\software\Apache24\conf\newsite.conf”</p>
-<h2 id="6-4"><a href="#6-4" class="headerlink" title="6.4."></a>6.4.</h2><p>打开bin目录下的ApacheMonitor.exe。可以看到界面上多出一个newsite的服务，关闭原来的apache，打开newsite服务即可。</p>
+<p>找到后右键删除即可</p>
 
               
             </div>
@@ -354,18 +267,12 @@ or
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06-12-dolby/" title="电脑开启杜比视界">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">电脑开启杜比视界</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06-12-route/" title="路由器设置介绍">
-                        <span class="hidden-mobile">路由器设置介绍</span>
+                      <a href="/2024/01-08-picbed/" title="图床">
+                        <span class="hidden-mobile">图床</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
