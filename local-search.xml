@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>网页打包为手机APP</title>
+    <link href="/2024/01-16-fusion/"/>
+    <url>/2024/01-16-fusion/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>点击右下角的+号，创建应用</p><p><img src="/2024/01-16-fusion/1.jpg"></p><h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1><p>点击应用，下面的浏览页添加你要转换的网站网址，建议用http协议,如果是https就将s去掉<br>指示器名称随便填，网址填对就行</p><p><img src="/2024/01-16-fusion/2.jpg"></p><h1 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h1><p>建议将应用栏关掉</p><p><img src="/2024/01-16-fusion/3.jpg"></p><h1 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h1><p>右上角的播放键预览</p><h1 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h1><p>点击左上角的菜单，选择清单，点击图标，即可导入app图标<br>然后打包即可<br>所有封装的未经过第三方授权的软件都可能出现报毒的问题，这个时候往往是证书签名的问题，<br>通过mt管理器可对app进行签名修改就能解决报毒  </p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>油焖大虾</title>
     <link href="/2024/01-14-240114-2/"/>
     <url>/2024/01-14-240114-2/</url>
