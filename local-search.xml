@@ -5,19 +5,6 @@
   
   <entry>
     <title>TMS320F28335报错处理</title>
-    <link href="/2024/01-17-28335/"/>
-    <url>/2024/01-17-28335/</url>
-    
-    <content type="html"><![CDATA[<h1 id="1-编译报错"><a href="#1-编译报错" class="headerlink" title="1. 编译报错"></a>1. 编译报错</h1><h2 id="1-1-program-will-not-fit-into-available-memory"><a href="#1-1-program-will-not-fit-into-available-memory" class="headerlink" title="1.1. program will not fit into available memory"></a>1.1. program will not fit into available memory</h2><p>双击定位到cmd文件中的.cinit</p><p><img src="/2024/01-17-28335/1.png"></p><p>.cinit是用来存储一些全局变量的初始化值，应该是空间不够了</p><p>解决办法就是增加空间</p><p><img src="/2024/01-17-28335/2.png"></p><h1 id="2-debug报错"><a href="#2-debug报错" class="headerlink" title="2. debug报错"></a>2. debug报错</h1>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>TMS320F28335报错处理</title>
     <link href="/2024/01-17-28335error/"/>
     <url>/2024/01-17-28335error/</url>
     
@@ -124,7 +111,7 @@
     <link href="/2024/01-08-picbed/"/>
     <url>/2024/01-08-picbed/</url>
     
-    <content type="html"><![CDATA[<p><img src="/2024/01-08-picbed/%E4%B8%8A%E4%B8%80%E9%83%A8.png"></p><p><img src="/2024/01-08-picbed/%E4%B8%8B%E4%B8%80%E9%83%A8.png"></p><p><img src="/2024/01-08-picbed/%E5%85%A8%E5%B1%8F.png"></p><p><img src="/2024/01-08-picbed/%E5%85%B3%E6%9C%BA.png"></p><p><img src="/2024/01-08-picbed/%E5%89%8D%E8%BF%9B.png"></p><p><img src="/2024/01-08-picbed/%E5%90%8E%E9%80%80.png"></p><p><img src="/2024/01-08-picbed/%E5%A3%B0%E9%9F%B3%E9%9D%99%E9%9F%B3.png"></p><p><img src="/2024/01-08-picbed/%E5%BF%AB%E8%BF%9B.png"></p><p><img src="/2024/01-08-picbed/%E6%89%93%E5%BC%80.png"></p><p><img src="/2024/01-08-picbed/%E6%9A%82%E5%81%9C.png"></p><p><img src="/2024/01-08-picbed/%E6%A8%AA%E5%B1%8F.png"></p><p><img src="/2024/01-08-picbed/%E9%9F%B3%E9%87%8F%E5%87%8F.png"></p><p><img src="/2024/01-08-picbed/%E9%9F%B3%E9%87%8F%E5%8A%A0.png"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/2024/01-08-picbed/%E4%B8%8A%E4%B8%80%E9%83%A8.png"></p><p><img src="/2024/01-08-picbed/%E4%B8%8B%E4%B8%80%E9%83%A8.png"></p><p><img src="/2024/01-08-picbed/%E5%85%A8%E5%B1%8F.png"></p><p><img src="/2024/01-08-picbed/%E5%85%B3%E6%9C%BA.png"></p><p><img src="/2024/01-08-picbed/%E5%89%8D%E8%BF%9B.png"></p><p><img src="/2024/01-08-picbed/%E5%90%8E%E9%80%80.png"></p><p><img src="/2024/01-08-picbed/%E5%A3%B0%E9%9F%B3%E9%9D%99%E9%9F%B3.png"></p><p><img src="/2024/01-08-picbed/%E5%BF%AB%E8%BF%9B.png"></p><p><img src="/2024/01-08-picbed/%E6%89%93%E5%BC%80.png"></p><p><img src="/2024/01-08-picbed/%E6%9A%82%E5%81%9C.png"></p><p><img src="/2024/01-08-picbed/%E6%A8%AA%E5%B1%8F.png"></p><p><img src="/2024/01-08-picbed/%E9%9F%B3%E9%87%8F%E5%87%8F.png"></p><p><img src="/2024/01-08-picbed/%E9%9F%B3%E9%87%8F%E5%8A%A0.png"></p><p><img src="/2024/01-08-picbed/%E5%B1%8F%E5%B9%95%E8%BD%AC%E6%8D%A2.png"></p>]]></content>
     
     
     
