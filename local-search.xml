@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Arinc429在28335和5554上区别</title>
+    <link href="/2024/03-14-arinc429/"/>
+    <url>/2024/03-14-arinc429/</url>
+    
+    <content type="html"><![CDATA[<h1 id="28335"><a href="#28335" class="headerlink" title="28335"></a>28335</h1><h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT&#123;    Uint16 label:8;     //Label标号    Uint16 sdi:2;       //SDI    Uint32 data:19;     //数据    Uint16 ssm:2;       //Label标号    Uint16 parity:1;    //校验位&#125;;</code></pre><h2 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10101110;aric429data.bit.sdi = 0x10 &amp; 0b11;aric429data.bit.data = 0b1110011010010010010 &amp; 0x7FFFF;aric429data.bit.ssm = 0x01 &amp; 0b11;</code></pre><p>U32:0b X 01 1110011010010010010 10 10101110</p><h2 id="示波器"><a href="#示波器" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_28335.jpg"></p><p>示波器读数：0b 10101110 01 0100100100101100111 10 1</p><h1 id="5554"><a href="#5554" class="headerlink" title="5554"></a>5554</h1><h2 id="结构体定义-1"><a href="#结构体定义-1" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT&#123;    Uint16 parity:1;    //校验位    Uint16 ssm:2;       //Label标号    Uint32 data:19;     //数据    Uint16 sdi:2;       //SDI       Uint16 label:8;     //Label标号&#125;;</code></pre><h2 id="发送数据-1"><a href="#发送数据-1" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10011110;aric429data.bit.sdi = 0x01 &amp; 0b11;aric429data.bit.data = 0b1001110010111011010 &amp; 0x7FFFF;aric429data.bit.ssm = 0x2 &amp; 0b11;U32:0b X 10 1001110010111011010 01 10011110</code></pre><h2 id="示波器-1"><a href="#示波器-1" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_5554.jpg"></p><p>示波器读数：10011110 10 0101101110100111001 01 1</p><h2 id="ZHHK429"><a href="#ZHHK429" class="headerlink" title="ZHHK429"></a>ZHHK429</h2><p>读数：d3976979</p><p>U32: 0b 1 10 1001110010111011010 01 01111001</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>28335和5554在结构体组合上顺序不一致，所以结构体定义需要反转顺序。</p><table><thead><tr><th>表头</th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>发送数据</td><td>parity</td><td>ssm</td><td>data</td><td>sdi</td><td>label</td></tr><tr><td></td><td></td><td>H-&gt;L</td><td>H-&gt;L</td><td>H-&gt;L</td><td>H-&gt;L</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>总线数据</td><td>label</td><td>sdi</td><td>data</td><td>ssm</td><td>parity</td></tr><tr><td></td><td>H-&gt;L</td><td>L&lt;-H</td><td>L&lt;-H</td><td>L&lt;-H</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>ZHHK429读数</td><td>parity</td><td>ssm</td><td>data</td><td>sdi</td><td>label</td></tr><tr><td></td><td></td><td>H-&gt;L</td><td>H-&gt;L</td><td>H-&gt;L</td><td>L&lt;-H</td></tr></tbody></table>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>BitLocker恢复密钥</title>
     <link href="/2024/03-14-240314-1/"/>
     <url>/2024/03-14-240314-1/</url>
