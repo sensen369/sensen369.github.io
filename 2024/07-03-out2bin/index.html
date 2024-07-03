@@ -16,24 +16,21 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+    <meta name="description" content="其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件 1. hex2000在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arinc429在28335和5554上区别">
-<meta property="og:url" content="http://example.com/2024/03-14-arinc429/index.html">
+<meta property="og:title" content="Out文件转Bin文件">
+<meta property="og:url" content="http://example.com/2024/07-03-out2bin/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+<meta property="og:description" content="其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件 1. hex2000在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_5554.jpg">
-<meta property="article:published_time" content="2024-03-14T13:21:42.000Z">
-<meta property="article:modified_time" content="2024-03-14T13:24:58.720Z">
+<meta property="article:published_time" content="2024-07-03T15:02:22.000Z">
+<meta property="article:modified_time" content="2024-07-03T15:04:21.800Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
   
   
   
-  <title>Arinc429在28335和5554上区别 - Sensen</title>
+  <title>Out文件转Bin文件 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -172,7 +169,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Arinc429在28335和5554上区别"></span>
+            <span id="subtitle" data-typed-text="Out文件转Bin文件"></span>
           
         </div>
 
@@ -183,8 +180,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-14 21:21" pubdate>
-          2024年3月14日 晚上
+        <time datetime="2024-07-03 23:02" pubdate>
+          2024年7月3日 晚上
         </time>
       </span>
     
@@ -244,125 +241,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Arinc429在28335和5554上区别</h1>
+            <h1 style="display: none">Out文件转Bin文件</h1>
             
             <div class="markdown-body">
               
-              <h1 id="28335"><a href="#28335" class="headerlink" title="28335"></a>28335</h1><h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
+              <p>其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件</p>
+<h1 id="1-hex2000"><a href="#1-hex2000" class="headerlink" title="1. hex2000"></a>1. hex2000</h1><p>在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得不方便了。<br>此时，我们就可以采用TI公司提供另一种程序升级方式，通过通讯发送转换过的程序数据，之后DSP接收数据并且DSP中原有程序调用相关库函数把程序数据烧写到DSP中。这里我们主要描述如何使用hex2000把CCS编译得到的out、map文件进行转换得到可以烧写的数据。<br>首先， 编写build.cmd文件，代码如下， 这个文件包含了转换文件的格式。 “outFileName”为out文件的文件名， “mapFileName”为map文件的文件名，”outputFile.hex”为输出文件；org：程序数据存储空间起始地址，该地址在编写cmd文件时已经确定；len：程序数据长度，可根据生成的map文件计算得出。</p>
+<p>1</p>
+<pre><code class="hljs">outFileName.out
+-image 
+-memwidth 16
+-map mapFileName.map
+-o outputFile.hex
+-m
+ROMS 
 &#123;
-    Uint16 label:8;     //Label标号
-    Uint16 sdi:2;       //SDI
-    Uint32 data:19;     //数据
-    Uint16 ssm:2;       //Label标号
-    Uint16 parity:1;    //校验位
-&#125;;
+TEXT: org = 0x3EC000, len = 0x008000, romwidth = 16, fill = 0xFFFF
+&#125;
 </code></pre>
-<h2 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10101110;
-aric429data.bit.sdi = 0x10 &amp; 0b11;
-aric429data.bit.data = 0b1110011010010010010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x01 &amp; 0b11;
+<p>2</p>
+<pre><code class="hljs">hex2000 -romwidth 16 -memwidth 16 -i -o 2.hex 2.out
 </code></pre>
-<p>U32:0b X 01 1110011010010010010 10 10101110</p>
-<h2 id="示波器"><a href="#示波器" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_28335.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：0b 10101110 01 0100100100101100111 10 1</p>
-<h1 id="5554"><a href="#5554" class="headerlink" title="5554"></a>5554</h1><h2 id="结构体定义-1"><a href="#结构体定义-1" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
-&#123;
-    Uint16 parity:1;    //校验位
-    Uint16 ssm:2;       //Label标号
-    Uint32 data:19;     //数据
-    Uint16 sdi:2;       //SDI   
-    Uint16 label:8;     //Label标号
-&#125;;
+<h1 id="2-Out文件转换为Bin文件"><a href="#2-Out文件转换为Bin文件" class="headerlink" title="2. Out文件转换为Bin文件"></a>2. Out文件转换为Bin文件</h1><p>需要用到CCS自带的四个工具，在目录下</p>
+<pre><code class="hljs">&quot;C:\ti\ccsv5\utils\tiobj2bin\mkhex4bin.exe&quot;
+&quot;C:\ti\ccsv5\utils\tiobj2bin\tiobj2bin.bat&quot;
+&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\hex2000.exe&quot;
+&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\ofd2000.exe&quot;
 </code></pre>
-<h2 id="发送数据-1"><a href="#发送数据-1" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10011110;
-aric429data.bit.sdi = 0x01 &amp; 0b11;
-aric429data.bit.data = 0b1001110010111011010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x2 &amp; 0b11;
-
-U32:0b X 10 1001110010111011010 01 10011110
-</code></pre>
-<h2 id="示波器-1"><a href="#示波器-1" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_5554.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：10011110 10 0101101110100111001 01 1</p>
-<h2 id="ZHHK429"><a href="#ZHHK429" class="headerlink" title="ZHHK429"></a>ZHHK429</h2><p>读数：d3976979</p>
-<p>U32: 0b 1 10 1001110010111011010 01 01111001</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>28335和5554在结构体组合上顺序不一致，所以结构体定义需要反转顺序。</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>发送数据</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>总线数据</td>
-<td>label</td>
-<td>sdi</td>
-<td>data</td>
-<td>ssm</td>
-<td>parity</td>
-</tr>
-<tr>
-<td></td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ZHHK429读数</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-</tr>
-</tbody></table>
-
+<p>使用命令行即可生成Bin文件</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">tiobj2bin test.out test.bin ofd2000 hex2000 mkhex4bin<br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
@@ -380,18 +287,12 @@ U32:0b X 10 1001110010111011010 01 10011110
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07-03-vscode-C/" title="VSCode运行C语言代码">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VSCode运行C语言代码</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03-14-240314-1/" title="BitLocker恢复密钥">
-                        <span class="hidden-mobile">BitLocker恢复密钥</span>
+                      <a href="/2024/07-03-bootloader/" title="TMS320F28335软件升级">
+                        <span class="hidden-mobile">TMS320F28335软件升级</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -4,6 +4,45 @@
   
   
   <entry>
+    <title>Out文件转Bin文件</title>
+    <link href="/2024/07-03-out2bin/"/>
+    <url>/2024/07-03-out2bin/</url>
+    
+    <content type="html"><![CDATA[<p>其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件</p><h1 id="1-hex2000"><a href="#1-hex2000" class="headerlink" title="1. hex2000"></a>1. hex2000</h1><p>在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得不方便了。<br>此时，我们就可以采用TI公司提供另一种程序升级方式，通过通讯发送转换过的程序数据，之后DSP接收数据并且DSP中原有程序调用相关库函数把程序数据烧写到DSP中。这里我们主要描述如何使用hex2000把CCS编译得到的out、map文件进行转换得到可以烧写的数据。<br>首先， 编写build.cmd文件，代码如下， 这个文件包含了转换文件的格式。 “outFileName”为out文件的文件名， “mapFileName”为map文件的文件名，”outputFile.hex”为输出文件；org：程序数据存储空间起始地址，该地址在编写cmd文件时已经确定；len：程序数据长度，可根据生成的map文件计算得出。</p><p>1</p><pre><code class="hljs">outFileName.out-image -memwidth 16-map mapFileName.map-o outputFile.hex-mROMS &#123;TEXT: org = 0x3EC000, len = 0x008000, romwidth = 16, fill = 0xFFFF&#125;</code></pre><p>2</p><pre><code class="hljs">hex2000 -romwidth 16 -memwidth 16 -i -o 2.hex 2.out</code></pre><h1 id="2-Out文件转换为Bin文件"><a href="#2-Out文件转换为Bin文件" class="headerlink" title="2. Out文件转换为Bin文件"></a>2. Out文件转换为Bin文件</h1><p>需要用到CCS自带的四个工具，在目录下</p><pre><code class="hljs">&quot;C:\ti\ccsv5\utils\tiobj2bin\mkhex4bin.exe&quot;&quot;C:\ti\ccsv5\utils\tiobj2bin\tiobj2bin.bat&quot;&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\hex2000.exe&quot;&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\ofd2000.exe&quot;</code></pre><p>使用命令行即可生成Bin文件</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">tiobj2bin test.out test.bin ofd2000 hex2000 mkhex4bin<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TMS320F28335软件升级</title>
+    <link href="/2024/07-03-bootloader/"/>
+    <url>/2024/07-03-bootloader/</url>
+    
+    <content type="html"><![CDATA[<p>TMS320F28335将应用程序固化到片上Flash主要有三种方式[5]：在电路编程（In Circuit Programing，ICP）、在系统编程（In System Programing，ISP）和在应用编程（In Application Programing，IAP）。其中，ICP固化主要通过TMS320F28335的JTAG接口连接仿真器，并配合使用TI提供的CCS集成开发环境实现；ISP固化主要通过配置TMS320F28335的GPIO管脚高低电平来改变启动模式，并利用出厂固化的Bootloader程序实现；IAP固化通过定制的Bootloader程序实现。</p><ol><li><p>第一种设计方法<br>BOOT运行时，检测一个I&#x2F;O口，如果I&#x2F;O口符合要求，则跳转到升级代码部分，执行升级功能；否则跳转到APP区域运行应用程序。这种方法，需要人为的去设置I&#x2F;O口，最为常见的应该就是设置跳冒。这种方法其实无异于ISP，使用IAP设计就是画蛇添足，除非官方没有提供ISP方法，仅能使用ST-LINK或JLINK；</p></li><li><p>第二种设计方法<br>BOOT运行时，定时几秒等待用户升级，如果在等待时间内接收到了用户的升级命令，则执行升级功能；否则跳转到APP区域运行应用程序。这种方法比起第一种方法应该会有所改进。但是还是有一个问题，我们的设备大多不会执行软件升级，那为什么每次运行时都要等上几秒呢；</p></li><li><p>第三种设计方法<br>设计一个升级运行标志，其被存储在升级参数中，BOOT运行时，仅需要检查以上标志。在检查到除运行APP正常标志以外的，均需要执行BOOT后面的工作。</p></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VSCode运行C语言代码</title>
+    <link href="/2024/07-03-vscode-C/"/>
+    <url>/2024/07-03-vscode-C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1. 环境配置"></a>1. 环境配置</h1><h2 id="1-1-安装插件"><a href="#1-1-安装插件" class="headerlink" title="1.1. 安装插件"></a>1.1. 安装插件</h2><p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-12-09.png"></p><h2 id="1-2-下载gcc"><a href="#1-2-下载gcc" class="headerlink" title="1.2. 下载gcc"></a>1.2. 下载gcc</h2><p>下载网址<br>    <a href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p><p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-14-47.png"></p><h2 id="1-3-环境变量"><a href="#1-3-环境变量" class="headerlink" title="1.3. 环境变量"></a>1.3. 环境变量</h2><p>将gcc&#x2F;bin目录加入环境变量</p><pre><code class="hljs">C:\Software\mingw64\bin</code></pre><p>验证：</p><p><kbd>win</kbd> + <kbd>r</kbd> cmd 运行</p><p>输入</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">gcc -v</span><br></code></pre></td></tr></table></figure><p>出现版本信息则成功</p><h1 id="2-使用Makefile-tools调试C多文件"><a href="#2-使用Makefile-tools调试C多文件" class="headerlink" title="2. 使用Makefile tools调试C多文件"></a>2. 使用Makefile tools调试C多文件</h1><h2 id="2-1-安装Makefile-Tools插件"><a href="#2-1-安装Makefile-Tools插件" class="headerlink" title="2.1. 安装Makefile Tools插件"></a>2.1. 安装Makefile Tools插件</h2><h2 id="2-2-复制文件"><a href="#2-2-复制文件" class="headerlink" title="2.2. 复制文件"></a>2.2. 复制文件</h2><p>在mingw64\bin文件夹下，找到mingw32-make.exe文件，复制一份重命名为make.exe。</p><h2 id="2-3-创建Makefile文件"><a href="#2-3-创建Makefile文件" class="headerlink" title="2.3. 创建Makefile文件"></a>2.3. 创建Makefile文件</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs makefile">CC = gcc<span class="hljs-comment">#编译器</span><br><br>TARGET = main<span class="hljs-comment">#执行文件</span><br><br>SRCS = <span class="hljs-variable">$(<span class="hljs-built_in">wildcard</span> *.c func/*.c)</span><span class="hljs-comment">#所有源文件,需把所以文件夹列出</span><br><br>OBJS = $(SRCS:.c=.o)<span class="hljs-comment">#目标文件, 由.c更换为.o</span><br><br><span class="hljs-section">all: <span class="hljs-variable">$(TARGET)</span>#目标all, 依赖main</span><br><br><span class="hljs-variable">$(TARGET)</span>: <span class="hljs-variable">$(OBJS)</span><span class="hljs-comment">#main依赖.o文件</span><br><span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(OBJS)</span> -o <span class="hljs-variable">$(TARGET)</span><br><br><span class="hljs-section">%.o: %.c#将所有的.c文件编译为.o文件</span><br><span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(CFLAGS)</span> -c <span class="hljs-variable">$&lt;</span> -o <span class="hljs-variable">$@</span><br><br><span class="hljs-section">clean:</span><br>rm -f <span class="hljs-variable">$(OBJS)</span> <span class="hljs-variable">$(TARGET)</span><br><br></code></pre></td></tr></table></figure><p>文件目录结构</p><p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-07-46.png"></p><h2 id="2-4-配置运行Makefile"><a href="#2-4-配置运行Makefile" class="headerlink" title="2.4. 配置运行Makefile"></a>2.4. 配置运行Makefile</h2><p>需在Makefile页面调试运行，不能直接F5运行。</p><p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_11-18-16.png"></p><h2 id="2-5-Attention"><a href="#2-5-Attention" class="headerlink" title="2.5. Attention"></a>2.5. Attention</h2><p>头文件相互引用需相对路径</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Arinc429在28335和5554上区别</title>
     <link href="/2024/03-14-arinc429/"/>
     <url>/2024/03-14-arinc429/</url>
@@ -101,7 +140,7 @@
   
   
   <entry>
-    <title>28335入门</title>
+    <title>28335外设</title>
     <link href="/2024/02-01-28335/"/>
     <url>/2024/02-01-28335/</url>
     

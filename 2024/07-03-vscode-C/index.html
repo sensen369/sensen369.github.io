@@ -16,24 +16,26 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+    <meta name="description" content="1. 环境配置1.1. 安装插件 1.2. 下载gcc下载网址    https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;mingw-w64&#x2F;files&#x2F;  1.3. 环境变量将gcc&#x2F;bin目录加入环境变量 C:\Software\mingw64\bin  验证： win + r cmd 运行 输入 1gcc -v 出现版本信息则成功 2. 使用Makefile tool">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arinc429在28335和5554上区别">
-<meta property="og:url" content="http://example.com/2024/03-14-arinc429/index.html">
+<meta property="og:title" content="VSCode运行C语言代码">
+<meta property="og:url" content="http://example.com/2024/07-03-vscode-C/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+<meta property="og:description" content="1. 环境配置1.1. 安装插件 1.2. 下载gcc下载网址    https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;mingw-w64&#x2F;files&#x2F;  1.3. 环境变量将gcc&#x2F;bin目录加入环境变量 C:\Software\mingw64\bin  验证： win + r cmd 运行 输入 1gcc -v 出现版本信息则成功 2. 使用Makefile tool">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_5554.jpg">
-<meta property="article:published_time" content="2024-03-14T13:21:42.000Z">
-<meta property="article:modified_time" content="2024-03-14T13:24:58.720Z">
+<meta property="og:image" content="http://example.com/2024/07-03-vscode-C/Snipaste_2024-06-29_14-12-09.png">
+<meta property="og:image" content="http://example.com/2024/07-03-vscode-C/Snipaste_2024-06-29_14-14-47.png">
+<meta property="og:image" content="http://example.com/2024/07-03-vscode-C/Snipaste_2024-06-29_14-07-46.png">
+<meta property="og:image" content="http://example.com/2024/07-03-vscode-C/Snipaste_2024-06-29_11-18-16.png">
+<meta property="article:published_time" content="2024-07-03T14:31:17.000Z">
+<meta property="article:modified_time" content="2024-07-03T14:40:32.566Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
+<meta name="twitter:image" content="http://example.com/2024/07-03-vscode-C/Snipaste_2024-06-29_14-12-09.png">
   
   
   
-  <title>Arinc429在28335和5554上区别 - Sensen</title>
+  <title>VSCode运行C语言代码 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -172,7 +174,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Arinc429在28335和5554上区别"></span>
+            <span id="subtitle" data-typed-text="VSCode运行C语言代码"></span>
           
         </div>
 
@@ -183,8 +185,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-14 21:21" pubdate>
-          2024年3月14日 晚上
+        <time datetime="2024-07-03 22:31" pubdate>
+          2024年7月3日 晚上
         </time>
       </span>
     
@@ -195,7 +197,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          635 字
         
       </span>
     
@@ -206,7 +208,7 @@
         
         
         
-          9 分钟
+          6 分钟
         
       </span>
     
@@ -244,124 +246,29 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Arinc429在28335和5554上区别</h1>
+            <h1 style="display: none">VSCode运行C语言代码</h1>
             
             <div class="markdown-body">
               
-              <h1 id="28335"><a href="#28335" class="headerlink" title="28335"></a>28335</h1><h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
-&#123;
-    Uint16 label:8;     //Label标号
-    Uint16 sdi:2;       //SDI
-    Uint32 data:19;     //数据
-    Uint16 ssm:2;       //Label标号
-    Uint16 parity:1;    //校验位
-&#125;;
+              <h1 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1. 环境配置"></a>1. 环境配置</h1><h2 id="1-1-安装插件"><a href="#1-1-安装插件" class="headerlink" title="1.1. 安装插件"></a>1.1. 安装插件</h2><p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-12-09.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-2-下载gcc"><a href="#1-2-下载gcc" class="headerlink" title="1.2. 下载gcc"></a>1.2. 下载gcc</h2><p>下载网址<br>    <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p>
+<p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-14-47.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-3-环境变量"><a href="#1-3-环境变量" class="headerlink" title="1.3. 环境变量"></a>1.3. 环境变量</h2><p>将gcc&#x2F;bin目录加入环境变量</p>
+<pre><code class="hljs">C:\Software\mingw64\bin
 </code></pre>
-<h2 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10101110;
-aric429data.bit.sdi = 0x10 &amp; 0b11;
-aric429data.bit.data = 0b1110011010010010010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x01 &amp; 0b11;
-</code></pre>
-<p>U32:0b X 01 1110011010010010010 10 10101110</p>
-<h2 id="示波器"><a href="#示波器" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_28335.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：0b 10101110 01 0100100100101100111 10 1</p>
-<h1 id="5554"><a href="#5554" class="headerlink" title="5554"></a>5554</h1><h2 id="结构体定义-1"><a href="#结构体定义-1" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
-&#123;
-    Uint16 parity:1;    //校验位
-    Uint16 ssm:2;       //Label标号
-    Uint32 data:19;     //数据
-    Uint16 sdi:2;       //SDI   
-    Uint16 label:8;     //Label标号
-&#125;;
-</code></pre>
-<h2 id="发送数据-1"><a href="#发送数据-1" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10011110;
-aric429data.bit.sdi = 0x01 &amp; 0b11;
-aric429data.bit.data = 0b1001110010111011010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x2 &amp; 0b11;
+<p>验证：</p>
+<p><kbd>win</kbd> + <kbd>r</kbd> cmd 运行</p>
+<p>输入</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">gcc -v</span><br></code></pre></td></tr></table></figure>
+<p>出现版本信息则成功</p>
+<h1 id="2-使用Makefile-tools调试C多文件"><a href="#2-使用Makefile-tools调试C多文件" class="headerlink" title="2. 使用Makefile tools调试C多文件"></a>2. 使用Makefile tools调试C多文件</h1><h2 id="2-1-安装Makefile-Tools插件"><a href="#2-1-安装Makefile-Tools插件" class="headerlink" title="2.1. 安装Makefile Tools插件"></a>2.1. 安装Makefile Tools插件</h2><h2 id="2-2-复制文件"><a href="#2-2-复制文件" class="headerlink" title="2.2. 复制文件"></a>2.2. 复制文件</h2><p>在mingw64\bin文件夹下，找到mingw32-make.exe文件，复制一份重命名为make.exe。</p>
+<h2 id="2-3-创建Makefile文件"><a href="#2-3-创建Makefile文件" class="headerlink" title="2.3. 创建Makefile文件"></a>2.3. 创建Makefile文件</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs makefile">CC = gcc	<span class="hljs-comment">#编译器</span><br><br>TARGET = main	<span class="hljs-comment">#执行文件</span><br><br>SRCS = <span class="hljs-variable">$(<span class="hljs-built_in">wildcard</span> *.c func/*.c)</span>	<span class="hljs-comment">#所有源文件,需把所以文件夹列出</span><br><br>OBJS = $(SRCS:.c=.o)	<span class="hljs-comment">#目标文件, 由.c更换为.o</span><br><br><span class="hljs-section">all: <span class="hljs-variable">$(TARGET)</span>	#目标all, 依赖main</span><br><br><span class="hljs-variable">$(TARGET)</span>: <span class="hljs-variable">$(OBJS)</span>	<span class="hljs-comment">#main依赖.o文件</span><br>	<span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(OBJS)</span> -o <span class="hljs-variable">$(TARGET)</span><br><br><span class="hljs-section">%.o: %.c	#将所有的.c文件编译为.o文件</span><br>	<span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(CFLAGS)</span> -c <span class="hljs-variable">$&lt;</span> -o <span class="hljs-variable">$@</span><br><br><span class="hljs-section">clean:</span><br>	rm -f <span class="hljs-variable">$(OBJS)</span> <span class="hljs-variable">$(TARGET)</span><br><br></code></pre></td></tr></table></figure>
 
-U32:0b X 10 1001110010111011010 01 10011110
-</code></pre>
-<h2 id="示波器-1"><a href="#示波器-1" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_5554.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：10011110 10 0101101110100111001 01 1</p>
-<h2 id="ZHHK429"><a href="#ZHHK429" class="headerlink" title="ZHHK429"></a>ZHHK429</h2><p>读数：d3976979</p>
-<p>U32: 0b 1 10 1001110010111011010 01 01111001</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>28335和5554在结构体组合上顺序不一致，所以结构体定义需要反转顺序。</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>发送数据</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>总线数据</td>
-<td>label</td>
-<td>sdi</td>
-<td>data</td>
-<td>ssm</td>
-<td>parity</td>
-</tr>
-<tr>
-<td></td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ZHHK429读数</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-</tr>
-</tbody></table>
+<p>文件目录结构</p>
+<p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_14-07-46.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-4-配置运行Makefile"><a href="#2-4-配置运行Makefile" class="headerlink" title="2.4. 配置运行Makefile"></a>2.4. 配置运行Makefile</h2><p>需在Makefile页面调试运行，不能直接F5运行。</p>
+<p><img src="/2024/07-03-vscode-C/Snipaste_2024-06-29_11-18-16.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-5-Attention"><a href="#2-5-Attention" class="headerlink" title="2.5. Attention"></a>2.5. Attention</h2><p>头文件相互引用需相对路径</p>
 
               
             </div>
@@ -380,9 +287,9 @@ U32:0b X 10 1001110010111011010 01 10011110
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07-03-vscode-C/" title="VSCode运行C语言代码">
+                      <a href="/2024/07-03-bootloader/" title="TMS320F28335软件升级">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VSCode运行C语言代码</span>
+                        <span class="hidden-mobile">TMS320F28335软件升级</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -390,8 +297,8 @@ U32:0b X 10 1001110010111011010 01 10011110
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03-14-240314-1/" title="BitLocker恢复密钥">
-                        <span class="hidden-mobile">BitLocker恢复密钥</span>
+                      <a href="/2024/03-14-arinc429/" title="Arinc429在28335和5554上区别">
+                        <span class="hidden-mobile">Arinc429在28335和5554上区别</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

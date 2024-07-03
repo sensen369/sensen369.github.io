@@ -16,24 +16,21 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+    <meta name="description" content="TMS320F28335将应用程序固化到片上Flash主要有三种方式[5]：在电路编程（In Circuit Programing，ICP）、在系统编程（In System Programing，ISP）和在应用编程（In Application Programing，IAP）。其中，ICP固化主要通过TMS320F28335的JTAG接口连接仿真器，并配合使用TI提供的CCS集成开发环境实现；I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arinc429在28335和5554上区别">
-<meta property="og:url" content="http://example.com/2024/03-14-arinc429/index.html">
+<meta property="og:title" content="TMS320F28335软件升级">
+<meta property="og:url" content="http://example.com/2024/07-03-bootloader/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="28335结构体定义struct ARINC429BIT &amp;#123;     Uint16 label:8;     &#x2F;&#x2F;Label标号     Uint16 sdi:2;       &#x2F;&#x2F;SDI     Uint32 data:19;     &#x2F;&#x2F;数据     Uint16 ssm:2;       &#x2F;&#x2F;Label标号     Uint16 parity:1;    &#x2F;&#x2F;校验位 &amp;#125;;">
+<meta property="og:description" content="TMS320F28335将应用程序固化到片上Flash主要有三种方式[5]：在电路编程（In Circuit Programing，ICP）、在系统编程（In System Programing，ISP）和在应用编程（In Application Programing，IAP）。其中，ICP固化主要通过TMS320F28335的JTAG接口连接仿真器，并配合使用TI提供的CCS集成开发环境实现；I">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
-<meta property="og:image" content="http://example.com/2024/03-14-arinc429/arinc429_5554.jpg">
-<meta property="article:published_time" content="2024-03-14T13:21:42.000Z">
-<meta property="article:modified_time" content="2024-03-14T13:24:58.720Z">
+<meta property="article:published_time" content="2024-07-03T15:00:39.000Z">
+<meta property="article:modified_time" content="2024-07-03T15:03:10.988Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/03-14-arinc429/arinc429_28335.jpg">
   
   
   
-  <title>Arinc429在28335和5554上区别 - Sensen</title>
+  <title>TMS320F28335软件升级 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -172,7 +169,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Arinc429在28335和5554上区别"></span>
+            <span id="subtitle" data-typed-text="TMS320F28335软件升级"></span>
           
         </div>
 
@@ -183,8 +180,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-14 21:21" pubdate>
-          2024年3月14日 晚上
+        <time datetime="2024-07-03 23:00" pubdate>
+          2024年7月3日 晚上
         </time>
       </span>
     
@@ -195,7 +192,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          672 字
         
       </span>
     
@@ -206,7 +203,7 @@
         
         
         
-          9 分钟
+          6 分钟
         
       </span>
     
@@ -244,124 +241,19 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Arinc429在28335和5554上区别</h1>
+            <h1 style="display: none">TMS320F28335软件升级</h1>
             
             <div class="markdown-body">
               
-              <h1 id="28335"><a href="#28335" class="headerlink" title="28335"></a>28335</h1><h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
-&#123;
-    Uint16 label:8;     //Label标号
-    Uint16 sdi:2;       //SDI
-    Uint32 data:19;     //数据
-    Uint16 ssm:2;       //Label标号
-    Uint16 parity:1;    //校验位
-&#125;;
-</code></pre>
-<h2 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10101110;
-aric429data.bit.sdi = 0x10 &amp; 0b11;
-aric429data.bit.data = 0b1110011010010010010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x01 &amp; 0b11;
-</code></pre>
-<p>U32:0b X 01 1110011010010010010 10 10101110</p>
-<h2 id="示波器"><a href="#示波器" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_28335.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：0b 10101110 01 0100100100101100111 10 1</p>
-<h1 id="5554"><a href="#5554" class="headerlink" title="5554"></a>5554</h1><h2 id="结构体定义-1"><a href="#结构体定义-1" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="hljs">struct ARINC429BIT
-&#123;
-    Uint16 parity:1;    //校验位
-    Uint16 ssm:2;       //Label标号
-    Uint32 data:19;     //数据
-    Uint16 sdi:2;       //SDI   
-    Uint16 label:8;     //Label标号
-&#125;;
-</code></pre>
-<h2 id="发送数据-1"><a href="#发送数据-1" class="headerlink" title="发送数据"></a>发送数据</h2><pre><code class="hljs">aric429data.bit.label = 0b10011110;
-aric429data.bit.sdi = 0x01 &amp; 0b11;
-aric429data.bit.data = 0b1001110010111011010 &amp; 0x7FFFF;
-aric429data.bit.ssm = 0x2 &amp; 0b11;
-
-U32:0b X 10 1001110010111011010 01 10011110
-</code></pre>
-<h2 id="示波器-1"><a href="#示波器-1" class="headerlink" title="示波器"></a>示波器</h2><p><img src="/2024/03-14-arinc429/arinc429_5554.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>示波器读数：10011110 10 0101101110100111001 01 1</p>
-<h2 id="ZHHK429"><a href="#ZHHK429" class="headerlink" title="ZHHK429"></a>ZHHK429</h2><p>读数：d3976979</p>
-<p>U32: 0b 1 10 1001110010111011010 01 01111001</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>28335和5554在结构体组合上顺序不一致，所以结构体定义需要反转顺序。</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>发送数据</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>总线数据</td>
-<td>label</td>
-<td>sdi</td>
-<td>data</td>
-<td>ssm</td>
-<td>parity</td>
-</tr>
-<tr>
-<td></td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td>L&lt;-H</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ZHHK429读数</td>
-<td>parity</td>
-<td>ssm</td>
-<td>data</td>
-<td>sdi</td>
-<td>label</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>H-&gt;L</td>
-<td>L&lt;-H</td>
-</tr>
-</tbody></table>
+              <p>TMS320F28335将应用程序固化到片上Flash主要有三种方式[5]：在电路编程（In Circuit Programing，ICP）、在系统编程（In System Programing，ISP）和在应用编程（In Application Programing，IAP）。其中，ICP固化主要通过TMS320F28335的JTAG接口连接仿真器，并配合使用TI提供的CCS集成开发环境实现；ISP固化主要通过配置TMS320F28335的GPIO管脚高低电平来改变启动模式，并利用出厂固化的Bootloader程序实现；IAP固化通过定制的Bootloader程序实现。</p>
+<ol>
+<li><p>第一种设计方法<br>BOOT运行时，检测一个I&#x2F;O口，如果I&#x2F;O口符合要求，则跳转到升级代码部分，执行升级功能；否则跳转到APP区域运行应用程序。这种方法，需要人为的去设置I&#x2F;O口，最为常见的应该就是设置跳冒。这种方法其实无异于ISP，使用IAP设计就是画蛇添足，除非官方没有提供ISP方法，仅能使用ST-LINK或JLINK；</p>
+</li>
+<li><p>第二种设计方法<br>BOOT运行时，定时几秒等待用户升级，如果在等待时间内接收到了用户的升级命令，则执行升级功能；否则跳转到APP区域运行应用程序。这种方法比起第一种方法应该会有所改进。但是还是有一个问题，我们的设备大多不会执行软件升级，那为什么每次运行时都要等上几秒呢；</p>
+</li>
+<li><p>第三种设计方法<br>设计一个升级运行标志，其被存储在升级参数中，BOOT运行时，仅需要检查以上标志。在检查到除运行APP正常标志以外的，均需要执行BOOT后面的工作。</p>
+</li>
+</ol>
 
               
             </div>
@@ -380,9 +272,9 @@ U32:0b X 10 1001110010111011010 01 10011110
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07-03-vscode-C/" title="VSCode运行C语言代码">
+                      <a href="/2024/07-03-out2bin/" title="Out文件转Bin文件">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VSCode运行C语言代码</span>
+                        <span class="hidden-mobile">Out文件转Bin文件</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -390,8 +282,8 @@ U32:0b X 10 1001110010111011010 01 10011110
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03-14-240314-1/" title="BitLocker恢复密钥">
-                        <span class="hidden-mobile">BitLocker恢复密钥</span>
+                      <a href="/2024/07-03-vscode-C/" title="VSCode运行C语言代码">
+                        <span class="hidden-mobile">VSCode运行C语言代码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
