@@ -157,7 +157,7 @@
     <link href="/2024/01-30-ccs/"/>
     <url>/2024/01-30-ccs/</url>
     
-    <content type="html"><![CDATA[<h1 id="1-CCS字体设置"><a href="#1-CCS字体设置" class="headerlink" title="1. CCS字体设置"></a>1. CCS字体设置</h1><p>点击Window → Preferences</p><p>General → Appearance → Colors and Fronts → Basic → Text Front → Edit</p><p>选中字体Microsoft YaHei UI，字形常规，大小小四。</p><h1 id="2-CCS代码颜色设置"><a href="#2-CCS代码颜色设置" class="headerlink" title="2. CCS代码颜色设置"></a>2. CCS代码颜色设置</h1><p>C&#x2F;C++ → Editor → <strong>Syntax Coloring</strong></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-CCS字体设置"><a href="#1-CCS字体设置" class="headerlink" title="1. CCS字体设置"></a>1. CCS字体设置</h1><p>点击Window → Preferences</p><p>General → Appearance → Colors and Fronts → Basic → Text Front → Edit</p><p>选中字体Microsoft YaHei UI，字形常规，大小小四。</p><h1 id="2-CCS代码颜色设置"><a href="#2-CCS代码颜色设置" class="headerlink" title="2. CCS代码颜色设置"></a>2. CCS代码颜色设置</h1><p>C&#x2F;C++ → Editor → <strong>Syntax Coloring</strong></p><p>宏定义和引用：<br>Macro definitions<br>Macro references</p><h1 id="删除Workspaces"><a href="#删除Workspaces" class="headerlink" title="删除Workspaces"></a>删除Workspaces</h1><p>General → Startup and Shutdown → Workspaces</p>]]></content>
     
     
     
