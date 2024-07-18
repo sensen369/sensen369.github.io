@@ -16,21 +16,24 @@
   <meta name="author" content="Sen sen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件 1. hex2000在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得">
+    <meta name="description" content="1. 安装1.1. 下载官网https:&#x2F;&#x2F;ffmpeg.org&#x2F;&#x2F;download.html#build-windows   1.2. 配置解压至指定位置 将bin路径加入环境变量Path 如 D:\software\ffmpeg\bin  1.3. 验证运行 1ffmpeg -version 出现版本信息则为成功 2. 使用2.1. 水平翻转1ffmpeg -i 1.mp4 -vf &amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Out文件转Bin文件">
-<meta property="og:url" content="http://example.com/2024/07-03-out2bin/index.html">
+<meta property="og:title" content="ffmpeg安装和使用">
+<meta property="og:url" content="http://example.com/2024/07-18-ffmpeg/index.html">
 <meta property="og:site_name" content="Sensen">
-<meta property="og:description" content="其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件 1. hex2000在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得">
+<meta property="og:description" content="1. 安装1.1. 下载官网https:&#x2F;&#x2F;ffmpeg.org&#x2F;&#x2F;download.html#build-windows   1.2. 配置解压至指定位置 将bin路径加入环境变量Path 如 D:\software\ffmpeg\bin  1.3. 验证运行 1ffmpeg -version 出现版本信息则为成功 2. 使用2.1. 水平翻转1ffmpeg -i 1.mp4 -vf &amp;quot">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-03T15:02:22.000Z">
-<meta property="article:modified_time" content="2024-07-03T15:04:21.800Z">
+<meta property="og:image" content="http://example.com/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-48-01.png">
+<meta property="og:image" content="http://example.com/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-49-24.png">
+<meta property="article:published_time" content="2024-07-18T08:36:39.000Z">
+<meta property="article:modified_time" content="2024-07-18T08:54:26.435Z">
 <meta property="article:author" content="Sen sen">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-48-01.png">
   
   
   
-  <title>Out文件转Bin文件 - Sensen</title>
+  <title>ffmpeg安装和使用 - Sensen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -169,7 +172,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Out文件转Bin文件"></span>
+            <span id="subtitle" data-typed-text="ffmpeg安装和使用"></span>
           
         </div>
 
@@ -180,8 +183,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-03 23:02" pubdate>
-          2024年7月3日 晚上
+        <time datetime="2024-07-18 16:36" pubdate>
+          2024年7月18日 下午
         </time>
       </span>
     
@@ -192,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          402 字
         
       </span>
     
@@ -203,7 +206,7 @@
         
         
         
-          9 分钟
+          4 分钟
         
       </span>
     
@@ -241,35 +244,32 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Out文件转Bin文件</h1>
+            <h1 style="display: none">ffmpeg安装和使用</h1>
             
             <div class="markdown-body">
               
-              <p>其中.out文件带了调试信息，主要是下载调试用。.hex文件和.bin文件都可以用于生产下载，但是.hex文件又带了地址信息，crc校验等额外信息，所以.out和.hex都会比.bin文件大很多。因此最理想的生产下载文件其实还是.bin文件</p>
-<h1 id="1-hex2000"><a href="#1-hex2000" class="headerlink" title="1. hex2000"></a>1. hex2000</h1><p>在进行DSP程序烧写方式中，单板调试常用仿真器进行烧写，但当我们把DSP安装在一个完整封闭的产品中想要进行程序升级时，这时采用仿真器就显得不方便了。<br>此时，我们就可以采用TI公司提供另一种程序升级方式，通过通讯发送转换过的程序数据，之后DSP接收数据并且DSP中原有程序调用相关库函数把程序数据烧写到DSP中。这里我们主要描述如何使用hex2000把CCS编译得到的out、map文件进行转换得到可以烧写的数据。<br>首先， 编写build.cmd文件，代码如下， 这个文件包含了转换文件的格式。 “outFileName”为out文件的文件名， “mapFileName”为map文件的文件名，”outputFile.hex”为输出文件；org：程序数据存储空间起始地址，该地址在编写cmd文件时已经确定；len：程序数据长度，可根据生成的map文件计算得出。</p>
-<p>1</p>
-<pre><code class="hljs">outFileName.out
--image 
--memwidth 16
--map mapFileName.map
--o outputFile.hex
--m
-ROMS 
-&#123;
-TEXT: org = 0x3EC000, len = 0x008000, romwidth = 16, fill = 0xFFFF
-&#125;
+              <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><h2 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1. 下载"></a>1.1. 下载</h2><p>官网<br><a target="_blank" rel="noopener" href="https://ffmpeg.org//download.html#build-windows">https://ffmpeg.org//download.html#build-windows</a></p>
+<p><img src="/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-48-01.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-49-24.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2. 配置"></a>1.2. 配置</h2><p>解压至指定位置</p>
+<p>将bin路径加入环境变量Path</p>
+<p>如</p>
+<pre><code class="hljs">D:\software\ffmpeg\bin
 </code></pre>
-<p>2</p>
-<pre><code class="hljs">hex2000 -romwidth 16 -memwidth 16 -i -o 2.hex 2.out
-</code></pre>
-<h1 id="2-Out文件转换为Bin文件"><a href="#2-Out文件转换为Bin文件" class="headerlink" title="2. Out文件转换为Bin文件"></a>2. Out文件转换为Bin文件</h1><p>需要用到CCS自带的四个工具，在目录下</p>
-<pre><code class="hljs">&quot;C:\ti\ccsv5\utils\tiobj2bin\mkhex4bin.exe&quot;
-&quot;C:\ti\ccsv5\utils\tiobj2bin\tiobj2bin.bat&quot;
-&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\hex2000.exe&quot;
-&quot;C:\ti\ccsv5\tools\compiler\c2000_6.2.0\bin\ofd2000.exe&quot;
-</code></pre>
-<p>使用命令行即可生成Bin文件</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">tiobj2bin test.out test.bin ofd2000 hex2000 mkhex4bin<br></code></pre></td></tr></table></figure>
+<h2 id="1-3-验证"><a href="#1-3-验证" class="headerlink" title="1.3. 验证"></a>1.3. 验证</h2><p>运行</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -version<br></code></pre></td></tr></table></figure>
+<p>出现版本信息则为成功</p>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="2-1-水平翻转"><a href="#2-1-水平翻转" class="headerlink" title="2.1. 水平翻转"></a>2.1. 水平翻转</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;hflip&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-2-垂直翻转"><a href="#2-2-垂直翻转" class="headerlink" title="2.2. 垂直翻转"></a>2.2. 垂直翻转</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;vflip&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-3-旋转"><a href="#2-3-旋转" class="headerlink" title="2.3. 旋转"></a>2.3. 旋转</h2><p>0:逆时针旋转90度并垂直翻转</p>
+<p>1:顺时针旋转90度</p>
+<p>2:逆时针旋转90度</p>
+<p>3:顺时针旋转90度后并垂直翻转</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;transpose=<span class="hljs-number">1</span>&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-4-指定角度——顺时针"><a href="#2-4-指定角度——顺时针" class="headerlink" title="2.4. 指定角度——顺时针"></a>2.4. 指定角度——顺时针</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;rotate=PI/<span class="hljs-number">2</span>&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
@@ -287,18 +287,12 @@ TEXT: org = 0x3EC000, len = 0x008000, romwidth = 16, fill = 0xFFFF
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07-18-ffmpeg/" title="ffmpeg安装和使用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ffmpeg安装和使用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07-03-bootloader/" title="TMS320F28335软件升级">
-                        <span class="hidden-mobile">TMS320F28335软件升级</span>
+                      <a href="/2024/07-03-out2bin/" title="Out文件转Bin文件">
+                        <span class="hidden-mobile">Out文件转Bin文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

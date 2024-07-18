@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>ffmpeg安装和使用</title>
+    <link href="/2024/07-18-ffmpeg/"/>
+    <url>/2024/07-18-ffmpeg/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><h2 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1. 下载"></a>1.1. 下载</h2><p>官网<br><a href="https://ffmpeg.org//download.html#build-windows">https://ffmpeg.org//download.html#build-windows</a></p><p><img src="/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-48-01.png"></p><p><img src="/2024/07-18-ffmpeg/Snipaste_2024-07-18_16-49-24.png"></p><h2 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2. 配置"></a>1.2. 配置</h2><p>解压至指定位置</p><p>将bin路径加入环境变量Path</p><p>如</p><pre><code class="hljs">D:\software\ffmpeg\bin</code></pre><h2 id="1-3-验证"><a href="#1-3-验证" class="headerlink" title="1.3. 验证"></a>1.3. 验证</h2><p>运行</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -version<br></code></pre></td></tr></table></figure><p>出现版本信息则为成功</p><h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><h2 id="2-1-水平翻转"><a href="#2-1-水平翻转" class="headerlink" title="2.1. 水平翻转"></a>2.1. 水平翻转</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;hflip&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure><h2 id="2-2-垂直翻转"><a href="#2-2-垂直翻转" class="headerlink" title="2.2. 垂直翻转"></a>2.2. 垂直翻转</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;vflip&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure><h2 id="2-3-旋转"><a href="#2-3-旋转" class="headerlink" title="2.3. 旋转"></a>2.3. 旋转</h2><p>0:逆时针旋转90度并垂直翻转</p><p>1:顺时针旋转90度</p><p>2:逆时针旋转90度</p><p>3:顺时针旋转90度后并垂直翻转</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;transpose=<span class="hljs-number">1</span>&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure><h2 id="2-4-指定角度——顺时针"><a href="#2-4-指定角度——顺时针" class="headerlink" title="2.4. 指定角度——顺时针"></a>2.4. 指定角度——顺时针</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ffmpeg -i <span class="hljs-number">1</span>.mp4 -vf &quot;rotate=PI/<span class="hljs-number">2</span>&quot; <span class="hljs-number">2</span>.mp4 <br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Out文件转Bin文件</title>
     <link href="/2024/07-03-out2bin/"/>
     <url>/2024/07-03-out2bin/</url>
