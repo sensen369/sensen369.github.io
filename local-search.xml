@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Config操作——Python</title>
+    <link href="/2024/09-22-python-config/"/>
+    <url>/2024/09-22-python-config/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1. 配置文件"></a>1. 配置文件</h1><p>test.config</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[section1]</span><br><span class="hljs-attr">option1</span>=valve1<br><br><span class="hljs-section">[section2]</span><br><span class="hljs-attr">option1</span>=valve1<br><span class="hljs-attr">option2</span>=valve2<br></code></pre></td></tr></table></figure><h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> configparser import ConfigParser<br><br><span class="hljs-comment"># 初始化</span><br>parser = ConfigParser()<br>parser.read(<span class="hljs-string">&#x27;test.config&#x27;</span>, <span class="hljs-attribute">encoding</span>=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br><br><span class="hljs-comment"># 获取所有sections</span><br><span class="hljs-built_in">print</span>(parser.sections())       # [<span class="hljs-string">&#x27;section1&#x27;</span>, <span class="hljs-string">&#x27;section2&#x27;</span>]<br><br><span class="hljs-comment"># 获取指定section的键值对</span><br><span class="hljs-built_in">print</span>(parser.items(<span class="hljs-string">&#x27;section1&#x27;</span>))   # [(<span class="hljs-string">&#x27;option1&#x27;</span>, <span class="hljs-string">&#x27;value1&#x27;</span>)]<br><br><span class="hljs-comment"># 获取指定section对应K的V</span><br><span class="hljs-built_in">print</span>(parser.<span class="hljs-built_in">get</span>(<span class="hljs-string">&#x27;section1&#x27;</span>, <span class="hljs-string">&#x27;option1&#x27;</span>))            # value1<br><br><span class="hljs-comment"># 获取第n个section的所有K</span><br><span class="hljs-built_in">print</span>(parser.options(parser.sections()[1]))   # [<span class="hljs-string">&#x27;option1&#x27;</span>, <span class="hljs-string">&#x27;option2&#x27;</span>]<br><br><br><span class="hljs-comment"># 新增section</span><br>parser[<span class="hljs-string">&#x27;section3&#x27;</span>] = &#123;<br>    <span class="hljs-string">&quot;option1&quot;</span>: <span class="hljs-string">&#x27;1&#x27;</span>,<br>    <span class="hljs-string">&quot;option2&quot;</span>: <span class="hljs-string">&quot;2&quot;</span><br>&#125;<br><span class="hljs-comment"># 若是同一个ConfigParser对象，则追加写入</span><br>with open(<span class="hljs-string">&#x27;test.config&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>) as conf:<br>    parser.write(conf)<br><br><span class="hljs-comment"># 修改内容</span><br>parser.<span class="hljs-built_in">set</span>(<span class="hljs-string">&#x27;section1&#x27;</span>, <span class="hljs-string">&#x27;option1&#x27;</span>, <span class="hljs-string">&#x27;value&#x27;</span>)<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>图片圆角</title>
     <link href="/2024/09-22-PS/"/>
     <url>/2024/09-22-PS/</url>
@@ -17,7 +30,7 @@
   
   
   <entry>
-    <title>Python_Docx</title>
+    <title>Word操作——Python</title>
     <link href="/2024/09-21-python-docx/"/>
     <url>/2024/09-21-python-docx/</url>
     
